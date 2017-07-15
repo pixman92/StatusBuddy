@@ -14,6 +14,12 @@
 var obj= {};
 var savedPath= "";
 var uid;
+var arrayMe = [];
+
+
+
+
+
 function anonLogIn () {
   firebase.auth().signInAnonymously().catch(function(error) {
   // Handle Errors here.
@@ -38,6 +44,23 @@ function anonLogIn () {
 }
 
 
+function getStuff (path) {
+  // resetMe();
+  //run for Each loop and get all incremental children off of the /users branch
+  var database = firebase.database().ref(path);
+  database.on('value', function(snapshot){
+    resetMe();
+    for(var item in snapshot.val()){
+      arrayMe.push(item);
+    }
+    console.log(arrayMe);
+
+  });
+}
+
+
+
+
 function create (dic, key) {
   //create a global obj
   obj[dic] = key;
@@ -50,6 +73,21 @@ function pushInstead(path){
   //use: pushInstead("")
   var database = firebase.database().ref(path);
   database.push(obj);
+}
+
+
+function getStuff (path) {
+  resetMe();
+  //run for Each loop and get all incremental children off of the /users branch
+  var database = firebase.database().ref(path);
+  database.on('value', function(snapshot){
+    resetMe();
+    for(var item in snapshot.val()){
+      arrayMe.push(item);
+    }
+    console.log(arrayMe);
+
+  });
 }
 
 function getUIDpath(searchTerm){
@@ -83,4 +121,9 @@ function resetMe(){
   //reset obj
   obj={};
     arrayMe=[];
+}
+var count=0;
+function consolePrint(varName, arg){
+  console.log(count.toString() + ": "+varName.toString() + "   "+ arg);
+  count = count+1;
 }
