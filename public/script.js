@@ -108,11 +108,12 @@ function getUIDpath(searchTerm){
   }
 }
 
-
+// ===============================
 function googleLogin(){
 	var provider = new firebase.auth.GoogleAuthProvider();
-	provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
-
+  provider.addScope("https://www.googleapis.com/auth/userinfo.email");
+    provider.addScope("https://www.googleapis.com/auth/contacts.readonly");
+  provider.addScope("*");
 	firebase.auth().signInWithPopup(provider).then(function(result) {
 	  // This gives you a Google Access Token. You can use it to access the Google API.
 	  var token = result.credential.accessToken;
@@ -133,7 +134,7 @@ function googleLogin(){
 
 function googleLogin2 () {
 	var provider = new firebase.auth.GoogleAuthProvider(); 	
-	provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
+  provider.addScope("https://www.googleapis.com/auth/userinfo.email");
 
 	firebase.auth().signInWithRedirect(provider); 
 	firebase.auth().getRedirectResult().then(function(result) {
@@ -170,7 +171,37 @@ firebase.auth().signInWithPopup(provider).then(function(result) {
 }
 
 
+firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    // User is signed in.
+    console.log("signed in!");
+  }else{
+    console.log("signed out");
+  }
+});
+// ================================
 
+function mashUp(array){
+  for(var passThrough in array){
+    consolePrint("array:", array[passThrough]);
+    createList(array[passThrough]);
+  }
+}
+
+
+function createList (word) {
+  console.log("<li>"+word+"</li>");
+  
+}
+
+
+
+
+
+
+
+
+// ================================
 function updateObj(path){
   //updates obj to savedPath from getPostion()
   var database = firebase.database().ref(path);
@@ -181,8 +212,8 @@ function updateObj(path){
 
 function resetMe(){
   //reset obj
-  obj={};
-    arrayMe=[];
+  obj={};   
+  arrayMe=[];
 }
 var count=0;
 function consolePrint(varName, arg){
