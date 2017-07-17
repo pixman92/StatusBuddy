@@ -44,7 +44,7 @@ function anonLogIn () {
 }
 
 
-function getStuff (path) {
+function getStuffToGet (path, email) {
   // resetMe();
   //run for Each loop and get all incremental children off of the /users branch
   var database = firebase.database().ref(path);
@@ -54,12 +54,97 @@ function getStuff (path) {
       arrayMe.push(item);
     }
     console.log(arrayMe);
-
+    getStatusFromEmail(email)
   });
+  
+}
+
+
+//====================================
+var emailSavedPath = "";
+function getStatusFromEmail(comparingEmail){
+  for(var item in arrayMe){
+    var database = firebase.database().ref("/users/"+arrayMe[item]+"/email");
+    database.on('value', (snapshot) =>{
+      console.log(snapshot.val());
+
+      if(snapshot.val()==comparingEmail){
+        console.log("Found match!");
+        emailSavedPath = "/users/"+arrayMe[item];
+        getStatus();
+      }
+
+    });
+  }
+}
+
+
+var outputStatus = "";
+function getStatus(){
+  var database = firebase.database().ref(emailSavedPath+"/status");
+  database.on('value', (snapshot)=>{
+    console.log(snapshot.val());
+    outputStatus = snapshot.val();
+  });
+  console.log("Status: "+ outputStatus);
+}
+
+
+function searchMyEmail(email){
+  getStuffToGet("/users/", email);
+  // if(arrayMe){
+    // getStatusFromEmail(email);
+  // }
+  // return "Status+ " +outputStatus;
+}
+//==================================
+function getStuffToSet (path, email, status) {
+  // resetMe();
+  //run for Each loop and get all incremental children off of the /users branch
+  var database = firebase.database().ref(path);
+  database.on('value', function(snapshot){
+    resetMe();
+    for(var item in snapshot.val()){
+      arrayMe.push(item);
+    }
+    console.log(arrayMe);
+  });
+    setStatusforEmail(email, status);
+  
 }
 
 
 
+var emailSavedPathForSetStatus= "";
+function setStatusforEmail(comparingEmail, status){
+  //function to get email path
+  //in order to set status
+  for(var item in arrayMe){
+    var database = firebase.database().ref("/users/"+arrayMe[item]+"/email");
+    database.on('value', (snapshot) =>{
+      console.log(snapshot.val());
+
+      if(snapshot.val()==comparingEmail){
+        console.log("Found match!");
+        emailSavedPathForSetStatus = "/users/"+arrayMe[item];
+      }
+
+    });
+  }
+      changeStatus(status);
+}
+function changeStatus (status) {
+  //function to set status
+  create("status", status);
+  updateObj(emailSavedPathForSetStatus);
+}
+
+function setMyStatus(email, status){
+  getStuffToSet("/users", email, status);
+}
+
+
+//================================
 
 function create (dic, key) {
   //create a global obj
@@ -75,20 +160,6 @@ function pushInstead(path){
   database.push(obj);
 }
 
-
-function getStuff (path) {
-  resetMe();
-  //run for Each loop and get all incremental children off of the /users branch
-  var database = firebase.database().ref(path);
-  database.on('value', function(snapshot){
-    resetMe();
-    for(var item in snapshot.val()){
-      arrayMe.push(item);
-    }
-    console.log(arrayMe);
-
-  });
-}
 
 function getUIDpath(searchTerm){
   //get email from position of UID
@@ -191,8 +262,14 @@ function mashUp(array){
 
 function createList (word) {
   console.log("<li>"+word+"</li>");
-  
+
 }
+
+//=========================
+
+
+
+
 
 
 
