@@ -43,7 +43,8 @@ function anonLogIn () {
   });
 }
 
-
+//==================================
+//functions to get status
 function getStuffToGet (path, email) {
   // resetMe();
   //run for Each loop and get all incremental children off of the /users branch
@@ -98,6 +99,7 @@ function searchMyEmail(email){
   // return "Status+ " +outputStatus;
 }
 //==================================
+//setting functions
 function getStuffToSet (path, email, status) {
   // resetMe();
   //run for Each loop and get all incremental children off of the /users branch
@@ -131,7 +133,7 @@ function setStatusforEmail(comparingEmail, status){
 
     });
   }
-      changeStatus(status);
+      schangeStatus(status);
 }
 function changeStatus (status) {
   //function to set status
@@ -141,6 +143,7 @@ function changeStatus (status) {
 
 function setMyStatus(email, status){
   getStuffToSet("/users", email, status);
+
 }
 
 
@@ -180,11 +183,21 @@ function getUIDpath(searchTerm){
 }
 
 // ===============================
+function googleLogOut(){
+  firebase.auth().signOut().then(function() {
+  // Sign-out successful.
+}).catch(function(error) {
+  // An error happened.
+});
+}
+
+
+
 function googleLogin(){
 	var provider = new firebase.auth.GoogleAuthProvider();
   provider.addScope("https://www.googleapis.com/auth/userinfo.email");
-    provider.addScope("https://www.googleapis.com/auth/contacts.readonly");
-  provider.addScope("*");
+    // provider.addScope("https://www.googleapis.com/auth/contacts.readonly");
+  // provider.addScope("*");
 	firebase.auth().signInWithPopup(provider).then(function(result) {
 	  // This gives you a Google Access Token. You can use it to access the Google API.
 	  var token = result.credential.accessToken;
@@ -241,7 +254,8 @@ firebase.auth().signInWithPopup(provider).then(function(result) {
 });
 }
 
-
+//========================
+//Check for user status
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
     // User is signed in.
@@ -251,6 +265,32 @@ firebase.auth().onAuthStateChanged(function(user) {
   }
 });
 // ================================
+
+var name, email, photoUrl, uid, emailVerified;
+function getUserStuff(){
+  var user = firebase.auth().currentUser;
+
+  if (user != null) {
+    name = user.displayName;
+    email = user.email;
+    photoUrl = user.photoURL;
+    emailVerified = user.emailVerified;
+    uid = user.uid;  // The user's ID, unique to the Firebase project. Do NOT use
+                     // this value to authenticate with your backend server, if
+                     // you have one. Use User.getToken() instead.
+  }
+}
+
+
+
+
+
+
+
+
+
+
+//===============================
 
 function mashUp(array){
   for(var passThrough in array){
