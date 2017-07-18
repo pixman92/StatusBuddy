@@ -45,8 +45,8 @@ function anonLogIn () {
 
 //==================================
 //functions to get status
-function getStuffToGet (path, email) {
-  // resetMe();
+function getStuffToGet (path, email, proceed) {
+  // resetMe;();
   //run for Each loop and get all incremental children off of the /users branch
   var database = firebase.database().ref(path);
   database.on('value', function(snapshot){
@@ -55,7 +55,9 @@ function getStuffToGet (path, email) {
       arrayMe.push(item);
     }
     console.log(arrayMe);
-    getStatusFromEmail(email)
+    if(proceed=="true"){
+      getStatusFromEmail(email, "true");
+    }
   });
   
 }
@@ -63,7 +65,7 @@ function getStuffToGet (path, email) {
 
 //====================================
 var emailSavedPath = "";
-function getStatusFromEmail(comparingEmail){
+function getStatusFromEmail(comparingEmail, proceed){
   for(var item in arrayMe){
     var database = firebase.database().ref("/users/"+arrayMe[item]+"/email");
     database.on('value', (snapshot) =>{
@@ -72,7 +74,9 @@ function getStatusFromEmail(comparingEmail){
       if(snapshot.val()==comparingEmail){
         console.log("Found match!");
         emailSavedPath = "/users/"+arrayMe[item];
-        getStatus();
+        if(proceed=="true"){
+          getStatus();
+        }
       }
 
     });
@@ -92,7 +96,7 @@ function getStatus(){
 
 
 function searchMyEmail(email){
-  getStuffToGet("/users/", email);
+  getStuffToGet("/users/", email, "true");
   // if(arrayMe){
     // getStatusFromEmail(email);
   // }
