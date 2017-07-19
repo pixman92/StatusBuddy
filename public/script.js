@@ -65,6 +65,7 @@ function getStuffToGet (path, email, proceed) {
 
 //====================================
 var emailSavedPath = "";
+var matchFound = "";
 function getStatusFromEmail(comparingEmail, proceed){
   for(var item in arrayMe){
     var database = firebase.database().ref("/users/"+arrayMe[item]+"/email");
@@ -77,6 +78,9 @@ function getStatusFromEmail(comparingEmail, proceed){
         if(proceed=="true"){
           getStatus();
         }
+      }else{
+        console.log("Match not found!");
+        matchFound="false";
       }
 
     });
@@ -284,7 +288,20 @@ function getUserStuff(){
                      // you have one. Use User.getToken() instead.
   }
 }
+//===============================
 
+function ifAlreadyTaken(){
+  getUserStuff();  
+  getStuffToGet("/users", email, "true");
+  if(emailSavedPath==""){
+    create("email", email);
+    pushInstead("/users");
+    console.log("User pushed!");
+  }
+  if(emailSavedPath!=""){
+    consolePrint("found path", emailSavedPath);
+  }
+}
 
 
 

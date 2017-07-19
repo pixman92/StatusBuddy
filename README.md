@@ -29,6 +29,6 @@ LEARNED
 
 //getting email and
 //status
-getStuff()
+getStuffToGet()
 getStatustFromEmail("email to compare")
 getStatus()
