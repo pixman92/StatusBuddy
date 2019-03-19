@@ -78,14 +78,21 @@ function getStatusFromEmail(comparingEmail, proceed){
 }
 //================================================
 var statusReturned="";
+var posOfEmail="";
 async function searchEmail(email){
+  console.log('function that searches for email, returns: pos & status from searched email');
   await pathLoop('users');
   var allArray = arrayOfVal;
 
   for(let i=0; allArray.length; i++){
     if(email==allArray[i].email){
-      statusReturned=allArray[i].status;
+
+      posOfEmail=i;
+      statusReturned=allArray[i].status.status;
+
       console.log('statusReturned', statusReturned);
+      console.log('posOfEmail', posOfEmail);
+
       return new Promise (resolve=>{
         resolve(allArray[i].status);
       });
@@ -93,20 +100,23 @@ async function searchEmail(email){
   }
 }
 
-function makeNewUser(email, status){
+async function makeNewUser(email, status){
+  console.log('simple function that makes a new User', );
   db.ref('users').push({
     email,
-    status,
 });
+  await updateStatus(email, status);
 }
 
 async function updateStatus(email, status){
+  console.log('function that updates status based on email(searched for pos) and status (to be changed)');
   await pathLoop('users');
   tmp = strungArray;
 
-  await pathLoop(tmp[numOfEmailMatch]);
-
-
+  searchEmail(email);
+  await pathLoop(tmp[posOfEmail]);
+  db.ref(tmp[posOfEmail]+'/status').set({status:status});
+  // db.ref(tmp[posOfEmail]).set({status:status});
 }
 
 
