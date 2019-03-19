@@ -1,12 +1,48 @@
 <html>
 <head>
-	<title></title>
+  <title>Status Buddy</title>
+  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
 </head>
 <body>
 <!-- create body
 should have:
 -enter email
 -and some other stuff -->
+
+<!-- header stuff, searchBar and button -->
+<div id="header">
+  <div id="searchDiv">
+    <div class="marginMe w3-card-2">
+      <div class="grid1 space w3-green">
+        
+        <textarea id="searchBar"></textarea>
+        <div id="holdingButton">
+          <button class="w3-button" id="searchButton">Search</button>
+
+        </div>
+      </div>
+
+    </div>
+  
+  </div>
+
+</div>
+<!-- dividing line -->
+<!-- <br><br> -->
+<hr style="border: 1.3vw solid black;width:88%; margin:auto;"/>
+<!-- <br><br> -->
+
+
+<!-- my Personal Status stuff -->
+<div id="status">
+  <div class="marginMe w3-card-2">
+    <div class="w3-blue expand"><h3 id="myStatusTitle">My Status:</h3></div>
+  <div contenteditable="true" id="personalStatus">Change me!</div>
+  </div>
+</div>
+
 
 
 </body>
@@ -27,4 +63,6 @@ should have:
 </script>
 <script type="text/javascript" src="script.js"></script>
 <script src="helperFunctions.js"></script>
+<script src="outputting.js"></script>
+
 </html>

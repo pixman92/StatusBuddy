@@ -77,6 +77,16 @@ function getStatusFromEmail(comparingEmail, proceed){
   }
 }
 //================================================
+
+function scriptHelp(){
+  console.log('searchEmail() - searches email, returnn pos and status');
+  console.log('makeNewUser() - makes a user new to app', );
+  console.log('updateStatus() - manipulates status on user', );
+
+
+}
+
+
 var statusReturned="";
 var posOfEmail="";
 async function searchEmail(email){
