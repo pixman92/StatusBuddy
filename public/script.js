@@ -1,3 +1,6 @@
+var db = firebase.database();
+var db = firebase.database();
+
 var obj= {};
 var savedPath= "";
 var uid;
@@ -73,8 +76,41 @@ function getStatusFromEmail(comparingEmail, proceed){
     });
   }
 }
+//================================================
+var statusReturned="";
+async function searchEmail(email){
+  await pathLoop('users');
+  var allArray = arrayOfVal;
+
+  for(let i=0; allArray.length; i++){
+    if(email==allArray[i].email){
+      statusReturned=allArray[i].status;
+      console.log('statusReturned', statusReturned);
+      return new Promise (resolve=>{
+        resolve(allArray[i].status);
+      });
+    }
+  }
+}
+
+function makeNewUser(email, status){
+  db.ref('users').push({
+    email,
+    status,
+});
+}
+
+async function updateStatus(email, status){
+  await pathLoop('users');
+  tmp = strungArray;
+
+  await pathLoop(tmp[numOfEmailMatch]);
 
 
+}
+
+
+//================================================
 var outputStatus = "";
 function getStatus(){
   var database = firebase.database().ref(emailSavedPath+"/status");

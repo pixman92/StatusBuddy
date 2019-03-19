@@ -36,7 +36,7 @@ async function pathLoop(path){
         console.log('arrayOfVal', arrayOfVal);
     }).then(()=>{
         for (let i = 0; i < arrayOfVal.length; i++) {
-            strungArray.push(arrayForPath[i].pieces_.join('/'));
+            strungArray.push(arrayForPath[i].o.join('/'));
         }
 
     });
