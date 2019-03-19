@@ -1,16 +1,3 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
 var obj= {};
 var savedPath= "";
 var uid;
