@@ -87,3 +87,13 @@ async function removeRequest(myEmail, requestPos){
 
 //function(s) to add 'favorites' to user's email profile
 
+
+//================================================
+function eventForIdElem(id){
+    Gator(document.getElementById(id)).on('click', ()=>{
+        alert('hey');
+    });
+}
+function eventOff(id){
+    Gator(document.getElementById(id)).off();
+}
