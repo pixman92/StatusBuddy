@@ -34,14 +34,13 @@
 .expand{
     width: 100%;
     padding-left: 1em;
-    font-size: 8vw;
+    font-size: 3vw;
 }
 #myStatusTitle{
-    font-size: 8vw;
+    font-size: 3vw;
 }
 #personalStatus{
     margin-left: 1em;
-    font-size: 11vw;
+    font-size: 3vw;
 }
-/* //================================================
- */
+/* //================================================*/

@@ -1,5 +1,5 @@
 var db = firebase.database();
-var db = firebase.database();
+
 
 var obj= {};
 var savedPath= "";
@@ -76,61 +76,6 @@ function getStatusFromEmail(comparingEmail, proceed){
     });
   }
 }
-//================================================
-
-function scriptHelp(){
-  console.log('searchEmail() - searches email, returnn pos and status');
-  console.log('makeNewUser() - makes a user new to app', );
-  console.log('updateStatus() - manipulates status on user', );
-
-
-}
-
-
-var statusReturned="";
-var posOfEmail="";
-async function searchEmail(email){
-  console.log('function that searches for email, returns: pos & status from searched email');
-  await pathLoop('users');
-  var allArray = arrayOfVal;
-
-  for(let i=0; allArray.length; i++){
-    if(email==allArray[i].email){
-
-      posOfEmail=i;
-      statusReturned=allArray[i].status.status;
-
-      console.log('statusReturned', statusReturned);
-      console.log('posOfEmail', posOfEmail);
-
-      return new Promise (resolve=>{
-        resolve(allArray[i].status);
-      });
-    }
-  }
-}
-
-async function makeNewUser(email, status){
-  console.log('simple function that makes a new User', );
-  db.ref('users').push({
-    email,
-});
-  await updateStatus(email, status);
-}
-
-async function updateStatus(email, status){
-  console.log('function that updates status based on email(searched for pos) and status (to be changed)');
-  await pathLoop('users');
-  tmp = strungArray;
-
-  searchEmail(email);
-  await pathLoop(tmp[posOfEmail]);
-  db.ref(tmp[posOfEmail]+'/status').set({status:status});
-  // db.ref(tmp[posOfEmail]).set({status:status});
-}
-
-
-//================================================
 var outputStatus = "";
 function getStatus(){
   var database = firebase.database().ref(emailSavedPath+"/status");
@@ -401,3 +346,82 @@ function consolePrint(varName, arg){
   console.log(count.toString() + ": "+varName.toString() + "   "+ arg);
   count = count+1;
 }
+
+//================================================
+
+function scriptHelp(){
+  console.log('searchEmail() - searches email, returnn pos and status');
+  console.log('makeNewUser() - makes a user new to app', );
+  console.log('updateStatus() - manipulates status on user', );
+
+
+}
+
+
+var statusReturned="";
+var posOfEmail="";
+async function searchEmail(email){
+  console.log('function that searches for email, returns: pos & status from searched email');
+  await pathLoop('users');
+  var allArray = arrayOfVal;
+
+  for(let i=0; allArray.length; i++){
+    if(email==allArray[i].email){
+
+      posOfEmail=i;
+      statusReturned=allArray[i].status.status;
+
+      console.log('statusReturned', statusReturned);
+      console.log('posOfEmail', posOfEmail);
+
+      return new Promise (resolve=>{
+        resolve(allArray[i].status);
+      });
+    }
+  }
+}
+
+async function makeNewUser(email, status){
+  console.log('simple function that makes a new User', );
+  db.ref('users').push({
+    email,
+});
+  await updateStatus(email, status);
+}
+
+async function updateStatus(email, status){
+  console.log('function that updates status based on email(searched for pos) and status (to be changed)');
+  await pathLoop('users');
+  tmp = strungArray;
+
+  await  searchEmail(email);
+  await pathLoop(tmp[posOfEmail]);
+  db.ref(tmp[posOfEmail]+'/status').set({status:status});
+  // db.ref(tmp[posOfEmail]).set({status:status});
+}
+//================================================
+// async function addFriends(myEmail, myFriend){
+//   console.log('function that pushes a fav to my email', );
+//   await searchEmail(myEmail);
+
+//   await pathLoop('users');
+//   tmp = strungArray;
+
+//   await pathLoop(tmp[posOfEmail]);
+//   db.ref(tmp[posOfEmail]+'/favs').set({favs:myFriend});
+// }
+
+// async function pullFavs(myEmail){
+//   console.log('function that pulls all favs from my email');
+
+//   await searchEmail(myEmail);
+
+//   await pathLoop('users');
+//   tmp = strungArray;
+
+//   await pathLoop(tmp[posOfEmail]);
+  
+
+// }
+
+//================================================
