@@ -360,32 +360,40 @@ function scriptHelp(){
 
 var statusReturned="";
 var posOfEmail="";
-async function searchEmail(email){
+var allArray = [];
+async function searchEmail(email, config){
   console.log('function that searches for email, returns: pos & status from searched email');
   await pathLoop('users');
-  var allArray = arrayOfVal;
+  allArray = arrayOfVal;
+  console.log({allArray} );
 
   for(let i=0; allArray.length; i++){
     if(email==allArray[i].email){
 
       posOfEmail=i;
-      statusReturned=allArray[i].status.status;
-
+      
       console.log('statusReturned', statusReturned);
-      console.log('posOfEmail', posOfEmail);
-
-      return new Promise (resolve=>{
-        resolve(allArray[i].status);
-      });
+      if(config){
+        statusReturned=allArray[i].status.status;
+        console.log('posOfEmail', posOfEmail);
+  
+        return new Promise (resolve=>{
+          resolve(allArray[i].status);
+        });
+      }
+      else{
+        return "posOfEmail " + i;
+      }
     }
   }
 }
 
 async function makeNewUser(email, status){
   console.log('simple function that makes a new User', );
-  db.ref('users').push({
+  await db.ref('users').push({
     email,
 });
+  await searchEmail(email, false);
   await updateStatus(email, status);
 }
 
@@ -394,34 +402,11 @@ async function updateStatus(email, status){
   await pathLoop('users');
   tmp = strungArray;
 
-  await  searchEmail(email);
+  await searchEmail(email, false);
   await pathLoop(tmp[posOfEmail]);
-  db.ref(tmp[posOfEmail]+'/status').set({status:status});
+  await db.ref(tmp[posOfEmail]+'/status').set({status:status});
+
+  await searchEmail(email, true);
+
   // db.ref(tmp[posOfEmail]).set({status:status});
 }
-//================================================
-// async function addFriends(myEmail, myFriend){
-//   console.log('function that pushes a fav to my email', );
-//   await searchEmail(myEmail);
-
-//   await pathLoop('users');
-//   tmp = strungArray;
-
-//   await pathLoop(tmp[posOfEmail]);
-//   db.ref(tmp[posOfEmail]+'/favs').set({favs:myFriend});
-// }
-
-// async function pullFavs(myEmail){
-//   console.log('function that pulls all favs from my email');
-
-//   await searchEmail(myEmail);
-
-//   await pathLoop('users');
-//   tmp = strungArray;
-
-//   await pathLoop(tmp[posOfEmail]);
-  
-
-// }
-
-//================================================
