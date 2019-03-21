@@ -89,11 +89,15 @@ async function removeRequest(myEmail, requestPos){
 
 
 //================================================
-function eventForIdElem(id){
+function eventForIdElem(id, callback, param){
     Gator(document.getElementById(id)).on('click', ()=>{
-        alert('hey');
+        callback(param);
     });
 }
 function eventOff(id){
     Gator(document.getElementById(id)).off();
+}
+
+function alertMe(msg){
+    alert(msg);
 }
