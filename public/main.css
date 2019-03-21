@@ -49,3 +49,23 @@
     font-size: 3vw;
 }
 /* //================================================*/
+.hidden{
+    display: none;
+}
+/* //================================================ */
+/* Requests Page */
+
+.grid2{
+    display: grid;
+    grid-template-columns: 1fr 9fr;
+    align-items: center;
+}
+#backToMain{
+    font-size: 2.5vw;
+    height: 100%;
+    border-color:white;
+    background-color: rgb(27, 88, 88);
+}
+.RPheader{
+    margin-left: 4vw;
+}

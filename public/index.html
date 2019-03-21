@@ -11,41 +11,62 @@ should have:
 -enter email
 -and some other stuff -->
 
-<!-- header stuff, searchBar and button -->
-<div id="header">
-  <div id="searchDiv">
-    <div class="marginMe w3-card-2">
-      <div class="grid1 space w3-green">
-        <div>
-          <buttton class="w3-button" id="requestButton">Request</buttton>
-        </div>
-        <textarea id="searchBar"></textarea>
-        <div id="holdingButton">
-          <button class="w3-button" id="searchButton">+</button>
+<div id="main">
 
+
+  <!-- header stuff, searchBar and button -->
+  <div id="header">
+    <div id="searchDiv">
+      <div class="marginMe w3-card-2">
+        <div class="grid1 space w3-green">
+          <div>
+            <buttton class="w3-button" id="requestButton">Request</buttton>
+          </div>
+          <textarea id="searchBar"></textarea>
+          <div id="holdingButton">
+            <button class="w3-button" id="searchButton">+</button>
+  
+          </div>
         </div>
+  
       </div>
-
+    
     </div>
   
   </div>
-
-</div>
-<!-- dividing line -->
-<!-- <br><br> -->
-<hr style="border: .2vw solid black;width:88%; margin:auto;"/>
-<!-- <br><br> -->
-
-
-<!-- my Personal Status stuff -->
-<div id="status">
-  <div class="marginMe w3-card-2">
-    <div class="w3-blue expand"><h3 id="myStatusTitle">My Status:</h3></div>
-  <div contenteditable="true" id="personalStatus">Change me!</div>
+  <!-- dividing line -->
+  <!-- <br><br> -->
+  <hr style="border: .2vw solid black;width:88%; margin:auto;"/>
+  <!-- <br><br> -->
+  
+  
+  <!-- my Personal Status stuff -->
+  <div id="status">
+    <div class="marginMe w3-card-2">
+      <div class="w3-blue expand"><h3 id="myStatusTitle">My Status:</h3></div>
+    <div contenteditable="true" id="personalStatus">Change me!</div>
+    </div>
   </div>
+  
+  <hr style="border: .2vw solid black;width:88%; margin:auto;"/>
 </div>
 
-<hr style="border: .2vw solid black;width:88%; margin:auto;"/>
+<div id="requestsPage" class="hidden">
+  <div class="w3-container w3-green">
+    <div class="grid2">
+      <div>
+        <button class="w3-button" id="backToMain">Back</button>
+      </div>
+      <div >
+        <h2 class="RPheader">Requests</h2>
+
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
 
 
 
@@ -72,4 +93,5 @@ should have:
 <script src="outputting.js"></script>
 <script src="requests.js"></script>
 <script src="makeIntoObj.js"></script>
+<script src="showHide.js"></script>
 </html>
