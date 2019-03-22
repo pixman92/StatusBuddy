@@ -363,18 +363,20 @@ function scriptHelp(){
 var statusReturned="";
 var posOfEmail="";
 var allArray = [];
-async function searchEmail(email, config){
+async function searchEmail(emailMe, config){
   console.log('function that searches for email, returns: pos & status from searched email');
   await pathLoop('users');
   allArray = arrayOfVal;
   console.log({allArray} );
 
-  for(let i=0; allArray.length; i++){
-    if(email==allArray[i].email){
+  for(let i=0; i<allArray.length; i++){
+    if(emailMe==allArray[i].email){
 
       posOfEmail=i;
       
       console.log('statusReturned', statusReturned);
+
+      //
       if(config){
         statusReturned=allArray[i].status.status;
         console.log('posOfEmail', posOfEmail);
@@ -411,4 +413,17 @@ async function updateStatus(email, status){
   await searchEmail(email, true);
 
   // db.ref(tmp[posOfEmail]).set({status:status});
+}
+//================================================
+async function quickStatus(email, status){
+  if(posOfEmail==""){
+    await searchEmail(email, true);
+    // await pathLoop(strungArray[posOfEmail]);
+    var tmp = strungArray[0]+"/status";
+  }
+  console.log({tmp});
+  let refMe = await db.ref(tmp).set({status});
+
+
+
 }

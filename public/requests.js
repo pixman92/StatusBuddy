@@ -60,7 +60,7 @@ async function pullRequests(myEmail){
 }
 
 
-//function aprove request
+//function aprove request, aka: move to friends list
 function approveRequest(){
     
 }
@@ -80,9 +80,36 @@ async function removeRequest(myEmail, requestPos){
     db.ref(strungArray[requestPos]).remove();
 }
 
+//================================================
+//function friends' list
+async function pushToFriendsList(myEmail, theRequestEmail){ //myEmail - me(user signed in) && theRequestEmail - email to add to friends' list
+    await searchEmail(myEmail);
 
-//function move request to friends
+    await pathLoop('users');
+    tmp = strungArray;
+    await pathLoop(tmp[posOfEmail]);
 
+    db.ref(tmp[posOfEmail]+'/friends').push({
+        UID: theRequestEmail,
+    });
+}
+
+var friends = [];
+async function pullFriends(myEmail){
+    await searchEmail(myEmail);
+
+    await pathLoop('users');
+    tmp = strungArray;
+    await pathLoop(tmp[posOfEmail]);
+    tmp2 = strungArray;
+    await pathLoop(tmp2[1]);
+
+    console.log('friends', arrayOfVal);
+
+    for(var elem in arrayOfVal){
+        friends.push(arrayOfVal[elem]);
+    }
+}
 
 
 //function remove from friends

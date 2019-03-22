@@ -2,8 +2,17 @@ window.onload = ()=>{
 
     
     // console logging personal status
-    Gator(document.getElementById('personalStatus')).on('input', ()=>{
+    Gator(document.getElementById('personalStatus')).on('input', async ()=>{
+
         console.log(document.getElementById('personalStatus').innerText);
+        await quickStatus('jim', document.getElementById('personalStatus').innerText);
+    });
+
+    // click on personalStatus, make empty
+    Gator(document.getElementById('personalStatus')).on('click', ()=>{
+        if(document.getElementById('personalStatus').innerText=="Change me!"){
+            document.getElementById('personalStatus').innerText="";
+        }
     });
 
     // send request event listener
