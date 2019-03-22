@@ -52,4 +52,37 @@ function makeEventsWithGatorForRequests(){
         eventForIdElem('request'+i, alertMe, 'The requested email is '+document.getElementById('request'+i).innerText);
     }
 }
+//================================================
+//functions that pullFriends and populateHTML
+var strOfFriends = "";
+var friendsCount = 0;
+async function populateFriends(myEmail){
+    console.log('funciton that pulls all requests for an email, makes them into div(s) then pushes them to an array');
+    await pullFriends(myEmail);
+
+    strOfFriends="";
+    for(var i in friends){
+        // console.log({friends} );
+        strOfFriends+=createHTMLELement(friends[i].UID, 'div', 'req w3-card', "friend"+i);
+        friendsCount=i;
+    }
+    friends=[]; //important to not rack up infinite different Friends
+
+}
+
+
+function addToFriendHTML(){
+    // console.log({strOfRequests});
+    // console.log(    document.getElementById('requestsElem').innerHTML);
+    // document.getElementById('requestsElem').innerHTML="";
+    addToHTMLElement(strOfFriends, 'friendsElem');
+}
+
+function makeEventsWithGatorForFriends(){
+    for(var i=0; i<=friendsCount;i++){
+        eventForIdElem('friend'+i, alertMe, 'Add friend: ' + document.getElementById('friend'+i).innerText + " to favorite?");
+        // document.getElementById('friend'+i).innerText
+        
+    }
+}
     

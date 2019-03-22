@@ -416,6 +416,7 @@ async function updateStatus(email, status){
 }
 //================================================
 async function quickStatus(email, status){
+  console.log('function that quickly updates status of the given userEmail', );
   if(posOfEmail==""){
     await searchEmail(email, true);
     // await pathLoop(strungArray[posOfEmail]);
@@ -427,3 +428,15 @@ async function quickStatus(email, status){
 
 
 }
+//================================================
+async function addPinnedFriends(myEmail, friendsEmail){
+
+  // await pathLoop('users');
+  await searchEmail(myEmail);
+  tmp = strungArray;
+  await db.ref(tmp+"/friendsPinned").push({UID: friendsEmail});
+
+}
+
+
+

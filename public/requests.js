@@ -42,7 +42,7 @@ async function pullRequests(myEmail){
     tmp = strungArray;
     await pathLoop(tmp[posOfEmail]);
     tmp2 = strungArray;
-    await pathLoop(tmp2[1]);
+    await pathLoop(tmp2[2]);        //this inner[<num>] may need to be changed
 
     console.log('request', arrayOfVal);
 
@@ -52,6 +52,7 @@ async function pullRequests(myEmail){
 
     //requests[<pos>].UID >>> requested email
 
+    console.log({requests});
 
     return new Promise(resolve=>{
         resolve(requests);
@@ -96,20 +97,61 @@ async function pushToFriendsList(myEmail, theRequestEmail){ //myEmail - me(user 
 
 var friends = [];
 async function pullFriends(myEmail){
+    console.log('function that pulss friends based on user');
     await searchEmail(myEmail);
 
     await pathLoop('users');
     tmp = strungArray;
     await pathLoop(tmp[posOfEmail]);
     tmp2 = strungArray;
-    await pathLoop(tmp2[1]);
+    await pathLoop(tmp2[1]);        //this inner[<num>] may need to be changed
 
     console.log('friends', arrayOfVal);
+    
+    friends=[];
 
     for(var elem in arrayOfVal){
         friends.push(arrayOfVal[elem]);
     }
 }
+//================================================
+var pinnedFriends = [];
+async function pullPinnedFriends(myEmail){
+    console.log('function that pull pinnedFriends from email account');
+    await searchEmail(myEmail);
+
+    await pathLoop('users');
+    tmp = strungArray;
+    await pathLoop(tmp[posOfEmail]);
+    tmp2 = strungArray;
+    await pathLoop(tmp2[2]);        //this inner[<num>] may need to be changed
+
+    console.log('pinnedFriends', arrayOfVal);
+
+    pinnedFriends=[];
+
+    for(var elem in arrayOfVal){
+        pinnedFriends.push(arrayOfVal[elem]);
+    }
+
+}
+
+async function populatePinnedFriends(myEmail){
+    await pullRequests(myEmail);
+
+    strOfFriendsPinned="";
+    for(var i in requests){
+        // console.log({requests} );
+        strOfFriendsPinned=createHTMLELement(pinnedFriends[i].UID, 'div', 'req w3-card', "request"+i);
+        pinnedFriendsCount=i;
+    }
+    pinnedFriends=[]; //important to not rack up infinite different requests
+
+    addToHTMLElement(strOfFriendsPinned, 'pinnedFriends');
+
+}
+
+
 
 
 //function remove from friends

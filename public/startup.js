@@ -1,6 +1,10 @@
 window.onload = ()=>{
 
-    
+    //loading pinnedFriends
+    loadingFriends();
+
+
+
     // console logging personal status
     Gator(document.getElementById('personalStatus')).on('input', async ()=>{
 
@@ -28,10 +32,19 @@ window.onload = ()=>{
         show('requestsPage');
         //================================================
         //all logic after requestPage is made in HTML
-        await populateRequests('me2@gmail.com');
-        document.getElementById('requestsElem').innerHTML="";
-        await addToRequestHTML();
-        await makeEventsWithGatorForRequests();
+            //making requests populate()
+            await populateRequests('jim');
+            document.getElementById('requestsElem').innerHTML="";
+            await addToRequestHTML();
+            await makeEventsWithGatorForRequests();
+
+            //making friends populate()
+            await pullFriends('jim')
+            document.getElementById('friendsElem').innerHTML="";
+            await populateFriends('jim')
+            await addToFriendHTML()
+            await makeEventsWithGatorForFriends();
+
         //================================================
         //make HTML for requestsPage
         Gator(document.getElementById('backToMain')).on('click', ()=>{
@@ -41,5 +54,11 @@ window.onload = ()=>{
     });
 
 
-
 }
+
+//function for loading friends on Page: Main
+async function loadingFriends(myEmail){
+    await pullFriends
+}
+
+
