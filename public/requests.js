@@ -35,6 +35,7 @@ async function sendRequest(myEmail,toEmail){
 var requests = [];
 async function pullRequests(myEmail){
     console.log('function that pulls all request from a single email', );
+    // requests=[];
     await searchEmail(myEmail);
 
     await pathLoop('users');
@@ -90,16 +91,3 @@ async function removeRequest(myEmail, requestPos){
 //function(s) to add 'favorites' to user's email profile
 
 
-//================================================
-function eventForIdElem(id, callback, param){
-    Gator(document.getElementById(id)).on('click', ()=>{
-        callback(param);
-    });
-}
-function eventOff(id){
-    Gator(document.getElementById(id)).off();
-}
-
-function alertMe(msg){
-    alert(msg);
-}

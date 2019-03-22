@@ -25,17 +25,31 @@ function addToHTMLElement(str, elem){
 }
 
 var strOfRequests = "";
+var requestsCount = 0;
 async function populateRequests(myEmail){
     console.log('funciton that pulls all requests for an email, makes them into div(s) then pushes them to an array');
     await pullRequests(myEmail);
 
+    strOfRequests="";
     for(var i in requests){
-        strOfRequests+=createHTMLELement(requests[i].UID, 'div', 'aRequest', "request"+i);
+        // console.log({requests} );
+        strOfRequests+=createHTMLELement(requests[i].UID, 'div', 'req w3-card', "request"+i);
+        requestsCount=i;
     }
+    requests=[]; //important to not rack up infinite different requests
 
 }
 
 function addToRequestHTML(){
-
+    // console.log({strOfRequests});
+    // console.log(    document.getElementById('requestsElem').innerHTML);
+    // document.getElementById('requestsElem').innerHTML="";
+    addToHTMLElement(strOfRequests, 'requestsElem');
 }
 
+function makeEventsWithGatorForRequests(){
+    for(var i=0; i<=requestsCount;i++){
+        eventForIdElem('request'+i, alertMe, 'The requested email is '+document.getElementById('request'+i).innerText);
+    }
+}
+    

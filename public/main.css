@@ -61,11 +61,18 @@
     align-items: center;
 }
 #backToMain{
-    font-size: 2.5vw;
+    font-size: 3.3vw;
     height: 100%;
     border-color:white;
     background-color: rgb(27, 88, 88);
 }
 .RPheader{
     margin-left: 4vw;
+    font-size: 5.3vw;
+}
+/* //================================================ */
+.req{
+    margin: 2em;
+    padding: 1em;
+    font-size: 2.8vw;
 }

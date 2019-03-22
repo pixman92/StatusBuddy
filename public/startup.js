@@ -14,14 +14,23 @@ window.onload = ()=>{
     });
 
     // hide('requestsPage');
-
-    Gator(document.getElementById('requestButton')).on('click', ()=>{
+    Gator(document.getElementById('requestButton')).on('click', async ()=>{
         hide('main');
         show('requestsPage');
+        //================================================
+        //all logic after requestPage is made in HTML
+        await populateRequests('me2@gmail.com');
+        document.getElementById('requestsElem').innerHTML="";
+        await addToRequestHTML();
+        await makeEventsWithGatorForRequests();
+        //================================================
+        //make HTML for requestsPage
         Gator(document.getElementById('backToMain')).on('click', ()=>{
             hide('requestsPage');
             show('main');
         });
     });
+
+
 
 }
