@@ -1,183 +1,5 @@
 var db = firebase.database();
 
-
-var obj= {};
-var savedPath= "";
-var uid;
-var arrayMe = [];
-
-
-
-
-
-function anonLogIn () {
-  firebase.auth().signInAnonymously().catch(function(error) {
-  // Handle Errors here.
-  var errorCode = error.code;
-  var errorMessage = error.message;
-  console.log(errorMessage+" "+errorCode);
-});
-  firebase.auth().onAuthStateChanged(function(user) {
-    if (user) {
-      // User is signed in.
-      var isAnonymous = user.isAnonymous;
-      uid = user.uid;
-
-      // ...
-      console.log(isAnonymous+" "+uid);
-    } else {
-      // User is signed out.
-      // ...
-    }
-    // ...
-  });
-}
-
-//==================================
-//functions to get status
-function getStuffToGet (path, email, proceed) {
-  // resetMe;();
-  //run for Each loop and get all incremental children off of the /users branch
-  var database = firebase.database().ref(path);
-  database.on('value', function(snapshot){
-    resetMe();
-    for(var item in snapshot.val()){
-      arrayMe.push(item);
-    }
-    console.log(arrayMe);
-    if(proceed=="true"){
-      getStatusFromEmail(email, "true");
-    }
-  });
-  
-}
-
-
-//====================================
-var emailSavedPath = "";
-var matchFound = "";
-function getStatusFromEmail(comparingEmail, proceed){
-  for(var item in arrayMe){
-    var database = firebase.database().ref("/users/"+arrayMe[item]+"/email");
-    database.on('value', (snapshot) =>{
-      console.log(snapshot.val());
-
-      if(snapshot.val()==comparingEmail){
-        console.log("Found match!");
-        emailSavedPath = "/users/"+arrayMe[item];
-        if(proceed=="true"){
-          getStatus();
-        }
-      }else{
-        console.log("Match not found!");
-        matchFound="false";
-      }
-
-    });
-  }
-}
-var outputStatus = "";
-function getStatus(){
-  var database = firebase.database().ref(emailSavedPath+"/status");
-  database.on('value', (snapshot)=>{
-    console.log(snapshot.val());
-    outputStatus = snapshot.val();
-  });
-  console.log("Status: "+ outputStatus);
-}
-
-
-function searchMyEmail(email){
-  getStuffToGet("/users/", email, "true");
-  // if(arrayMe){
-    // getStatusFromEmail(email);
-  // }
-  // return "Status+ " +outputStatus;
-}
-//==================================
-//setting functions
-function getStuffToSet (path, email, status) {
-  // resetMe();
-  //run for Each loop and get all incremental children off of the /users branch
-  var database = firebase.database().ref(path);
-  database.on('value', function(snapshot){
-    resetMe();
-    for(var item in snapshot.val()){
-      arrayMe.push(item);
-    }
-    console.log(arrayMe);
-  });
-    setStatusforEmail(email, status);
-  
-}
-
-
-
-var emailSavedPathForSetStatus= "";
-function setStatusforEmail(comparingEmail, status){
-  //function to get email path
-  //in order to set status
-  for(var item in arrayMe){
-    var database = firebase.database().ref("/users/"+arrayMe[item]+"/email");
-    database.on('value', (snapshot) =>{
-      console.log(snapshot.val());
-
-      if(snapshot.val()==comparingEmail){
-        console.log("Found match!");
-        emailSavedPathForSetStatus = "/users/"+arrayMe[item];
-      }
-
-    });
-  }
-      schangeStatus(status);
-}
-function changeStatus (status) {
-  //function to set status
-  create("status", status);
-  updateObj(emailSavedPathForSetStatus);
-}
-
-function setMyStatus(email, status){
-  getStuffToSet("/users", email, status);
-
-}
-
-
-//================================
-
-function create (dic, key) {
-  //create a global obj
-  obj[dic] = key;
-  return obj;
-}
-
-function pushInstead(path){
-  //pass the obj to be pushed
-  //using a unique UID  
-  //use: pushInstead("")
-  var database = firebase.database().ref(path);
-  database.push(obj);
-}
-
-
-function getUIDpath(searchTerm){
-  //get email from position of UID
-  //specifically pick out UID from JSON tree
-  // console.log(arrayMe);
-  for(var i=0; i<arrayMe.length;i++){
-    var database = firebase.database().ref("/users/"+arrayMe[i]+"/uid/"); 
-    database.on("value", function(snapshot){
-      // console.log(snapshot.val());
-      if(snapshot.val()==searchTerm){
-        console.log("equaled: " + snapshot.val());
-        savedPath="/users/"+arrayMe[i];
-        console.log(savedPath);
-      }
-    });
-    
-  }
-}
-
 // ===============================
 function googleLogOut(){
   firebase.auth().signOut().then(function() {
@@ -278,18 +100,198 @@ function getUserStuff(){
 }
 //===============================
 
-function ifAlreadyTaken(){
-  getUserStuff();  
-  getStuffToGet("/users", email, "true");
-  if(emailSavedPath==""){
-    create("email", email);
-    pushInstead("/users");
-    console.log("User pushed!");
-  }
-  if(emailSavedPath!=""){
-    consolePrint("found path", emailSavedPath);
-  }
-}
+
+
+// var obj= {};
+// var savedPath= "";
+// var uid;
+// var arrayMe = [];
+
+
+
+
+
+// function anonLogIn () {
+//   firebase.auth().signInAnonymously().catch(function(error) {
+//   // Handle Errors here.
+//   var errorCode = error.code;
+//   var errorMessage = error.message;
+//   console.log(errorMessage+" "+errorCode);
+// });
+//   firebase.auth().onAuthStateChanged(function(user) {
+//     if (user) {
+//       // User is signed in.
+//       var isAnonymous = user.isAnonymous;
+//       uid = user.uid;
+
+//       // ...
+//       console.log(isAnonymous+" "+uid);
+//     } else {
+//       // User is signed out.
+//       // ...
+//     }
+//     // ...
+//   });
+// }
+
+// //==================================
+// //functions to get status
+// function getStuffToGet (path, email, proceed) {
+//   // resetMe;();
+//   //run for Each loop and get all incremental children off of the /users branch
+//   var database = firebase.database().ref(path);
+//   database.on('value', function(snapshot){
+//     resetMe();
+//     for(var item in snapshot.val()){
+//       arrayMe.push(item);
+//     }
+//     console.log(arrayMe);
+//     if(proceed=="true"){
+//       getStatusFromEmail(email, "true");
+//     }
+//   });
+  
+// }
+
+
+//====================================
+// var emailSavedPath = "";
+// var matchFound = "";
+// function getStatusFromEmail(comparingEmail, proceed){
+//   for(var item in arrayMe){
+//     var database = firebase.database().ref("/users/"+arrayMe[item]+"/email");
+//     database.on('value', (snapshot) =>{
+//       console.log(snapshot.val());
+
+//       if(snapshot.val()==comparingEmail){
+//         console.log("Found match!");
+//         emailSavedPath = "/users/"+arrayMe[item];
+//         if(proceed=="true"){
+//           getStatus();
+//         }
+//       }else{
+//         console.log("Match not found!");
+//         matchFound="false";
+//       }
+
+//     });
+//   }
+// }
+// var outputStatus = "";
+// function getStatus(){
+//   var database = firebase.database().ref(emailSavedPath+"/status");
+//   database.on('value', (snapshot)=>{
+//     console.log(snapshot.val());
+//     outputStatus = snapshot.val();
+//   });
+//   console.log("Status: "+ outputStatus);
+// }
+
+
+// function searchMyEmail(email){
+//   getStuffToGet("/users/", email, "true");
+//   // if(arrayMe){
+//     // getStatusFromEmail(email);
+//   // }
+//   // return "Status+ " +outputStatus;
+// }
+// //==================================
+// //setting functions
+// function getStuffToSet (path, email, status) {
+//   // resetMe();
+//   //run for Each loop and get all incremental children off of the /users branch
+//   var database = firebase.database().ref(path);
+//   database.on('value', function(snapshot){
+//     resetMe();
+//     for(var item in snapshot.val()){
+//       arrayMe.push(item);
+//     }
+//     console.log(arrayMe);
+//   });
+//     setStatusforEmail(email, status);
+  
+// }
+
+
+
+// var emailSavedPathForSetStatus= "";
+// function setStatusforEmail(comparingEmail, status){
+//   //function to get email path
+//   //in order to set status
+//   for(var item in arrayMe){
+//     var database = firebase.database().ref("/users/"+arrayMe[item]+"/email");
+//     database.on('value', (snapshot) =>{
+//       console.log(snapshot.val());
+
+//       if(snapshot.val()==comparingEmail){
+//         console.log("Found match!");
+//         emailSavedPathForSetStatus = "/users/"+arrayMe[item];
+//       }
+
+//     });
+//   }
+//       schangeStatus(status);
+// }
+// function changeStatus (status) {
+//   //function to set status
+//   create("status", status);
+//   updateObj(emailSavedPathForSetStatus);
+// }
+
+// function setMyStatus(email, status){
+//   getStuffToSet("/users", email, status);
+
+// }
+
+
+//================================
+
+// function create (dic, key) {
+//   //create a global obj
+//   obj[dic] = key;
+//   return obj;
+// }
+
+// function pushInstead(path){
+//   //pass the obj to be pushed
+//   //using a unique UID  
+//   //use: pushInstead("")
+//   var database = firebase.database().ref(path);
+//   database.push(obj);
+// }
+
+
+// function getUIDpath(searchTerm){
+//   //get email from position of UID
+//   //specifically pick out UID from JSON tree
+//   // console.log(arrayMe);
+//   for(var i=0; i<arrayMe.length;i++){
+//     var database = firebase.database().ref("/users/"+arrayMe[i]+"/uid/"); 
+//     database.on("value", function(snapshot){
+//       // console.log(snapshot.val());
+//       if(snapshot.val()==searchTerm){
+//         console.log("equaled: " + snapshot.val());
+//         savedPath="/users/"+arrayMe[i];
+//         console.log(savedPath);
+//       }
+//     });
+    
+//   }
+// }
+
+
+// function ifAlreadyTaken(){
+//   getUserStuff();  
+//   getStuffToGet("/users", email, "true");
+//   if(emailSavedPath==""){
+//     create("email", email);
+//     pushInstead("/users");
+//     console.log("User pushed!");
+//   }
+//   if(emailSavedPath!=""){
+//     consolePrint("found path", emailSavedPath);
+//   }
+// }
 
 
 
@@ -299,24 +301,22 @@ function ifAlreadyTaken(){
 
 
 
-//===============================
+// //===============================
 
-function mashUp(array){
-  for(var passThrough in array){
-    consolePrint("array:", array[passThrough]);
-    createList(array[passThrough]);
-  }
-}
-
-
-function createList (word) {
-  console.log("<li>"+word+"</li>");
-
-}
-
-//=========================
+// function mashUp(array){
+//   for(var passThrough in array){
+//     consolePrint("array:", array[passThrough]);
+//     createList(array[passThrough]);
+//   }
+// }
 
 
+// function createList (word) {
+//   console.log("<li>"+word+"</li>");
+
+// }
+
+// //=========================
 
 
 
@@ -327,25 +327,27 @@ function createList (word) {
 
 
 
-// ================================
-function updateObj(path){
-  //updates obj to savedPath from getPostion()
-  var database = firebase.database().ref(path);
-  database.update(obj);
-  resetMe();
 
-}
 
-function resetMe(){
-  //reset obj
-  obj={};   
-  arrayMe=[];
-}
-var count=0;
-function consolePrint(varName, arg){
-  console.log(count.toString() + ": "+varName.toString() + "   "+ arg);
-  count = count+1;
-}
+// // ================================
+// function updateObj(path){
+//   //updates obj to savedPath from getPostion()
+//   var database = firebase.database().ref(path);
+//   database.update(obj);
+//   resetMe();
+
+// }
+
+// function resetMe(){
+//   //reset obj
+//   obj={};   
+//   arrayMe=[];
+// }
+// var count=0;
+// function consolePrint(varName, arg){
+//   console.log(count.toString() + ": "+varName.toString() + "   "+ arg);
+//   count = count+1;
+// }
 
 //================================================
 

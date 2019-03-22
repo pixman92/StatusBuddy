@@ -33,7 +33,7 @@ async function sendRequest(myEmail,toEmail){
 //function to pull all requests
 //then either approve or deny
 var requests = [];
-async function pullReuqests(myEmail){
+async function pullRequests(myEmail){
     console.log('function that pulls all request from a single email', );
     await searchEmail(myEmail);
 
@@ -52,7 +52,9 @@ async function pullReuqests(myEmail){
     //requests[<pos>].UID >>> requested email
 
 
-
+    return new Promise(resolve=>{
+        resolve(requests);
+    });
 
 }
 
