@@ -396,6 +396,9 @@ async function makeNewUser(email, status){
   console.log('simple function that makes a new User', );
   await db.ref('users').push({
     email,
+    friends,
+    friendsPinned,
+    requests,
 });
   await searchEmail(email, false);
   await updateStatus(email, status);
