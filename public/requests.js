@@ -1,3 +1,16 @@
+function requestsHelp(){
+    console.log('sendRequest(me, them) - send request to them, from me');
+    console.log('pullRequests() - pull all requests');
+    console.log('pushToFriendsList() - push an email to a friends list');
+    console.log('pullFriends() - pull all friends' );
+    console.log('pullPinnedFriends() - pull friends that are pinned');
+    console.log('addPinnedFriends() - pushes a friend to HTML on front page');
+
+
+}
+
+
+//================================================
 // special function
 
 async function pullToObj(myEmail){
@@ -17,6 +30,7 @@ async function pullToObj(myEmail){
 //functions that send and deny requests
 
 async function sendRequest(myEmail,toEmail){
+    console.log('function that add a request to some email for me');
     await searchEmail(toEmail);
 
     await pathLoop('users');
@@ -151,7 +165,14 @@ async function populatePinnedFriends(myEmail){
 
 }
 
+async function addPinnedFriends(myEmail, friendsEmail){
 
+    await searchEmail(myEmail);
+    await pathLoop('users');
+    tmp = strungArray[posOfEmail];
+    await db.ref(tmp+"/friendsPinned").push({UID: friendsEmail});
+  
+  }
 
 
 //function remove from friends

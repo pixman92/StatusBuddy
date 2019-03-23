@@ -369,20 +369,20 @@ async function searchEmail(emailMe, config){
   allArray = arrayOfVal;
   console.log({allArray} );
 
-  for(let i=0; i<allArray.length; i++){
+  for(let i=0; i<=allArray.length; i++){
     if(emailMe==allArray[i].email){
 
       posOfEmail=i;
       
-      console.log('statusReturned', statusReturned);
-
+      
       //
       if(config){
         statusReturned=allArray[i].status.status;
         console.log('posOfEmail', posOfEmail);
+        console.log('statusReturned', statusReturned);
   
         return new Promise (resolve=>{
-          resolve(allArray[i].status);
+          resolve(allArray[i].status.status);
         });
       }
       else{
@@ -396,9 +396,9 @@ async function makeNewUser(email, status){
   console.log('simple function that makes a new User', );
   await db.ref('users').push({
     email,
-    friends,
-    friendsPinned,
-    requests,
+    friends:"",
+    friendsPinned:"",
+    requests:"",
 });
   await searchEmail(email, false);
   await updateStatus(email, status);
@@ -432,14 +432,7 @@ async function quickStatus(email, status){
 
 }
 //================================================
-async function addPinnedFriends(myEmail, friendsEmail){
 
-  // await pathLoop('users');
-  await searchEmail(myEmail);
-  tmp = strungArray;
-  await db.ref(tmp+"/friendsPinned").push({UID: friendsEmail});
-
-}
 
 
 
