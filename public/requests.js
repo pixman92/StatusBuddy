@@ -157,9 +157,9 @@ async function populatePinnedFriends(myEmail, clear){
         pinnedFriends=[]; //important to not rack up infinite different requests
     }
     strOfFriendsPinned="";
-    for(var i in requests){
+    for(var i in pinnedFriends){
         // console.log({requests} );
-        strOfFriendsPinned=createHTMLELement(pinnedFriends[i].UID, 'div', 'req w3-card', "request"+i);
+        strOfFriendsPinned+=createHTMLELement(pinnedFriends[i].UID, 'div', 'req w3-card', "request"+i);
         pinnedFriendsCount=i;
     }
 
