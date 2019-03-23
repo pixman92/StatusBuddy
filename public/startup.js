@@ -9,7 +9,7 @@ window.onload = ()=>{
     Gator(document.getElementById('personalStatus')).on('input', async ()=>{
 
         console.log(document.getElementById('personalStatus').innerText);
-        await quickStatus('jim', document.getElementById('personalStatus').innerText);
+        await quickStatus('sammuel', document.getElementById('personalStatus').innerText);
     });
 
     // click on personalStatus, make empty

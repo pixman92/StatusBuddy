@@ -369,7 +369,7 @@ async function searchEmail(emailMe, config){
   allArray = arrayOfVal;
   console.log({allArray} );
 
-  for(let i=0; i<=allArray.length; i++){
+  for(let i=0; i<allArray.length; i++){
     if(emailMe==allArray[i].email){
 
       posOfEmail=i;
@@ -423,7 +423,7 @@ async function quickStatus(email, status){
   if(posOfEmail==""){
     await searchEmail(email, true);
     // await pathLoop(strungArray[posOfEmail]);
-    var tmp = strungArray[0]+"/status";
+    var tmp = strungArray[posOfEmail]+"/status";
   }
   console.log({tmp});
   let refMe = await db.ref(tmp).set({status});

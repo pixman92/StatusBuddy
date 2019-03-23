@@ -56,7 +56,7 @@ async function pullRequests(myEmail){
     tmp = strungArray;
     await pathLoop(tmp[posOfEmail]);
     tmp2 = strungArray;
-    await pathLoop(tmp2[2]);        //this inner[<num>] may need to be changed
+    await pathLoop(tmp2[3]);        //this inner[<num>] may need to be changed
 
     console.log('request', arrayOfVal);
 
@@ -90,7 +90,7 @@ async function removeRequest(myEmail, requestPos){
     await pathLoop(tmp[posOfEmail]);
 
     tmp2 = strungArray;
-    await pathLoop(tmp2[1]);
+    await pathLoop(tmp2[3]);
 
     db.ref(strungArray[requestPos]).remove();
 }
