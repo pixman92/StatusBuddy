@@ -3,7 +3,9 @@
 async function updateStatuses(myEmail){
     await pullPinnedFriends(myEmail);
 
-    await populatePinnedFriends(myEmail);
+    await populatePinnedFriends(myEmail, false);
+
+    console.log({pinnedFriends});
 
     for(var i in pinnedFriends){
         first = pinnedFriends[i].UID;

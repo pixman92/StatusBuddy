@@ -150,16 +150,18 @@ async function pullPinnedFriends(myEmail){
 
 }
 
-async function populatePinnedFriends(myEmail){
-    await pullRequests(myEmail);
-
+async function populatePinnedFriends(myEmail, clear){
+    await pullPinnedFriends(myEmail);
+    
+    if(clear){
+        pinnedFriends=[]; //important to not rack up infinite different requests
+    }
     strOfFriendsPinned="";
     for(var i in requests){
         // console.log({requests} );
         strOfFriendsPinned=createHTMLELement(pinnedFriends[i].UID, 'div', 'req w3-card', "request"+i);
         pinnedFriendsCount=i;
     }
-    pinnedFriends=[]; //important to not rack up infinite different requests
 
     addToHTMLElement(strOfFriendsPinned, 'pinnedFriends');
 
