@@ -391,7 +391,7 @@ async function searchEmail(emailMe, config){
   //   }
 
   for(var i=0; i<=path.length; i++){
-    nodeBased
+    nodeBasedOnArray
   }
 }
 
