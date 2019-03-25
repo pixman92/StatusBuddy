@@ -365,30 +365,33 @@ var posOfEmail="";
 var allArray = [];
 async function searchEmail(emailMe, config){
   console.log('function that searches for email, returns: pos & status from searched email');
-  await pathLoop('users');
-  allArray = arrayOfVal;
-  console.log({allArray} );
+  await pathLoop('users', true);
+  // allArray = arrayOfVal;
+  // console.log({allArray} );
 
-  for(let i=0; i<allArray.length; i++){
-    if(emailMe==allArray[i].email){
+  // for(let i=0; i<allArray.length; i++){
+  //   if(emailMe==allArray[i].email){
 
-      posOfEmail=i;
+  //     posOfEmail=i;
       
       
-      //
-      if(config){
-        statusReturned=allArray[i].status.status;
-        console.log('posOfEmail', posOfEmail);
-        console.log('statusReturned', statusReturned);
+  //     //
+  //     if(config){
+  //       statusReturned=allArray[i].status.status;
+  //       console.log('posOfEmail', posOfEmail);
+  //       console.log('statusReturned', statusReturned);
   
-        return new Promise (resolve=>{
-          resolve(allArray[i].status.status);
-        });
-      }
-      else{
-        return "posOfEmail " + i;
-      }
-    }
+  //       return new Promise (resolve=>{
+  //         resolve(allArray[i].status.status);
+  //       });
+  //     }
+  //     else{
+  //       return "posOfEmail " + i;
+  //     }
+  //   }
+
+  for(var i=0; i<=path.length; i++){
+    nodeBased
   }
 }
 
