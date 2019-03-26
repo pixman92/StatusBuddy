@@ -1,0 +1,10 @@
+TODO:
+- populate pinnedFriends
+    - have a status update in real time
+- on child change, re render that node
+
+
+3 sets:
+    - I have sammeul as a pinned friend
+        - he changes his status
+        - my page changes also

@@ -25,11 +25,12 @@
     left: 0;
 }
 #searchButton{
-    font-size: 4.5vw;
-    height: 100%;
+    font-size: 3.5vw;
+    height: 80%;
     /* vertical-align: center */
     /* top: 50%; */
     border-color:white;
+    padding: 1.2vw;
     background-color: rgb(19, 82, 82);
 }
 #holdingButton{

@@ -389,10 +389,11 @@ async function searchEmail(emailMe, config){
   //       return "posOfEmail " + i;
   //     }
   //   }
-
+  arrayOfEmailsInPos=[];
   for(var i=0; i<=path.length; i++){
-    nodeBasedOnArray
+    arrayOfEmailsInPos.push(getLastElement(path[i], 'email'));
   }
+  // nodeBasedOnArray('users', [i, 0])
 }
 
 async function makeNewUser(email, status){
