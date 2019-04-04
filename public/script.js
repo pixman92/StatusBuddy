@@ -410,16 +410,31 @@ async function makeNewUser(email, status){
 
 async function updateStatus(email, status){
   console.log('function that updates status based on email(searched for pos) and status (to be changed)');
-  await pathLoop('users');
-  tmp = strungArray;
+  // await pathLoop('users');
+  // tmp = strungArray;
 
-  await searchEmail(email, false);
-  await pathLoop(tmp[posOfEmail]);
-  await db.ref(tmp[posOfEmail]+'/status').set({status:status});
+  // await searchEmail(email, false);
+  // await pathLoop(tmp[posOfEmail]);
+  // await db.ref(tmp[posOfEmail]+'/status').set({status:status});
 
-  await searchEmail(email, true);
+  // await searchEmail(email, true);
 
   // db.ref(tmp[posOfEmail]).set({status:status});
+  var tmpArray = [];
+
+  await pathLoop('users', true);
+
+  for(var i in path){
+    await getLastElement(path[i]);
+    
+
+
+
+
+  }
+
+
+
 }
 //================================================
 async function quickStatus(email, status){
