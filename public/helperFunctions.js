@@ -53,6 +53,7 @@ function pathMaker(){
 
 
 async function makeArray(){
+    console.log('function that makes solidArray[]', );
 // await pathLoop(mainPath);
     solidArray = [];
     for (let i = 0; i < arrayForPath.length; i++) {
@@ -209,4 +210,33 @@ function backUpFunction(path){
     backupPathStr= path.substr(0, num);
     console.log('backupPathStr', backupPathStr);
     return backupPathStr;
+}
+//================================================
+function makeStr(arr){
+    return arr.join("")
+}
+
+//================================================
+
+//Save me, may be useful later on
+// var something=[];
+// async function findMyParam(path){
+//     let refMe = await db.ref(path).once('value')
+//     .then((snapshot)=>{
+//         snapshot.forEach((el)=>{
+//             something.push(el.val());
+//         });
+//     });
+// }
+
+async function getEmail(meEmail){
+    console.log('critical funciton !!! that will redirect all other funcitons to act on the path set aside by this return of index', );
+    await pathLoop('users');
+    for(var i in arrayOfVal){
+        if (arrayOfVal[i].email == meEmail){
+            console.log(makeStr(['the index of the email is:', i]));
+            return i;
+        }
+    }
+    
 }

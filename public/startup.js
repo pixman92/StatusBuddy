@@ -58,7 +58,7 @@ window.onload = ()=>{
 
 //function for loading friends on Page: Main
 async function loadingFriends(myEmail){
-    await pullFriends
+    await pullFriends(myEmail);
 }
 
 
