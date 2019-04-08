@@ -229,6 +229,7 @@ function makeStr(arr){
 //     });
 // }
 
+//NEXT? this is a critical function to come back to !!!
 async function getEmail(meEmail){
     console.log('critical funciton !!! that will redirect all other funcitons to act on the path set aside by this return of index', );
     await pathLoop('users');
