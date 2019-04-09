@@ -219,25 +219,55 @@ function makeStr(arr){
 //================================================
 
 //Save me, may be useful later on
-// var something=[];
-// async function findMyParam(path){
-//     let refMe = await db.ref(path).once('value')
-//     .then((snapshot)=>{
-//         snapshot.forEach((el)=>{
-//             something.push(el.val());
-//         });
-//     });
-// }
+var something=[];
+async function findMyParam(path){
+    let refMe = await db.ref(path).once('value')
+    .then((snapshot)=>{
+        snapshot.forEach((el)=>{
+            something.push(el.val());
+        });
+    });
+}
 
 //NEXT? this is a critical function to come back to !!!
-async function getEmail(meEmail){
+var arrayOfPosOfMatches = [];
+async function getMatch(matchTerm){
     console.log('critical funciton !!! that will redirect all other funcitons to act on the path set aside by this return of index', );
     await pathLoop('users');
     for(var i in arrayOfVal){
-        if (arrayOfVal[i].email == meEmail){
+        if (arrayOfVal[i].email == matchTerm){
             console.log(makeStr(['the index of the email is:', i]));
-            return i;
+             arrayOfPosOfMatches.push(i);
         }
     }
+    await pathLoop('users');
+
+    
+}
+
+// var arrayOfPosOfMatches = [];
+async function getPreTerm(term){
+    console.log('critical funciton !!! that will redirect all other funcitons to act on the path set aside by this return of index', );
+    await pathLoop('users');
+    // for(var i in arrayOfVal){
+    //     if (arrayOfVal[i] == term){
+    //         console.log(makeStr(['the index of the email is:', i]));
+    //          arrayOfPosOfMatches.push(i);
+    //     }
+    // }
+    // await pathLoop('users');
+
+    // var bigObjStr = "";
+    var bigObjStr = await JSON.stringify(arrayOfVal[0]);
+    // var result = [];
+    var result = Object.keys(bigObjStr).map((key)=>{
+        return [Number(key, bigObjStr[key])];
+    });
+
+
+    console.log('result', result);
+
+
+
     
 }

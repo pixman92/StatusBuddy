@@ -112,21 +112,21 @@ async function pushToFriendsList(myEmail, theRequestEmail){ //myEmail - me(user 
 var friends = [];
 async function pullFriends(myEmail){
     console.log('function that pulss friends based on user');
-    await searchEmail(myEmail);
+    // await getMatch(myEmail);
 
-    await pathLoop('users');
-    tmp = strungArray;
-    await pathLoop(tmp[posOfEmail]);
-    tmp2 = strungArray;
-    await pathLoop(tmp2[1]);        //this inner[<num>] may need to be changed
+    // await pathLoop('users');
+    // tmp = strungArray;
+    // await pathLoop(tmp[posOfEmail]);
+    // tmp2 = strungArray;
+    // await pathLoop(tmp2[1]);        //this inner[<num>] may need to be changed
 
-    console.log('friends', arrayOfVal);
+    // console.log('friends', arrayOfVal);
     
-    friends=[];
+    // friends=[];
 
-    for(var elem in arrayOfVal){
-        friends.push(arrayOfVal[elem]);
-    }
+    // for(var elem in arrayOfVal){
+    //     friends.push(arrayOfVal[elem]);
+    // }
 }
 //================================================
 var pinnedFriends = [];
