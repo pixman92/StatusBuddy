@@ -114,7 +114,7 @@ function scriptHelp(){
 
 }
 
-async function makeNewUser(email, status){
+async function initUser(email){
   console.log('simple function that makes a new User', );
   await db.ref('users').push({
     email,

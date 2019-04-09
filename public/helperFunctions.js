@@ -27,7 +27,7 @@ async function pathLoop(path, makePath){
 
         // }
         if(makePath){
-            pathMaker();
+            pathMaker();    //returns array, path[]
         }
         console.log('arrayForPath', arrayForPath);
         console.log('arrayOfVal', arrayOfVal);
@@ -233,6 +233,7 @@ async function findMyParam(path){
 var arrayOfPosOfMatches = [];
 async function getMatch(matchTerm){
     console.log('critical funciton !!! that will redirect all other funcitons to act on the path set aside by this return of index', );
+    console.log('return: arrayOfPosOfMatches[]', );
     await pathLoop('users');
     for(var i in arrayOfVal){
         if (arrayOfVal[i].email == matchTerm){
