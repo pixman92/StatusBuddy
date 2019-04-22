@@ -21,7 +21,7 @@ should have:
       <div class="marginMe w3-card-2">
         <div class="grid1 space w3-green">
           <div>
-            <buttton class="w3-button" id="requestButton">Request</buttton>
+            <button class="w3-button" id="requestButton">Request</buttton>
           </div>
           <textarea id="searchBar"></textarea>
           <div id="holdingButton">
@@ -92,6 +92,8 @@ should have:
 
 </body>
 <script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.9.3/firebase-firestore.js"></script>
+
 <!-- <script src="https://www.gstatic.com/firebasejs/4.1.3/firebase-auth.js"></script> -->
 
 <script>
@@ -107,7 +109,7 @@ should have:
   firebase.initializeApp(config);
 </script>
 <script type="text/javascript" src="script.js"></script>
-
+<script src="firestoreHelper.js"></script>
 <script src="gator.min.js"></script>
 <script src="GatorFunctions.js"></script>
 <script src="startup.js"></script>
@@ -117,4 +119,5 @@ should have:
 <script src="makeIntoObj.js"></script>
 <script src="showHide.js"></script>
 <script src="updateRealtime.js"></script>
+<script src="getStatusFromEmail.js"></script>
 </html>
