@@ -14,6 +14,20 @@ function addDataToFirestore(path, data){
     });   
 }
 
+function updateStatus(path, status){   
+    //function that updates status
+    // to be reverse called by 'getStatus(<email>)'
+    db2.doc(path).update({status}).
+    then(()=>{
+        console.log('status updated');
+    })
+    .catch((error)=>{
+        console.error('error caught', error);
+    });   
+}
+
+
+
 var dataMe = []; var firestorePaths = [];
 var slashCount = 0;
 async function queryData(path){

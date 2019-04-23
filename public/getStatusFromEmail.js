@@ -1,14 +1,14 @@
 async function getStatus(email){
     //function that gets status from passed email
     await justForAsync().then(async()=>{
-       whereFinder('users', 'email', email).then(async()=>{
-           wait(600).then(()=>{console.log('status', passedStatus);        
-        });
-        // .then((passedStatus)=>{
-            // return passedStatus;
-        // });
-        })
-       });
+    //    whereFinder('users', 'email', email)
+    whereFinder({path:'users', field:'email', comparedTo: email})
+    .then(async()=>{
+            wait(600).then(()=>{console.log('status', passedStatus);
+              
+            });
+       })
+    });
     
 
     // {path:'users', field:'email', comparedTo: email }
@@ -35,3 +35,21 @@ async function addPinnedFriends(main, toBeAdded){
 }
 
 async function justForAsync(){}
+
+//========================================
+//function for listening to status change
+
+function onStatusChange(email='leo@gmail.com'){
+    //function for updating status when typing!
+
+    whereFinder({path:'users', field:'email', comparedTo: email});
+
+
+
+    Gator(document.getElementById('personalStatus')).on('input', async ()=>{
+        var changedText = document.getElementById('personalStatus').innerText;
+        wait(500).then(()=>{
+            updateStatus(onePath, changedText);
+        });
+    });
+}
