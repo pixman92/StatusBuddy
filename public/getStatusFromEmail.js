@@ -2,8 +2,12 @@ async function getStatus(email){
     //function that gets status from passed email
     await justForAsync().then(async()=>{
        whereFinder('users', 'email', email).then(async()=>{
-           wait(400).then(()=>{console.log('status', passedStatus)}
-           )});
+           wait(600).then(()=>{console.log('status', passedStatus);        
+        });
+        // .then((passedStatus)=>{
+            // return passedStatus;
+        // });
+        })
        });
     
 

@@ -17,6 +17,7 @@ function addDataToFirestore(path, data){
 var dataMe = []; var firestorePaths = [];
 var slashCount = 0;
 async function queryData(path){
+    //function - pulls data makes a pathString way to that path passed through
     dataMe=[]; firestorePaths=[];
     await db2.collection(path).get().
     then(async (snap)=>{
@@ -79,7 +80,7 @@ var docdata; var docId; var docMe=[]; var passedStatus="";
 var whereFinderPaths = [];
 var docDataArray=[];
 var onePath="";
-async function whereFinder(path, field, comparedTo){  
+async function whereFinder(arg){  
     // path, field, comparedTo  
     //function that takes in an input date,
     //then calls where() for all logins before and after the date given
@@ -90,7 +91,32 @@ async function whereFinder(path, field, comparedTo){
 
     
   
-    // db2.collection(arg.path).where(arg.field, '==', arg.comparedTo)
+    await db2.collection(arg.path).where(arg.field, '==', arg.comparedTo)
+    .get()
+    .then(async (snapshot)=>{
+        snapshot.forEach((doc)=>{
+            docdata = doc.data();
+            docDataArray.push(docdata);
+            // console.log('doc.data()', doc.data());
+            docId = doc.id;
+            docMe.push(doc);
+            console.log('docDataArray', docDataArray);
+
+            onePath = doc.ref.path;
+        });
+        for(var i in docMe){
+            whereFinderPaths.push(docMe[i].ref.path);
+        }
+        console.log('docdata1', docdata);
+    }).then(async()=>{
+        return new Promise(resolve=>{
+            console.log('docdata2', docdata);
+            passedStatus=docdata.status;
+            resolve(docDataArray);
+        });
+    });
+
+    // db2.collection(path).where(field, '==', comparedTo)
     // .get()
     // .then(async (snapshot)=>{
     //     snapshot.forEach((doc)=>{
@@ -114,31 +140,6 @@ async function whereFinder(path, field, comparedTo){
     //         resolve(docdata);
     //     });
     // });
-
-    db2.collection(path).where(field, '==', comparedTo)
-    .get()
-    .then(async (snapshot)=>{
-        snapshot.forEach((doc)=>{
-            docdata = doc.data();
-            docDataArray.push(docdata);
-            // console.log('doc.data()', doc.data());
-            docId = doc.id;
-            docMe.push(doc);
-            console.log('docDataArray', docDataArray);
-
-            onePath = doc.ref.path;
-        });
-        for(var i in docMe){
-            whereFinderPaths.push(docMe[i].ref.path);
-        }
-        console.log('docdata1', docdata);
-    }).then(async()=>{
-        return new Promise(resolve=>{
-            console.log('docdata2', docdata);
-            passedStatus=docdata.status;
-            resolve(docdata);
-        });
-    });
 
 } 
 ///========================================

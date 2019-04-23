@@ -1,0 +1,13 @@
+
+HISTORY:
+
+-steps taken so far
+
+1) find the path to the user
+whereFinder({path:'users', field:'email', comparedTo:'leo@gmail.com'})
+
+2) make some firestorePaths
+queryData(onePath+'/pinnedFriends')
+
+3) pull data function to retrieve '/pinnedFriends'
+pullDataFromFirestore(firestorePaths[0])
