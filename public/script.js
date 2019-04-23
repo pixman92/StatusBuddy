@@ -15,3 +15,9 @@ function changeStatus(email, status){
 // NEXT? - add friends to friend list
 // NEXT? - add select friends to pinned
 // NEXT? - remove friends
+
+//========================================
+
+function addFriends(){
+    
+}
