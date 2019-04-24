@@ -1,0 +1,23 @@
+db.ref(path[4]+'/email').push({status: 'treat yoself'})
+
+
+//NEXT? - use this pattern and progress!
+getMatch(<email>)
+arrayOfPosOfMatches[]
+pathLoop('users', true);
+tmp = path[arrayOfPosOfMatches[<index>]]
+
+
+NEXT? - another path to consider
+pathLoop('users', true)
+getMatch(<email>)
+arrayOfPosOfMatches[]
+arrayOfVal[arrayOfPosOfMatches[0]]  // conver this obj to array
+
+
+var me = [];
+for(var i in tmp){
+if(tmp.hasOwnProperty(i)){
+	me.push(tmp[i]);
+}}
+

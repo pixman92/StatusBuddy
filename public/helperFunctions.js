@@ -272,3 +272,43 @@ async function getPreTerm(term){
 
     
 }
+
+//================================================
+// Experimental function that recursively makes Firebase objs into arrays
+var madeArray = []; var holdArray = []; var holdingObj = {};
+async function makeIntoArray(objPassed, pathPos){
+    //requires -> pathLoop('users', true), to work
+    // await pathLoop(startingPath, true);
+
+    madeArray = [];
+
+    holdingObj = objPassed[pathPos[0]];
+
+    // for(var i=0; i<=pathPos.length; i++){
+    //     for(var ii=0; ii<=holdingObj.length; ii++){
+    //         if(holdingObj.hasOwnProperty(ii)){
+    //             madeArray.push(holdingObj[ii]);
+    //         }
+    //     }
+    // }
+
+    if(pathPos.length>0){
+        for(var i in holdingObj){
+            if(holdingObj.hasOwnProperty(i)){
+                madeArray.push(holdingObj[i]);
+            }
+        }
+        pathPos.shift();
+        // return madeArray;
+    
+        makeIntoArray(objPassed, pathPos);
+    }
+    // else{
+    //     madeArray=[];
+    // }
+
+    holdArray = madeArray;
+
+    console.log('holdArray', holdArray);
+    
+}
