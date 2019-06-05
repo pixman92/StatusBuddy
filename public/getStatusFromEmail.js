@@ -4,9 +4,7 @@ async function getStatus(email){
     //    whereFinder('users', 'email', email)
     whereFinder({path:'users', field:'email', comparedTo: email})
     .then(async()=>{
-            wait(600).then(()=>{console.log('status', passedStatus);
-              
-            });
+            wait(600).then(()=>{console.log('status: ', passedStatus);});
        })
     });
     
@@ -39,13 +37,13 @@ async function justForAsync(){}
 //========================================
 //function for listening to status change
 
-function onStatusChange(email='leo@gmail.com'){
+function onStatusChange(email){
     //function for updating status when typing!
 
     whereFinder({path:'users', field:'email', comparedTo: email});
 
 
-
+    //code that updates on each letter updating in textarea
     Gator(document.getElementById('personalStatus')).on('input', async ()=>{
         var changedText = document.getElementById('personalStatus').innerText;
         wait(500).then(()=>{

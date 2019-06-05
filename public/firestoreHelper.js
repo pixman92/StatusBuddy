@@ -100,7 +100,7 @@ async function whereFinder(arg){
     //then calls where() for all logins before and after the date given
 
     //reseting whereFinderPaths[] 
-    whereFinderPaths = [];
+    whereFinderPaths=[];
     docDataArray=[];
 
     
@@ -118,9 +118,9 @@ async function whereFinder(arg){
 
             onePath = doc.ref.path;
         });
-        for(var i in docMe){
+        // for(var i in docMe){
             whereFinderPaths.push(docMe[i].ref.path);
-        }
+        // }
         console.log('docdata1', docdata);
     }).then(async()=>{
         return new Promise(resolve=>{

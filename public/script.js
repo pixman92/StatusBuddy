@@ -18,6 +18,22 @@ function changeStatus(email, status){
 
 //========================================
 
-function addFriends(){
+function addFriends(email, comparedToEmail){
     
+    
+    pathIsComplete();
+    function pathIsComplete(){
+        whereFinder({path:'users', field:'email', comparedTo: comparedToEmail})
+        if(whereFinderPaths[0]==undefined){
+            pathIsComplete();
+        }else{
+            wait(800).then(()=>{
+                addDataToFirestore(whereFinderPaths[0], {friends: email});
+        
+            });
+
+        }
+
+    }
+
 }
