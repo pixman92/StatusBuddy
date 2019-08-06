@@ -4,7 +4,7 @@ async function getStatus(email){
     //    whereFinder('users', 'email', email)
     whereFinder({path:'users', field:'email', comparedTo: email})
     .then(async()=>{
-            wait(600).then(()=>{console.log('status: ', passedStatus);});
+            wait(600).then(()=>{console.log('status:', passedStatus);});
        })
     });
     

@@ -11,7 +11,10 @@ function addDataToFirestore(path, data){
     })
     .catch((error)=>{
         console.error('error caught', error);
-    });   
+    }); 
+    
+    
+
 }
 
 function updateStatus(path, status){   
