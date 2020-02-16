@@ -1,0 +1,11 @@
+
+
+2020, 02, 15 - 21:40:54 --- Beginning out! - Making different files for different purposes
+
+2020, 02, 15 - 22:05:44 --- Stupid cross site cookie issue, what does it really mean?
+
+2020, 02, 15 - 22:23:00 --- whereIds == "" - works!
+
+2020, 02, 15 - 22:26:35 --- 'callback()' - at end of whereMe()
+
+2020, 02, 15 - 22:31:51 --- pullProfile() - takes email and current Status
