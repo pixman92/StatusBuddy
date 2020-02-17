@@ -2,7 +2,7 @@
 
 function create(email){
     //creates a profile, if one doesn't already exist
-    whereIds=[];
+    // whereIds=[];
     whereMe('users2', 'email', email, ()=>{
         wait(700).then(()=>{
             // if(whereIds==undefined){

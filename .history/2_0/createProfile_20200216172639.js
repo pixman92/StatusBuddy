@@ -2,18 +2,17 @@
 
 function create(email){
     //creates a profile, if one doesn't already exist
-    whereIds=[];
-    whereMe('users2', 'email', email, ()=>{
+    whereMe('users2', 'email', email, async ()=>{
         wait(700).then(()=>{
             // if(whereIds==undefined){
             //     whereMe('users2', 'email', email, ()=>{});
             // }
             console.log('whereIds', whereIds);
-            if(whereIds){
+            if(whereIds==""){
+                adding('users2', {email: email});
+            }else{
                 console.log('Already exists!');
                 whereIds=[];
-            }else{
-                adding('users2', {email: email});
             }
 
         });
