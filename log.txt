@@ -9,3 +9,5 @@
 2020, 02, 15 - 22:26:35 --- 'callback()' - at end of whereMe()
 
 2020, 02, 15 - 22:31:51 --- pullProfile() - takes email and current Status
+
+2020, 02, 16 - 17:38:18 --- Switching out the 'logic' of "Does this email already exist?
