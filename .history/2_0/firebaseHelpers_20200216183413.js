@@ -30,8 +30,8 @@ async function whereMe(root, first, second, callback){
     tmp2.get().then(async (snap)=>snap.forEach(async (doc)=>{
         console.log(doc)
         await whereIds.push(doc.id);
+        callback();
     }));
-    callback();
     
 
 }

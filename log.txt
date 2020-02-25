@@ -11,3 +11,17 @@
 2020, 02, 15 - 22:31:51 --- pullProfile() - takes email and current Status
 
 2020, 02, 16 - 17:38:18 --- Switching out the 'logic' of "Does this email already exist?
+
+2020, 02, 16 - 18:24:12 --- Firebase js files - working(?)
+
+2020, 02, 16 - 18:30:49 --- whereIds == 0 - is this the solution??
+
+2020, 02, 16 - 18:36:27 --- Adding and 'already added' functionality - working!
+
+2020, 02, 16 - 18:38:45 --- Updating Status - func() - working
+
+2020, 02, 16 - 18:38:54 --- NEXT? - HTML Stuff!
+
+2020, 02, 16 - 19:32:51 --- Lots of code changed - to get Status update working, does it work?
+
+2020, 02, 16 - 19:38:38 --- Status updating and saving - ???

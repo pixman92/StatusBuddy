@@ -34,22 +34,20 @@ function updateStatus(email, status){
                 addDoc('users2', whereIds[0], {status: status});
             }
         });
-    }).then(()=>{
-        addToSavedStatuses(email, status);
     });
 
 
 }
 
-function updateName(email, name){
-    //updates name, based on <email>
+function update(email, ){
+    //updates , based on <email>
     whereIds=[];
     whereMe('users2', 'email', email, ()=>{
         wait(700).then(()=>{
             if(whereIds.length==0){
                 console.log('couldn\'t find');
             }else{
-                addDoc('users2', whereIds[0], {name: name});
+                addDoc('users2', whereIds[0], {: });
             }
         });
     });

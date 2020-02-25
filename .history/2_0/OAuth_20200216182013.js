@@ -16,7 +16,6 @@ function signIn(){
     var credential = error.credential;
     // ...
   });
-}
 
 
 function signOut(){

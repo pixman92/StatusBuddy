@@ -34,14 +34,12 @@ function updateStatus(email, status){
                 addDoc('users2', whereIds[0], {status: status});
             }
         });
-    }).then(()=>{
-        addToSavedStatuses(email, status);
     });
 
 
 }
 
-function updateName(email, name){
+function updatename(email, name){
     //updates name, based on <email>
     whereIds=[];
     whereMe('users2', 'email', email, ()=>{

@@ -34,9 +34,7 @@ function updateStatus(email, status){
                 addDoc('users2', whereIds[0], {status: status});
             }
         });
-    }).then(()=>{
-        addToSavedStatuses(email, status);
-    });
+    }).then(()=>{});;
 
 
 }

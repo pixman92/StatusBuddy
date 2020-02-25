@@ -35,7 +35,7 @@ function updateStatus(email, status){
             }
         });
     }).then(()=>{
-        addToSavedStatuses(email, status);
+        addToSavedStatuses(status);
     });
 
 
