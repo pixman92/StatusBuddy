@@ -49,19 +49,18 @@ async function searchFriends(myEmail, friendEmail){
     }
 
     async function two(one1){
-        await getAll('users/' + whereIds[0] + '/friendsList', ()=>{
+        getAll('users/' + whereIds[0] + '/friendsList', ()=>{
             if(getAllArr.length==0){
                 console.log('Nothing found');
             }    
         });
     }
 
-    async function three(two2, friendEmail){
+    async function three(two, friendEmail){
         for(var i=0; i<getAllArr.length; i++){
-            // console.log('i', i);
             if(getAllArr[i].friendEmail == friendEmail){
-                // console.log('i', i);
-                console.log("Found! " +  getaAllPaths[i]);
+                console.log('i', i);
+                return getaAlllPaths[i];
             }
         }
     }

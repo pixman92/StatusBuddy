@@ -37,8 +37,7 @@ async function searchFriends(myEmail, friendEmail){
 // getAll('users/' + whereIds[0] + '/friendsList', ()=>{})
     try{
         var one1 = await one(myEmail);
-        var two2 = await two(one1);
-        var three3 = await three(two2, friendEmail);
+        var two2 = await two(one1, friendEmail);
     }catch(e){
         console.log(e);
         throw e;
@@ -49,21 +48,11 @@ async function searchFriends(myEmail, friendEmail){
     }
 
     async function two(one1){
-        await getAll('users/' + whereIds[0] + '/friendsList', ()=>{
+        getAll('users/' + whereIds[0] + '/friendsList', ()=>{
             if(getAllArr.length==0){
                 console.log('Nothing found');
             }    
         });
-    }
-
-    async function three(two2, friendEmail){
-        for(var i=0; i<getAllArr.length; i++){
-            // console.log('i', i);
-            if(getAllArr[i].friendEmail == friendEmail){
-                // console.log('i', i);
-                console.log("Found! " +  getaAllPaths[i]);
-            }
-        }
     }
 
 

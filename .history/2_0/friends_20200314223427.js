@@ -61,7 +61,7 @@ async function searchFriends(myEmail, friendEmail){
             // console.log('i', i);
             if(getAllArr[i].friendEmail == friendEmail){
                 // console.log('i', i);
-                console.log("Found! " +  getaAllPaths[i]);
+                console.log(getaAlllPaths[i]);
             }
         }
     }

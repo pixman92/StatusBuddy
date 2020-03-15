@@ -58,10 +58,10 @@ async function searchFriends(myEmail, friendEmail){
 
     async function three(two2, friendEmail){
         for(var i=0; i<getAllArr.length; i++){
-            // console.log('i', i);
+            console.log('i', i);
             if(getAllArr[i].friendEmail == friendEmail){
-                // console.log('i', i);
-                console.log("Found! " +  getaAllPaths[i]);
+                console.log('i', i);
+                return getaAlllPaths[i];
             }
         }
     }

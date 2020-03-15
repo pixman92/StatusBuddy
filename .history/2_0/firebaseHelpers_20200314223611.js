@@ -29,10 +29,10 @@ async function getting(main, docMe, callback){
 }
 
 var getAllArr=[];
-var getaAllPaths=[];
+var getaAlllPaths=[];
 async function getAll(root, callback){
 
-    getAllArr=[]; getaAllPaths=[];
+    getAllArr=[]; getaAlllPaths=[];
 
     await db.collection(root).get().then(async (snap)=>snap.forEach(async(doc)=>{
         await getAllArr.push(doc.data());
@@ -41,7 +41,7 @@ async function getAll(root, callback){
 
     await db.collection(root).get().then(async (doc)=>doc.forEach(async(doc)=>{
         console.log(doc.id);
-        await getaAllPaths.push(doc.id);
+        await getaAlllPaths.push(doc.id);
     }));
 
 

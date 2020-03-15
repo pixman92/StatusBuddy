@@ -25,3 +25,9 @@
 2020, 02, 16 - 19:32:51 --- Lots of code changed - to get Status update working, does it work?
 
 2020, 02, 16 - 19:38:38 --- Status updating and saving - ???
+
+2020, 03, 13 - 22:48:46 --- =========================================
+
+2020, 03, 13 - 23:07:14 --- Pushing status - working!
+
+2020, 03, 14 - 22:27:09 --- Working on -> "Does this friend already exist in friends list?" If so, don't add, if not Add!
