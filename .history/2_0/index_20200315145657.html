@@ -23,8 +23,7 @@
     <script src="makeStatus.js"></script>
     <script src="friends.js"></script>
     <script src="CSSing.js"></script>
-    <script src="show_hide.js"></script>
-    <script src="onload.js"></script>
+    <script src="navbar.js"></script>
     
         
     <!-- <script src="https://www.gstatic.com/firebasejs/5.9.3/firebase-firestore.js"></script>
@@ -58,20 +57,8 @@
 
 <body>
     <div>
-        <div class="headerGrid w3-blue w3-bottombar">
-            <div id="hamburgerDiv">
-                <div class="hamburger"></div>
-                <div class="hamburger"></div>
-                <div class="hamburger"></div>
-            </div>
 
-            <div class="header">Status Buddy</div>
-
-            <div>
-
-            </div>
-        </div>
-
+        <div class="header w3-blue w3-bottombar">Status Buddy</div>
 
     </div>
 
@@ -92,22 +79,14 @@
         </div>
     </div>
 
-    <div id="updateStatus" class="w3-card margMe">
-        <h2>Update Status</h2>
-        <input id="statusUpdateForm">
-        <button>Submit</button>
-
-    </div>
-
-
-    <!-- ================================ -->
-    <div id="navBar" class="showMe">
+    <div id="navBar">
         <div class="inner">
             <ul>
-                <div class="gridX w3-blue">
-                    <div><div class="nav">Navigation</div></div>
-                    <div class="w3-border-blue center">
-                        <button id="xbutton">X</button>
+                <div class="gridX">
+                    <div><div class="w3-blue nav">Navigation</div></div>
+                    <div class="w3-btn w3-border-blue">
+                        <button>X</button>
+
                     </div>
                 </div>
                 <li>Search</li>
@@ -118,8 +97,6 @@
 
 
     </div>
-
-
 
 
 

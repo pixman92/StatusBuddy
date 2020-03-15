@@ -35,3 +35,9 @@
 2020, 03, 14 - 22:54:47 --- pushStatus() && pullStatus() (pulls whole document)
 
 2020, 03, 15 - 00:11:52 --- HTML! header, then sidebar, search, change HTML, saved searches
+
+2020, 03, 15 - 15:04:54 --- Blue X button - needs to be linked to JS
+
+2020, 03, 15 - 15:21:47 --- NavBar open/close - working!
+
+2020, 03, 15 - 15:23:05 --- NEXT? - HTML - search && updateStatus pages
