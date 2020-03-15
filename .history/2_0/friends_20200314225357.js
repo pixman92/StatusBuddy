@@ -95,5 +95,5 @@ async function listOfFriends(myEmail){
 }
 
 async function respondToFriendRequests(){
-    // add or remove friends (?)
+
 }

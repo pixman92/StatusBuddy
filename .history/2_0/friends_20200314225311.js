@@ -34,8 +34,6 @@ async function addFriends(myEmail, friendEmail){
 }
 
 async function searchFriends(myEmail, friendEmail){
-    // function that searches for friend, a param, within List
-
 // getAll('users/' + whereIds[0] + '/friendsList', ()=>{})
     try{
         var one1 = await one(myEmail);
@@ -95,5 +93,5 @@ async function listOfFriends(myEmail){
 }
 
 async function respondToFriendRequests(){
-    // add or remove friends (?)
+
 }

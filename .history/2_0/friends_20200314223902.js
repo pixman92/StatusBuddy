@@ -34,8 +34,6 @@ async function addFriends(myEmail, friendEmail){
 }
 
 async function searchFriends(myEmail, friendEmail){
-    // function that searches for friend, a param, within List
-
 // getAll('users/' + whereIds[0] + '/friendsList', ()=>{})
     try{
         var one1 = await one(myEmail);
@@ -71,15 +69,11 @@ async function searchFriends(myEmail, friendEmail){
 
 }
 
-async function listOfFriends(myEmail){
-    // function that lists friends already in friends list
-    // to be used for comparison
-    // "Already a friend? Don't add"
-    // NEXT? - "" out a friend
+async function listOfFriendRequests(myEmail){
     try{
         var one1 = await one(myEmail);
         var two2 = await two(one1);
-        // var three3 = await three(two2);
+        var three3 = await three(two2, friendEmail);
     }catch(e){
         console.log(e);
         throw e;
@@ -95,5 +89,5 @@ async function listOfFriends(myEmail){
 }
 
 async function respondToFriendRequests(){
-    // add or remove friends (?)
+
 }

@@ -50,7 +50,7 @@ async function pushStatus(myEmail, myStatus){
 //=====================================================
 
 async function pullStatus(myEmail){
-    //function that pulls Status of an email!!
+    //function that pulls Status of an email
     try{
         var one1 = await one(myEmail);
         var two2 = await two(one1, myEmail);

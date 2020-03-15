@@ -31,3 +31,5 @@
 2020, 03, 13 - 23:07:14 --- Pushing status - working!
 
 2020, 03, 14 - 22:27:09 --- Working on -> "Does this friend already exist in friends list?" If so, don't add, if not Add!
+
+2020, 03, 14 - 22:54:47 --- pushStatus() && pullStatus() (pulls whole document)
