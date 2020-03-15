@@ -1,0 +1,26 @@
+body{
+    width: 400px;
+    justify-items: center;
+    align-items: center;
+}
+
+div{
+    border: 1px red solid;
+}
+.grid1{
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    align-content: left;
+}
+
+.gridSmallBox{
+    width: 380px;
+    padding-left: 1.8em;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+
+}
+
+.gridSmallBox div {
+    margin: .8em;
+}
