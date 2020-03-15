@@ -56,10 +56,10 @@ ul {
     padding: 0;
     /* width: auto; */
     height: 100%; /* Full height */
-    /* position: absolute; Make it stick, even on scroll */
+    /* position: fixed; Make it stick, even on scroll */
     overflow: auto; 
-    left: 0;
-    top:0;
+    /* left: 0; */
+    /* top:0; */
     background-color:rgb(202, 201, 201);
     color: white;
 }
@@ -86,39 +86,23 @@ color: white;
 
 /* #navBar{
     width: 0px;
-}*/
-
-#navBar{
-    /* visibility: hidden; 
-    width: 10px; */
-    height: 100%;
 }
 
-.showMe{
-    /* visibility: hidden; */
+.navbar{
+    /* visibility: hidden; 
+    width: 10px;
+} */
 
-    width: 0px;
+.showMe{
+    /* visibility: visible; */
+    /* transition: visibility 3s, linear; */
+
+    width: 300px;
     transition: width 100ms;
     
 }
 
 .showMe2{
-
-    /* visibility: visible;
-    transition: visiblity 1s; */
-
-
-    width: 200px;
+    width: 10px;
     transition:width 100ms;
-
-    /* height: 100%; */
-    overflow: hidden;
-
-    position: absolute;
-    top:0;
-    left: 0;
-}
-
-.inner{
-    height: 1000px;
 }

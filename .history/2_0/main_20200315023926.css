@@ -112,13 +112,9 @@ color: white;
     transition:width 100ms;
 
     /* height: 100%; */
-    overflow: hidden;
+
 
     position: absolute;
     top:0;
     left: 0;
-}
-
-.inner{
-    height: 1000px;
 }

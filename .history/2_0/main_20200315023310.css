@@ -91,10 +91,13 @@ color: white;
 #navBar{
     /* visibility: hidden; 
     width: 10px; */
-    height: 100%;
 }
 
 .showMe{
+    position: relative;
+    top:0;
+    left: 0;
+
     /* visibility: hidden; */
 
     width: 0px;
@@ -111,14 +114,7 @@ color: white;
     width: 200px;
     transition:width 100ms;
 
-    /* height: 100%; */
-    overflow: hidden;
-
     position: absolute;
     top:0;
     left: 0;
-}
-
-.inner{
-    height: 1000px;
 }

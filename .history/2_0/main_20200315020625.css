@@ -54,9 +54,9 @@ ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
-    /* width: auto; */
+    width: auto;
     height: 100%; /* Full height */
-    /* position: absolute; Make it stick, even on scroll */
+    position: fixed; /* Make it stick, even on scroll */
     overflow: auto; 
     left: 0;
     top:0;
@@ -84,41 +84,37 @@ color: white;
     /* background-color: rgb(30, 30, 212); */
 }
 
-/* #navBar{
-    width: 0px;
-}*/
-
 #navBar{
-    /* visibility: hidden; 
-    width: 10px; */
-    height: 100%;
+    width: 0px;
+}
+
+.navbar{
+    /* visibility: hidden; */
+    width: 10px;
 }
 
 .showMe{
-    /* visibility: hidden; */
-
-    width: 0px;
-    transition: width 100ms;
-    
-}
-
-.showMe2{
-
-    /* visibility: visible;
-    transition: visiblity 1s; */
-
+    /* visibility: visible; */
+    /* transition: visibility 3s, linear; */
 
     width: 200px;
-    transition:width 100ms;
-
-    /* height: 100%; */
-    overflow: hidden;
-
-    position: absolute;
-    top:0;
-    left: 0;
+    transition: width, 3s linear;
 }
 
-.inner{
-    height: 1000px;
+
+.hidden{
+    top: 0px;
+    -webkit-transition:widtopth, 0.5s linear;
+    -moz-transition: top, 0.5s linear;
+    -ms-transition: top, 0.5s linear;
+    -o-transition: top, 0.5s linear;
+    transition: top, 0.5s linear;
+    }
+.hidden.open {
+ top:200px;
+-webkit-transition:top, 0.5s linear;
+-moz-transition: top, 0.5s linear;
+-ms-transition: top, 0.5s linear;
+-o-transition: top, 0.5s linear;
+transition: top, 0.5s linear;
 }

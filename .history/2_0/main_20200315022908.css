@@ -88,37 +88,25 @@ color: white;
     width: 0px;
 }*/
 
-#navBar{
-    /* visibility: hidden; 
-    width: 10px; */
-    height: 100%;
+.navbar{
+    visibility: hidden; 
+    width: 10px;
 }
 
 .showMe{
-    /* visibility: hidden; */
+    /* visibility: visible; */
+    /* transition: visibility 3s, linear; */
 
-    width: 0px;
+    position: relative;
+    top:0;
+    left: 0;
+
+    width: 300px;
     transition: width 100ms;
     
 }
 
 .showMe2{
-
-    /* visibility: visible;
-    transition: visiblity 1s; */
-
-
-    width: 200px;
+    width: 10px;
     transition:width 100ms;
-
-    /* height: 100%; */
-    overflow: hidden;
-
-    position: absolute;
-    top:0;
-    left: 0;
-}
-
-.inner{
-    height: 1000px;
 }

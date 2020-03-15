@@ -33,3 +33,5 @@
 2020, 03, 14 - 22:27:09 --- Working on -> "Does this friend already exist in friends list?" If so, don't add, if not Add!
 
 2020, 03, 14 - 22:54:47 --- pushStatus() && pullStatus() (pulls whole document)
+
+2020, 03, 15 - 00:11:52 --- HTML! header, then sidebar, search, change HTML, saved searches

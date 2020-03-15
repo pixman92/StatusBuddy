@@ -91,34 +91,33 @@ color: white;
 #navBar{
     /* visibility: hidden; 
     width: 10px; */
-    height: 100%;
 }
 
 .showMe{
-    /* visibility: hidden; */
+    /* visibility: visible; */
+    /* transition: visibility 3s, linear; */
 
-    width: 0px;
+    position: relative;
+    top:0;
+    left: 0;
+
+    visibility: hidden;
+
+    width: 300px;
     transition: width 100ms;
     
 }
 
 .showMe2{
 
-    /* visibility: visible;
-    transition: visiblity 1s; */
+    visibility: visible;
+    transition: visiblity 1s;
 
 
     width: 200px;
     transition:width 100ms;
 
-    /* height: 100%; */
-    overflow: hidden;
-
-    position: absolute;
+    position: relative;
     top:0;
     left: 0;
-}
-
-.inner{
-    height: 1000px;
 }
