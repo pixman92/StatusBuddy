@@ -215,8 +215,3 @@ color: white;
 #savedEmailMarg{
     margin-top: 2.2em;
 }
-
-.gridSavedEmailAndX{
-    display: grid;
-    grid-template-columns: 1fr .3fr;
-}
