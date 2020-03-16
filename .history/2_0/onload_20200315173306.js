@@ -38,21 +38,10 @@ async function addStatusToHTML(email){
     }
 
     async function one(email){
-        try{
-            await pullStatus(email);
-        }catch(e){
-            console.log(e);
-            throw e;
-        }
+        await   pullStatus(email);
     }
 
     async function two(one1){
-        try{
-            console.log('wholeDoc', wholeDoc);
-            document.getElementById('status').innerHTML = wholeDoc[0].status;
-        }catch(e){
-            console.log(e);
-            throw e;
-        }
+        await document.getElementById('status').innerHTML = wholeDoc[0].status;
     }
 }

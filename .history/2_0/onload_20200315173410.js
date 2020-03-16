@@ -47,12 +47,6 @@ async function addStatusToHTML(email){
     }
 
     async function two(one1){
-        try{
-            console.log('wholeDoc', wholeDoc);
-            document.getElementById('status').innerHTML = wholeDoc[0].status;
-        }catch(e){
-            console.log(e);
-            throw e;
-        }
+        document.getElementById('status').innerHTML = wholeDoc[0].status;
     }
 }

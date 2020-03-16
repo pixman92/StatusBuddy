@@ -28,31 +28,12 @@ window.onload = ()=>{
 
 }
 
-async function addStatusToHTML(email){
+function addStatusToHTML(email){
     try{
-        var one1 = await one(email);
-        var two2 = await two(one1);
-    }catch(e){
-        console.log(e);
-        throw e;
+        var one1 = one(email);
+        var two2 = two(one1);
     }
 
-    async function one(email){
-        try{
-            await pullStatus(email);
-        }catch(e){
-            console.log(e);
-            throw e;
-        }
-    }
-
-    async function two(one1){
-        try{
-            console.log('wholeDoc', wholeDoc);
-            document.getElementById('status').innerHTML = wholeDoc[0].status;
-        }catch(e){
-            console.log(e);
-            throw e;
-        }
-    }
+    pullStatus(email);
+    document.getElementById('status').innerHTML = wholeDoc[0].status;
 }
