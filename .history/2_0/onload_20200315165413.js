@@ -20,10 +20,6 @@ window.onload = ()=>{
         closeNavBar();
         show('updateStatus');
     });
-    document.getElementById('homeLink').addEventListener('click', ()=>{
-        hide();
-        closeNavBar();
-        show('page1');
-    });
+
 
 }

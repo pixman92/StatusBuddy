@@ -41,3 +41,5 @@
 2020, 03, 15 - 15:21:47 --- NavBar open/close - working!
 
 2020, 03, 15 - 15:23:05 --- NEXT? - HTML - search && updateStatus pages
+
+2020, 03, 15 - 15:49:03 --- page1 - working, HTML for Status Update - working. NEXT? add functionality

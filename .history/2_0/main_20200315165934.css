@@ -178,22 +178,8 @@ color: white;
     margin-left: 1em;
     /* margin-right: 1em; */
     padding: .8em;
-    margin-top: 1.8em;
 }
 
 #search{
     display: none;
-}
-
-.searchGrid{
-    display: grid;
-    grid-template-columns: 1fr 1.5fr;
-    /* margin: auto; */
-    /* vertical-align: middle; */
-    align-items: center;
-
-}
-
-.smfont{
-    font-size: 1em;
 }

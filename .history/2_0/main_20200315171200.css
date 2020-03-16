@@ -187,13 +187,10 @@ color: white;
 
 .searchGrid{
     display: grid;
-    grid-template-columns: 1fr 1.5fr;
-    /* margin: auto; */
-    /* vertical-align: middle; */
-    align-items: center;
-
+    grid-template-columns: 1fr 1fr;
+    margin: auto;
 }
 
-.smfont{
-    font-size: 1em;
+.blockMe{
+    vertical-align: middle;
 }

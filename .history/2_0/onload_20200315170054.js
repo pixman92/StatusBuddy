@@ -23,7 +23,7 @@ window.onload = ()=>{
     document.getElementById('homeLink').addEventListener('click', ()=>{
         hide();
         closeNavBar();
-        show('page1');
+        show('updateStatus');
     });
 
 }

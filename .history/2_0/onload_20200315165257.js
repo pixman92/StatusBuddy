@@ -11,19 +11,13 @@ window.onload = ()=>{
 
     document.getElementById('searchLink').addEventListener('click', ()=>{
         hide();
-        closeNavBar();
         show('search');
     });
 
-    document.getElementById('updateLink').addEventListener('click', ()=>{
+    document.getElementById('updateStatus').addEventListener('click', ()=>{
         hide();
-        closeNavBar();
         show('updateStatus');
     });
-    document.getElementById('homeLink').addEventListener('click', ()=>{
-        hide();
-        closeNavBar();
-        show('page1');
-    });
+
 
 }
