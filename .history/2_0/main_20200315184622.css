@@ -200,12 +200,5 @@ color: white;
 /* ============= */
 
 .marginAroundMe{
-    margin-top: .8em;
-
-    padding: 1.2em;
-}
-/* ====================== */
-
-#status #statusFromSearch{
-    overflow-wrap: break-word;
+    margin: .8em;
 }

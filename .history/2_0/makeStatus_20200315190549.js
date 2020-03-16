@@ -47,7 +47,7 @@ async function pushStatus(myEmail, myStatus){
 
     async function four(three3){
         try{
-            var myDate = new Date();
+            var myDate = new Date().now();
             addDoc('users', whereIds[0], {date: myDate});
 
         }catch(e){

@@ -71,7 +71,7 @@ function secsToDate(seconds) {
     //converts to a whole date String
     var newD = new Date(0);
 
-    newD.setSeconds(seconds);
+    newD.setSeconds(seconds*1000);
 
     return newD;
 }

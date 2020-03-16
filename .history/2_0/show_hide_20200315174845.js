@@ -12,7 +12,7 @@ function show(id){
     document.getElementById(id).style.display="block";
 
     if(id=="page1"){
-        addStatusToHTML('sam@gmail.com');
+        
     }
 }
 

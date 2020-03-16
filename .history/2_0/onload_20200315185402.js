@@ -93,9 +93,6 @@ async function addStatusToHTML(email){
         try{
             console.log('wholeDoc', wholeDoc);
             document.getElementById('status').innerHTML = wholeDoc[0].status;
-            document.getElementById('myEmail').innerHTML = wholeDoc[0].email;
-            document.getElementById('dateStatus').innerHTML = secsToDate(wholeDoc[0].date.seconds);
-            
             
         }catch(e){
             console.log(e);

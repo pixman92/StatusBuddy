@@ -1,4 +1,3 @@
-var searchArr = [];
 window.onload = ()=>{
 
     // update status function (!)
@@ -50,22 +49,8 @@ window.onload = ()=>{
     });  
 
     document.getElementById('searchButton').addEventListener('click', async()=>{
-        var emailElem = document.getElementById('searchInput').value;
-        if(emailElem==""){
-            alert("Please enter an email!");
-        }else{
-            await pullStatus(emailElem);
-            searchArr=[];
-            searchArr.push('<div class=\"w3-card marginAroundMe\">');
-            searchArr.push(wholeDoc[0].status);
-            searchArr.push('</div>');
-            // searchArr.join("");
-            document.getElementById('statusFromSearch').innerHTML = searchArr.join("");
-
-        }
-        if(whereIds[0]==undefined){
-            alert("None found")
-        }
+        var emailElem = document.getElementById('')
+        await pullStatus
     });
     
 
@@ -93,9 +78,6 @@ async function addStatusToHTML(email){
         try{
             console.log('wholeDoc', wholeDoc);
             document.getElementById('status').innerHTML = wholeDoc[0].status;
-            document.getElementById('myEmail').innerHTML = wholeDoc[0].email;
-            document.getElementById('dateStatus').innerHTML = secsToDate(wholeDoc[0].date.seconds);
-            
             
         }catch(e){
             console.log(e);

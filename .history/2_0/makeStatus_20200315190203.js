@@ -7,7 +7,6 @@ async function pushStatus(myEmail, myStatus){
         var one1 = await one(myEmail);
         var two2 = await two(one1, myEmail);
         var three3 = await three(two2, myStatus);
-        var four4 = await four(three3);
 
     }catch(e){
         console.log('e', e);

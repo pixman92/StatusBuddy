@@ -1,8 +1,4 @@
-var searchArr = [];
 window.onload = ()=>{
-
-    // update status function (!)
-    addStatusToHTML('sam@gmail.com');
 
     // closeNavBar();
 
@@ -38,36 +34,16 @@ window.onload = ()=>{
 
     // buttons ... Search and Update
 
-    document.getElementById('updateBtn').addEventListener('click', async()=>{
+    document.getElementById('updateBtn').addEventListener('click', ()=>{
         var statusElem = document.getElementById('statusUpdateForm').value;
-        await pushStatus('sam@gmail.com', statusElem ); 
-        if(wholeDoc[0].status!=undefined){
+        pushStatus('sam@gmail.com', statusElem ); 
+        if(wholeDoc.length!=0){
             alert("Saved!");
         }else{
             alert("Something went wrong");
         }
-        document.getElementById('statusUpdateForm').value="";
     });  
 
-    document.getElementById('searchButton').addEventListener('click', async()=>{
-        var emailElem = document.getElementById('searchInput').value;
-        if(emailElem==""){
-            alert("Please enter an email!");
-        }else{
-            await pullStatus(emailElem);
-            searchArr=[];
-            searchArr.push('<div class=\"w3-card marginAroundMe\">');
-            searchArr.push(wholeDoc[0].status);
-            searchArr.push('</div>');
-            // searchArr.join("");
-            document.getElementById('statusFromSearch').innerHTML = searchArr.join("");
-
-        }
-        if(whereIds[0]==undefined){
-            alert("None found")
-        }
-    });
-    
 
 }
 
@@ -88,15 +64,11 @@ async function addStatusToHTML(email){
             throw e;
         }
     }
-    
+
     async function two(one1){
         try{
             console.log('wholeDoc', wholeDoc);
             document.getElementById('status').innerHTML = wholeDoc[0].status;
-            document.getElementById('myEmail').innerHTML = wholeDoc[0].email;
-            document.getElementById('dateStatus').innerHTML = secsToDate(wholeDoc[0].date.seconds);
-            
-            
         }catch(e){
             console.log(e);
             throw e;

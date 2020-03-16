@@ -7,7 +7,6 @@ async function pushStatus(myEmail, myStatus){
         var one1 = await one(myEmail);
         var two2 = await two(one1, myEmail);
         var three3 = await three(two2, myStatus);
-        var four4 = await four(three3);
 
     }catch(e){
         console.log('e', e);
@@ -45,10 +44,9 @@ async function pushStatus(myEmail, myStatus){
         }
     }   
 
-    async function four(three3){
+    async function four(three3, myStatus){
         try{
-            var myDate = new Date();
-            addDoc('users', whereIds[0], {date: myDate});
+            addDoc('users', whereIds[0], {status: myStatus});
 
         }catch(e){
             console.log(e);
