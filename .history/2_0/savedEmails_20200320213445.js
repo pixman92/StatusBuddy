@@ -1,7 +1,6 @@
 
 async function addToSavedEmails(myEmail, emailToAdd){
     //function that saves emails to separate Doc
-    // edge case? - email is already there, don't add duplicates
     try{
         var one1 = await one(myEmail);
         var two2 = await two(one1, emailToAdd);
@@ -54,7 +53,7 @@ async function addToSavedEmails(myEmail, emailToAdd){
 
 var savedEmailsArr=[];
 async function savedEmails(myEmail){
-    // HTML maker! for savedEmails - from DOC saved within admin's email
+    // HTML maker! for savedEmails - from DOC saved within admin's emal
     try{
         var one1 = await one(myEmail);
         var two2 = await two(one1);
