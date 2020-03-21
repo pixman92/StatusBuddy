@@ -52,46 +52,36 @@ async function addToSavedEmails(myEmail, emailToAdd){
 
 
 var savedEmailsArr=[];
-async function savedEmails(myEmail){
+async function savedEmails(email){
     try{
-        var one1 = await one(myEmail);
-        var two2 = await two(one1);
-        var three3 = await three(two2);
+        var one1 = await one(email);
+        if(wholeDoc.length!=0){
+            var two2 = await two(one1);
+        }else{
+        }
+        // var three3 = await three(two2, myStatus);
 
     }catch(e){
         console.log('e', e);
         throw e;
     }
 
-    async function one(myEmail){
+    async function one(email){
         // function to pull and see if email has status
-        // await pullStatus(email);
-        try{
-            whereIds=[];
-            await whereMe('users', 'email', myEmail, ()=>{
-            });
-            
-        }catch(e){
-            console.log(e);
-            throw e;
-        }
+        await pullStatus(email);
     }
-    
+
+
     async function two(one1){
-        await getAll('users/'+whereIds[0]+'/savedEmails', ()=>{});
-
-    }
-
-    async function three(two2){
         savedEmailsArr.push('<div class="gridSavedEmailAndX">');
         savedEmailsArr.push('<div>');
         
         savedEmailsArr.push('<li id=');
-        savedEmailsArr.push('\"'+getAllArr[0].savedEmail+'\"');
+        savedEmailsArr.push('\"'+wholeDoc[0].email+'\"');
         savedEmailsArr.push('>')
 
 
-        savedEmailsArr.push(getAllArr[0].savedEmail)
+        savedEmailsArr.push(wholeDoc[0].email)
         savedEmailsArr.push('</li>');
         
         savedEmailsArr.push('</div>');

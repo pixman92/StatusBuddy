@@ -78,7 +78,7 @@ async function savedEmails(myEmail){
     }
     
     async function two(one1){
-        await getAll('users/'+whereIds[0]+'/savedEmails', ()=>{});
+        await getAll('users/'+whereIds[0]+'/savedEmails');
 
     }
 
@@ -87,11 +87,11 @@ async function savedEmails(myEmail){
         savedEmailsArr.push('<div>');
         
         savedEmailsArr.push('<li id=');
-        savedEmailsArr.push('\"'+getAllArr[0].savedEmail+'\"');
+        savedEmailsArr.push('\"'+getAllArr[0].email+'\"');
         savedEmailsArr.push('>')
 
 
-        savedEmailsArr.push(getAllArr[0].savedEmail)
+        savedEmailsArr.push(getAllArr[0].email)
         savedEmailsArr.push('</li>');
         
         savedEmailsArr.push('</div>');

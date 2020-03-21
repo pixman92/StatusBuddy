@@ -45,3 +45,5 @@
 2020, 03, 15 - 15:49:03 --- page1 - working, HTML for Status Update - working. NEXT? add functionality
 
 2020, 03, 15 - 17:19:28 --- getting GUI and HTML working. NEXT? search, update and saved searchs
+
+2020, 03, 15 - 23:05:51 --- Adding Saved Emails - working, HTML, JS still not there

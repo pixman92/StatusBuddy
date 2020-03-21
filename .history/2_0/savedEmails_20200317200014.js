@@ -55,8 +55,11 @@ var savedEmailsArr=[];
 async function savedEmails(myEmail){
     try{
         var one1 = await one(myEmail);
-        var two2 = await two(one1);
-        var three3 = await three(two2);
+        if(wholeDoc.length!=0){
+            var two2 = await two(one1);
+        }else{
+        }
+        // var three3 = await three(two2, myStatus);
 
     }catch(e){
         console.log('e', e);
@@ -78,20 +81,20 @@ async function savedEmails(myEmail){
     }
     
     async function two(one1){
-        await getAll('users/'+whereIds[0]+'/savedEmails', ()=>{});
+        await getAll('users/'+whereIds[0]+'/savedEmails');
 
     }
 
-    async function three(two2){
+    async function two(one1){
         savedEmailsArr.push('<div class="gridSavedEmailAndX">');
         savedEmailsArr.push('<div>');
         
         savedEmailsArr.push('<li id=');
-        savedEmailsArr.push('\"'+getAllArr[0].savedEmail+'\"');
+        savedEmailsArr.push('\"'+getAllArr[0].email+'\"');
         savedEmailsArr.push('>')
 
 
-        savedEmailsArr.push(getAllArr[0].savedEmail)
+        savedEmailsArr.push(getAllArr[0].email)
         savedEmailsArr.push('</li>');
         
         savedEmailsArr.push('</div>');

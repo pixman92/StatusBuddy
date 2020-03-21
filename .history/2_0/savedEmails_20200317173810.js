@@ -1,9 +1,9 @@
 
-async function addToSavedEmails(myEmail, emailToAdd){
+async function addToSavedEmails(adminEmail, myEmail){
     //function that saves emails to separate Doc
     try{
-        var one1 = await one(myEmail);
-        var two2 = await two(one1, emailToAdd);
+        var one1 = await one(adminEmail);
+        var two2 = await two(one1, myEmail);
         // var three3 = await three(two2, myStatus);
         // var four4 = await four(three3);
 
@@ -12,10 +12,10 @@ async function addToSavedEmails(myEmail, emailToAdd){
         throw e;
     }
     
-    async function one(myEmail){
+    async function one(adminEmail){
         try{
             whereIds=[];
-            await whereMe('users', 'email', myEmail, ()=>{
+            await whereMe('users', 'email', adminEmail, ()=>{
             });
             
         }catch(e){
@@ -23,22 +23,14 @@ async function addToSavedEmails(myEmail, emailToAdd){
             throw e;
         }
     }
-    async function two(one1, emailToAdd){
-        var added = [];
+    async function two(one1, myEmail){
         await getAll('users/'+whereIds[0]+'/savedEmails', async()=>{
             for(var i=0; i<getAllArr.length; i++){
-                if(getAllArr[i].savedEmail==emailToAdd){
+                if(getAllArr[i].savedEmail==myEmail){
                     alert('Already on your list!');
-                    // added.push(i);
-                    added.push(i);
+                }else{
+                    await adding('users/'+whereIds[0]+'/savedEmails',  {savedEmail: myEmail});
                 }
-                // else{
-                // }
-            }
-            console.log('added', added);
-            if(added.length == 0){
-                await adding('users/'+whereIds[0]+'/savedEmails',  {savedEmail: emailToAdd});
-
             }
 
         });
@@ -52,46 +44,36 @@ async function addToSavedEmails(myEmail, emailToAdd){
 
 
 var savedEmailsArr=[];
-async function savedEmails(myEmail){
+async function savedEmails(email){
     try{
-        var one1 = await one(myEmail);
-        var two2 = await two(one1);
-        var three3 = await three(two2);
+        var one1 = await one(email);
+        if(wholeDoc.length!=0){
+            var two2 = await two(one1);
+        }else{
+        }
+        // var three3 = await three(two2, myStatus);
 
     }catch(e){
         console.log('e', e);
         throw e;
     }
 
-    async function one(myEmail){
+    async function one(email){
         // function to pull and see if email has status
-        // await pullStatus(email);
-        try{
-            whereIds=[];
-            await whereMe('users', 'email', myEmail, ()=>{
-            });
-            
-        }catch(e){
-            console.log(e);
-            throw e;
-        }
+        await pullStatus(email);
     }
-    
+
+
     async function two(one1){
-        await getAll('users/'+whereIds[0]+'/savedEmails', ()=>{});
-
-    }
-
-    async function three(two2){
         savedEmailsArr.push('<div class="gridSavedEmailAndX">');
         savedEmailsArr.push('<div>');
         
         savedEmailsArr.push('<li id=');
-        savedEmailsArr.push('\"'+getAllArr[0].savedEmail+'\"');
+        savedEmailsArr.push('\"'+wholeDoc[0].email+'\"');
         savedEmailsArr.push('>')
 
 
-        savedEmailsArr.push(getAllArr[0].savedEmail)
+        savedEmailsArr.push(wholeDoc[0].email)
         savedEmailsArr.push('</li>');
         
         savedEmailsArr.push('</div>');
