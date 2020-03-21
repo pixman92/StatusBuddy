@@ -123,18 +123,10 @@ async function pullFromSavedEmails(myEmail){
 
         for(var i=0; i<getAllArr.length; i++){
             console.log('i', i);
-            // document.getElementById(getAllArr[i].savedEmail).addEventListener('click', async()=>{
-            //     // console.log('i ran');
-            //     pullStatus(getAllArr[1].savedEmail);
-            // });
-            // var tmp = document.getElementById(getAllArr[i].savedEmail);
-            // Gator(tmp).on('click', async(e)=>{
-            //     e.preventDefault();
-            //     pullStatus(getAllArr[i].savedEmail);
-            // });
-
-
-
+            document.getElementById(getAllArr[i].savedEmail).addEventListener('click', async()=>{
+                console.log('i ran');
+                pullStatus(getAllArr[i].savedEmail);
+            });
         }
         // });
         

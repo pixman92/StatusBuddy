@@ -127,11 +127,11 @@ async function pullFromSavedEmails(myEmail){
             //     // console.log('i ran');
             //     pullStatus(getAllArr[1].savedEmail);
             // });
-            // var tmp = document.getElementById(getAllArr[i].savedEmail);
-            // Gator(tmp).on('click', async(e)=>{
-            //     e.preventDefault();
-            //     pullStatus(getAllArr[i].savedEmail);
-            // });
+            var tmp = document.getElementById(getAllArr[i].savedEmail);
+            Gator(tmp).on('click', getAllArr[i].savedEmail,  async(e)=>{
+                e.preventDefault();
+                pullStatus(getAllArr[i].savedEmail);
+            });
 
 
 

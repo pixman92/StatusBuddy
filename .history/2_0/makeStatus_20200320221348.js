@@ -66,7 +66,7 @@ async function pullStatus(myEmail){
     // to be used -> for 'auto' searching of clicked friendEmail
     try{
         var one1 = await one(myEmail);
-        var two2 = await two(one1);
+        var two2 = await two(one1, myEmail);
         // var three3 = await three(two2, myStatus);
 
     }catch(e){
@@ -88,7 +88,7 @@ async function pullStatus(myEmail){
 
     async function two(one1){
         await getting('users', whereIds[0],  ()=>{});
-        // console.log('', );
+        console.log('', );
     }
 
 

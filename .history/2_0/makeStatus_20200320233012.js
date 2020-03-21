@@ -88,7 +88,7 @@ async function pullStatus(myEmail){
 
     async function two(one1){
         await getting('users', whereIds[0],  ()=>{});
-        // console.log('', );
+        console.log('', );
     }
 
 

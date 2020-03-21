@@ -53,7 +53,7 @@ async function addToSavedEmails(myEmail, emailToAdd){
 
 
 var savedEmailsArr=[];
-async function pullFromSavedEmails(myEmail){
+async function savedEmails(myEmail){
     // HTML maker! for savedEmails - from DOC saved within admin's email
     try{
         var one1 = await one(myEmail);
@@ -122,20 +122,11 @@ async function pullFromSavedEmails(myEmail){
         //     console.log('run');
 
         for(var i=0; i<getAllArr.length; i++){
-            console.log('i', i);
-            // document.getElementById(getAllArr[i].savedEmail).addEventListener('click', async()=>{
-            //     // console.log('i ran');
-            //     pullStatus(getAllArr[1].savedEmail);
-            // });
-            // var tmp = document.getElementById(getAllArr[i].savedEmail);
-            // Gator(tmp).on('click', async(e)=>{
-            //     e.preventDefault();
-            //     pullStatus(getAllArr[i].savedEmail);
-            // });
-
-
-
+            
         }
+            document.getElementById(getAllArr[0].savedEmail).addEventListener('click', async()=>{
+                await pullStatus(getAllArr[0].savedEmail);
+            });
         // });
         
     }

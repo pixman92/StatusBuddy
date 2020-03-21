@@ -53,13 +53,13 @@ async function addToSavedEmails(myEmail, emailToAdd){
 
 
 var savedEmailsArr=[];
-async function pullFromSavedEmails(myEmail){
+async function savedEmails(myEmail){
     // HTML maker! for savedEmails - from DOC saved within admin's email
     try{
         var one1 = await one(myEmail);
         var two2 = await two(one1);
         var three3 = await three(two2);
-        var four4 = await four(three3);
+        var four4 = await three(two2);
 
     }catch(e){
         console.log('e', e);
@@ -117,26 +117,14 @@ async function pullFromSavedEmails(myEmail){
         
     }
 
-    async function four(three3){
-        // document.getElementById('dynamicSavedEmails').addEventListener('load', ()=>{
-        //     console.log('run');
+    async function three(three3){
+        document.getElementById('dynamicSavedEmails').addEventListener('load', ()=>{
+            console.log('run');
 
-        for(var i=0; i<getAllArr.length; i++){
-            console.log('i', i);
-            // document.getElementById(getAllArr[i].savedEmail).addEventListener('click', async()=>{
-            //     // console.log('i ran');
-            //     pullStatus(getAllArr[1].savedEmail);
+            // document.getElementById(getAllArr[0].savedEmail).addEventListener('click', async()=>{
+            //     await pullStatus(getAllArr[0].savedEmail);
             // });
-            // var tmp = document.getElementById(getAllArr[i].savedEmail);
-            // Gator(tmp).on('click', async(e)=>{
-            //     e.preventDefault();
-            //     pullStatus(getAllArr[i].savedEmail);
-            // });
-
-
-
-        }
-        // });
+        });
         
     }
 

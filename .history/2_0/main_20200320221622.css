@@ -127,7 +127,6 @@ color: white;
     top:0;
     left: 0;
     
-    height: 1000px;
 }
 
 .showMe2{
@@ -136,11 +135,11 @@ color: white;
     transition: visiblity 1s; */
 
 
-    width: 222px;
+    width: 200px;
     transition:width 100ms;
 
     /* height: 100%; */
-    /* overflow: hidden; */
+    overflow: hidden;
 
     position: absolute;
     top:0;
@@ -153,7 +152,7 @@ color: white;
 
 .inner{
     background-color: darkgrey;
-    height: 1000px;
+    
 }
 
 /* ===== */

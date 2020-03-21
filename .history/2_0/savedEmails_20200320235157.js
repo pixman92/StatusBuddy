@@ -121,20 +121,12 @@ async function pullFromSavedEmails(myEmail){
         // document.getElementById('dynamicSavedEmails').addEventListener('load', ()=>{
         //     console.log('run');
 
-        for(var i=0; i<getAllArr.length; i++){
+        for(var i=0; i<getAllArr.length-1; i++){
             console.log('i', i);
-            // document.getElementById(getAllArr[i].savedEmail).addEventListener('click', async()=>{
-            //     // console.log('i ran');
-            //     pullStatus(getAllArr[1].savedEmail);
-            // });
-            // var tmp = document.getElementById(getAllArr[i].savedEmail);
-            // Gator(tmp).on('click', async(e)=>{
-            //     e.preventDefault();
-            //     pullStatus(getAllArr[i].savedEmail);
-            // });
-
-
-
+            document.getElementById(getAllArr[i].savedEmail).addEventListener('click', async()=>{
+                // console.log('i ran');
+                pullStatus(getAllArr[0].savedEmail);
+            });
         }
         // });
         
