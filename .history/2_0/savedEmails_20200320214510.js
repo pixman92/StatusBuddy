@@ -70,6 +70,8 @@ async function savedEmails(myEmail){
         // await pullStatus(email);
         try{
             whereIds=[];
+            getaAllPaths=[];
+            getAllArr=[];
             await whereMe('users', 'email', myEmail, ()=>{
             });
             
@@ -87,7 +89,7 @@ async function savedEmails(myEmail){
     async function three(two2){
         document.getElementById('dynamicSavedEmails').innerHTML = "";
 
-        savedEmailsArr = [];
+        savedEmails
         
         for(var i=0; i<getaAllPaths.length; i++){
             savedEmailsArr.push('<div class="gridSavedEmailAndX">');

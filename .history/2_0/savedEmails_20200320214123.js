@@ -85,10 +85,7 @@ async function savedEmails(myEmail){
     }
 
     async function three(two2){
-        document.getElementById('dynamicSavedEmails').innerHTML = "";
 
-        savedEmailsArr = [];
-        
         for(var i=0; i<getaAllPaths.length; i++){
             savedEmailsArr.push('<div class="gridSavedEmailAndX">');
             savedEmailsArr.push('<div>');
@@ -96,8 +93,8 @@ async function savedEmails(myEmail){
             savedEmailsArr.push('<li id=');
             savedEmailsArr.push('\"'+getAllArr[i].savedEmail+'\"');
             savedEmailsArr.push('>')
-            
-            
+    
+    
             savedEmailsArr.push(getAllArr[i].savedEmail)
             savedEmailsArr.push('</li>');
             
@@ -108,11 +105,10 @@ async function savedEmails(myEmail){
             savedEmailsArr.push('</div>');
             savedEmailsArr.push('</div>');
             savedEmailsArr.push('</div>');
-            
+
         }
         
         
         document.getElementById('dynamicSavedEmails').innerHTML = savedEmailsArr.join("");
-        
     }
 }

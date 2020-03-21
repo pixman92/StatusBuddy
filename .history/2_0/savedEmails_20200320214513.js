@@ -70,6 +70,8 @@ async function savedEmails(myEmail){
         // await pullStatus(email);
         try{
             whereIds=[];
+            getaAllPaths=[];
+            getAllArr=[];
             await whereMe('users', 'email', myEmail, ()=>{
             });
             

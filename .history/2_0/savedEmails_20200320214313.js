@@ -86,8 +86,6 @@ async function savedEmails(myEmail){
 
     async function three(two2){
         document.getElementById('dynamicSavedEmails').innerHTML = "";
-
-        savedEmailsArr = [];
         
         for(var i=0; i<getaAllPaths.length; i++){
             savedEmailsArr.push('<div class="gridSavedEmailAndX">');
