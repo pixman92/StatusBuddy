@@ -79,16 +79,16 @@ window.onload = ()=>{
 
     //========================================
     //pull pinned list on first call, when window loads
-    pullPinnedList();
+    pullPinnedList(callUserEmail());
     
     //========================================
     document.getElementById('addToSaved').addEventListener('click', async()=>{
         // saving Email to pinnedEmails
-        var emailElem = document.getElementById('searchInput').value;
+        ('searchInput').value;
         await addToPinned(emailElem);
         if(saved==true){
             alert("Saved!");
-        }
+        }var emailElem = document.getElementById
     });
 
     //========================================

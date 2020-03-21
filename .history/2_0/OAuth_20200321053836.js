@@ -53,11 +53,11 @@ function check(){
 
 function callUserEmail(){
   try{
-   
-      user = firebase.auth().currentUser;
-      MAINEMAIL = user.email;
+    if(user){
+      var user = firebase.auth().currentUser;
+      var MAINEMAIL = user.email;
       return MAINEMAIL;
-    
+    }
   }catch(e){
     console.log(e);
     // check();

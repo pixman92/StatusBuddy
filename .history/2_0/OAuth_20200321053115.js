@@ -53,14 +53,14 @@ function check(){
 
 function callUserEmail(){
   try{
-   
-      user = firebase.auth().currentUser;
-      MAINEMAIL = user.email;
-      return MAINEMAIL;
-    
+    check();
+    var user = firebase.auth().currentUser;
+    var MAINEMAIL = user.email;
+    return MAINEMAIL;
+
   }catch(e){
     console.log(e);
-    // check();
+    check();
     throw e;
   }
 }

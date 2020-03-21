@@ -6,7 +6,7 @@ async function addToPinned(emailToAdd){
     // edge case? - email is already there, don't add duplicates
     myEmail = callUserEmail();
     try{
-        var one1 = await one();
+        var one1 = await one(myEmail);
         var two2 = await two(one1, emailToAdd);
         // var three3 = await three(two2, myStatus);
         // var four4 = await four(three3);

@@ -79,7 +79,7 @@ window.onload = ()=>{
 
     //========================================
     //pull pinned list on first call, when window loads
-    pullPinnedList();
+    pullPinnedList(callUserEmail());
     
     //========================================
     document.getElementById('addToSaved').addEventListener('click', async()=>{

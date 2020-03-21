@@ -1,14 +1,5 @@
 var searchArr = [];
 window.onload = ()=>{
-    
-    
-    
-    check();
-    
-    document.getElementById('loginButton').addEventListener('click', ()=>{
-        signIn();
-    });
-
 
     // update status function (!)
     addStatusToHTML();
@@ -49,7 +40,7 @@ window.onload = ()=>{
 
     document.getElementById('updateBtn').addEventListener('click', async()=>{
         var statusElem = document.getElementById('statusUpdateForm').value;
-        await pushStatus(statusElem); 
+        await pushStatus(statusElem ); 
         if(wholeDoc[0].status!=undefined){
             alert("Saved!");
         }else{
@@ -79,25 +70,29 @@ window.onload = ()=>{
 
     //========================================
     //pull pinned list on first call, when window loads
-    pullPinnedList();
+    pullPinnedList(myEmail = callUserEmail());
     
     //========================================
-    document.getElementById('addToSaved').addEventListener('click', async()=>{
+    document.getElementById('addToSaved').addEventListener('click', ()=>{
         // saving Email to pinnedEmails
         var emailElem = document.getElementById('searchInput').value;
-        await addToPinned(emailElem);
+        addToPinned(emailElem);
         if(saved==true){
             alert("Saved!");
         }
     });
 
     //========================================
+    check();
+
+    document.getElementById('loginButton').addEventListener('click', ()=>{
+        signIn();
+    });
 
 }
 
 async function addStatusToHTML(){
     email = callUserEmail();
-    console.log('email', email);
     try{
         var one1 = await one(email);
         var two2 = await two(one1);
@@ -108,7 +103,7 @@ async function addStatusToHTML(){
 
     async function one(email){
         try{
-            await pullStatus();
+            await pullStatus(email);
         }catch(e){
             console.log(e);
             throw e;
