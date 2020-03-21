@@ -134,12 +134,9 @@ async function pullPinnedList(myEmail){
     async function four(three3){
         getAllArr.forEach(async(elem)=>{
             document.getElementById(elem.savedEmail).addEventListener('click', async()=>{
+                await pullStatus(elem.savedEmail); //populates wholeDoc[];
                 try{
-                    await pullStatus(elem.savedEmail); //populates wholeDoc[];
-                }catch(e){
-                    alert("No status from that person!")
-                    console.log(e);
-                    throw e;
+
                 }
 
                 //========================================

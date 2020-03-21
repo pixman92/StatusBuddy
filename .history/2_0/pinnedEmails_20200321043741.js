@@ -137,7 +137,6 @@ async function pullPinnedList(myEmail){
                 try{
                     await pullStatus(elem.savedEmail); //populates wholeDoc[];
                 }catch(e){
-                    alert("No status from that person!")
                     console.log(e);
                     throw e;
                 }

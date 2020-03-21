@@ -77,7 +77,7 @@ window.onload = ()=>{
         var emailElem = document.getElementById('searchInput').value;
         addToPinned('sam@gmail.com', emailElem);
         if(saved==true){
-            alert("Saved!");
+            alert("Saved!")
         }
     });
 

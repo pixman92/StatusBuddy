@@ -135,12 +135,9 @@ async function pullPinnedList(myEmail){
         getAllArr.forEach(async(elem)=>{
             document.getElementById(elem.savedEmail).addEventListener('click', async()=>{
                 try{
-                    await pullStatus(elem.savedEmail); //populates wholeDoc[];
-                }catch(e){
-                    alert("No status from that person!")
-                    console.log(e);
-                    throw e;
+                    
                 }
+                await pullStatus(elem.savedEmail); //populates wholeDoc[];
 
                 //========================================
                 //funcitonality - push to search page

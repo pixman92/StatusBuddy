@@ -39,7 +39,6 @@ div .lessMarg{
 .headerGrid{
     display: grid;
     grid-template-columns: .3fr 3fr 1fr;
-    width: 100%;
 }
 
 .header {
@@ -232,7 +231,7 @@ color: white;
 .gridSavedEmailAndX{
     display: grid;
     grid-template-columns: 1fr .3fr;
-    font-size: .75em;
+    font-size: .9em;
 }
 
 #xbutton{

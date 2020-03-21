@@ -41,7 +41,7 @@ async function addToPinned(myEmail, emailToAdd){
             console.log('added', added);
             if(added.length == 0){
                 await adding('users/'+whereIds[0]+'/savedEmails',  {savedEmail: emailToAdd});
-                alert("Saved!");
+
             }
 
         });
@@ -134,13 +134,7 @@ async function pullPinnedList(myEmail){
     async function four(three3){
         getAllArr.forEach(async(elem)=>{
             document.getElementById(elem.savedEmail).addEventListener('click', async()=>{
-                try{
-                    await pullStatus(elem.savedEmail); //populates wholeDoc[];
-                }catch(e){
-                    alert("No status from that person!")
-                    console.log(e);
-                    throw e;
-                }
+                await pullStatus(elem.savedEmail); //populates wholeDoc[];
 
                 //========================================
                 //funcitonality - push to search page
