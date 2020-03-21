@@ -51,8 +51,3 @@ function check(){
 
 }
 
-function callUserEmail(){
-  var user = firebase.auth().currentUser;
-  var MAINEMAIL = user.email;
-  return MAINEMAIL;
-}

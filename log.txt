@@ -61,3 +61,7 @@
 2020, 03, 20 - 23:40:41 --- 1 - pushStatus(). 2 - pullStatus(). 3 - addToSavedEmails(). 4 - pullFromSavedEmails. 5 - click on email. Be taken to Search Page. Status - HTMLized
 
 2020, 03, 21 - 02:28:58 --- trying to get erasePinnedEmail() - working
+
+2020, 03, 21 - 05:04:38 --- callUserEmail()
+
+2020, 03, 21 - 05:04:51 --- pull full and hopefully safe email for user

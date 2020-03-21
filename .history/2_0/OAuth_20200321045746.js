@@ -1,3 +1,5 @@
+var provider = new firebase.auth.GoogleAuthProvider();
+
 
 function signIn(){
     firebase.auth().signInWithPopup(provider).then(function(result) {
@@ -25,4 +27,24 @@ function signOut(){
         }).catch(function(error) {
         // An error happened.
         });
+}
+
+var user = firebase.auth().currentUser;
+var MAINEMAIL="";
+function check(){
+  firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+      // User is signed in.
+      console.log('in')
+      
+      var user = firebase.auth().currentUser;
+      var MAINEMAIL = user.email;
+    } else {
+      // No user is signed in.
+      console.log('out')
+      hide();
+      show('loginButton');
+    }
+  });
+
 }

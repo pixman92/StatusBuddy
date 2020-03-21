@@ -1,7 +1,7 @@
 
 
 var saved = false;
-async function addToPinned(emailToAdd){
+async function addToPinned(myEmail, emailToAdd){
     //function that saves emails to separate Doc
     // edge case? - email is already there, don't add duplicates
     myEmail = callUserEmail();
@@ -56,9 +56,8 @@ async function addToPinned(emailToAdd){
 
 
 var savedEmailsArr=[];
-async function pullPinnedList(){
+async function pullPinnedList(myEmail){
     // HTML maker! for savedEmails - from DOC saved within admin's email
-    myEmail = callUserEmail();
     try{
         var one1 = await one(myEmail);
         var two2 = await two(one1);
@@ -182,9 +181,9 @@ async function pullPinnedList(){
 
 //========================================
 
-async function erasePinnedEmail(unpinMe){
+async function erasePinnedEmail(myEmail, unpinMe){
     //function to remove one emailOfSavedFriend
-    myEmail = callUserEmail();
+
     try{
         var one1 = await one(myEmail);
         var two2 = await two(one1);

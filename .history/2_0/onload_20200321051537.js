@@ -76,7 +76,7 @@ window.onload = ()=>{
     document.getElementById('addToSaved').addEventListener('click', ()=>{
         // saving Email to pinnedEmails
         var emailElem = document.getElementById('searchInput').value;
-        addToPinned(myEmail = callUserEmail(), emailElem);
+        addToPinned('sam@gmail.com', emailElem);
         if(saved==true){
             alert("Saved!");
         }
@@ -91,8 +91,7 @@ window.onload = ()=>{
 
 }
 
-async function addStatusToHTML(){
-    email = callUserEmail();
+async function addStatusToHTML(email){
     try{
         var one1 = await one(email);
         var two2 = await two(one1);

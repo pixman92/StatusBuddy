@@ -182,9 +182,9 @@ async function pullPinnedList(){
 
 //========================================
 
-async function erasePinnedEmail(unpinMe){
+async function erasePinnedEmail(myEmail, unpinMe){
     //function to remove one emailOfSavedFriend
-    myEmail = callUserEmail();
+
     try{
         var one1 = await one(myEmail);
         var two2 = await two(one1);

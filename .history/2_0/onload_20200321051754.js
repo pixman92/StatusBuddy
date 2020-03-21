@@ -91,7 +91,7 @@ window.onload = ()=>{
 
 }
 
-async function addStatusToHTML(){
+async function addStatusToHTML(email){
     email = callUserEmail();
     try{
         var one1 = await one(email);

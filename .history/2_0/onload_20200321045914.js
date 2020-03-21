@@ -2,7 +2,7 @@ var searchArr = [];
 window.onload = ()=>{
 
     // update status function (!)
-    addStatusToHTML(myEmail = callUserEmail());
+    addStatusToHTML('sam@gmail.com');
 
     // closeNavBar();
 
@@ -70,13 +70,13 @@ window.onload = ()=>{
 
     //========================================
     //pull pinned list on first call, when window loads
-    pullPinnedList(myEmail = callUserEmail());
+    pullPinnedList('sam@gmail.com');
     
     //========================================
     document.getElementById('addToSaved').addEventListener('click', ()=>{
         // saving Email to pinnedEmails
         var emailElem = document.getElementById('searchInput').value;
-        addToPinned(myEmail = callUserEmail(), emailElem);
+        addToPinned('sam@gmail.com', emailElem);
         if(saved==true){
             alert("Saved!");
         }
@@ -86,13 +86,12 @@ window.onload = ()=>{
     check();
 
     document.getElementById('loginButton').addEventListener('click', ()=>{
-        signIn();
+        
     });
 
 }
 
-async function addStatusToHTML(){
-    email = callUserEmail();
+async function addStatusToHTML(email){
     try{
         var one1 = await one(email);
         var two2 = await two(one1);

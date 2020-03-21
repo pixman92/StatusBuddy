@@ -62,7 +62,7 @@ async function pushStatus(myStatus){
 
 //=====================================================
 
-async function pullStatus(){
+async function pullStatus(myEmail){
     //function that pulls Status of an email!!
     // to be used -> for 'auto' searching of clicked friendEmail
     

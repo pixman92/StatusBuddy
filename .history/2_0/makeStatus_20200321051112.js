@@ -1,9 +1,8 @@
 //function to push a status to firebase
 
 
-async function pushStatus(myStatus){
+async function pushStatus(myEmail = callUserEmail(), myStatus){
     //function to push Status based on emamil and status params
-    myEmail = callUserEmail();
     try{
         var one1 = await one(myEmail);
         var two2 = await two(one1, myEmail);
@@ -62,11 +61,9 @@ async function pushStatus(myStatus){
 
 //=====================================================
 
-async function pullStatus(){
+async function pullStatus(myEmail){
     //function that pulls Status of an email!!
     // to be used -> for 'auto' searching of clicked friendEmail
-    
-    myEmail = callUserEmail();
     try{
         var one1 = await one(myEmail);
         var two2 = await two(one1);

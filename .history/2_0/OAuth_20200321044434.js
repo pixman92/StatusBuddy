@@ -1,4 +1,8 @@
-firebase.auth().signInWithPopup(provider).then(function(result) {
+var provider = new firebase.auth.GoogleAuthProvider();
+
+
+function signIn(){
+    firebase.auth().signInWithPopup(provider).then(function(result) {
     // This gives you a Facebook Access Token. You can use it to access the Facebook API.
     var token = result.credential.accessToken;
     // The signed-in user info.
@@ -14,12 +18,26 @@ firebase.auth().signInWithPopup(provider).then(function(result) {
     var credential = error.credential;
     // ...
   });
+}
 
 
-  function signOut(){
+function signOut(){
     firebase.auth().signOut().then(function() {
         // Sign-out successful.
-      }).catch(function(error) {
+        }).catch(function(error) {
         // An error happened.
-      });
-  }
+        });
+}
+
+function check(){
+  firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+      // User is signed in.
+      console.log('in')
+    } else {
+      // No user is signed in.
+      console.log('out')
+    }
+  });
+
+}

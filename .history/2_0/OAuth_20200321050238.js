@@ -40,7 +40,7 @@ function check(){
       var user = firebase.auth().currentUser;
       var MAINEMAIL = user.email;
       hide();
-      show('page1');
+      show
     } else {
       // No user is signed in.
       console.log('out')
@@ -49,10 +49,4 @@ function check(){
     }
   });
 
-}
-
-function callUserEmail(){
-  var user = firebase.auth().currentUser;
-  var MAINEMAIL = user.email;
-  return MAINEMAIL;
 }

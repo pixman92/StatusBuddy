@@ -36,11 +36,9 @@ function check(){
     if (user) {
       // User is signed in.
       console.log('in')
-      document.getElementById('buttonCenter').style.display="none";
+      document.getElementById('loginButton').style.display="none";
       var user = firebase.auth().currentUser;
       var MAINEMAIL = user.email;
-      hide();
-      show('page1');
     } else {
       // No user is signed in.
       console.log('out')
@@ -49,10 +47,4 @@ function check(){
     }
   });
 
-}
-
-function callUserEmail(){
-  var user = firebase.auth().currentUser;
-  var MAINEMAIL = user.email;
-  return MAINEMAIL;
 }
