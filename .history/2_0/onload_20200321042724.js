@@ -69,16 +69,11 @@ window.onload = ()=>{
     });
 
     //========================================
-    //pull pinned list on first call, when window loads
     pullPinnedList('sam@gmail.com');
     
     //========================================
-    document.getElementById('addToSaved').addEventListener('click', ()=>{
-        var emailElem = document.getElementById('searchInput').value;
-        addToPinned('sam@gmail.com', emailElem);
-    });
 
-
+    
 
 }
 

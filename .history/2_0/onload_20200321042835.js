@@ -74,8 +74,7 @@ window.onload = ()=>{
     
     //========================================
     document.getElementById('addToSaved').addEventListener('click', ()=>{
-        var emailElem = document.getElementById('searchInput').value;
-        addToPinned('sam@gmail.com', emailElem);
+        addToPinned(myEmail, emailToAdd)
     });
 
 
