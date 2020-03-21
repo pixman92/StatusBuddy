@@ -59,3 +59,5 @@
 2020, 03, 20 - 23:37:31 --- savedEmails(pull saved emails) list them on navBar. Click on <email> in navBar. Have it take you to search page
 
 2020, 03, 20 - 23:40:41 --- 1 - pushStatus(). 2 - pullStatus(). 3 - addToSavedEmails(). 4 - pullFromSavedEmails. 5 - click on email. Be taken to Search Page. Status - HTMLized
+
+2020, 03, 21 - 02:28:58 --- trying to get erasePinnedEmail() - working
