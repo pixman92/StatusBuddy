@@ -102,7 +102,7 @@ async function pullPinnedList(){
 
     async function three(two2){
 
-        if(getAllArr!=""){       //does the user have any saved space(?)
+        if(getAllArr.savedEmail!=""){       //does the user have any saved space(?)
 
             try{
 
@@ -143,7 +143,6 @@ async function pullPinnedList(){
         throw e;
     }
     }
-}
 
     async function four(three3){
         if(getAllArr.savedEmail!=""){       //does the user have any saved space(?)

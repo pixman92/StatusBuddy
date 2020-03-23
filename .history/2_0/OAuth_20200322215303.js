@@ -34,7 +34,7 @@ function signOut(){
 
 // var user = firebase.auth().currentUser;
 var MAINEMAIL="";
-function check(callback){
+function check(){
     firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
       // User is signed in.
@@ -51,7 +51,6 @@ function check(callback){
       hide();
       show('buttonCenter')
     }
-    callback();
   });
 
 }

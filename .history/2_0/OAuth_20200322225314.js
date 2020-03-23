@@ -44,7 +44,7 @@ function check(callback){
       MAINEMAIL = user.email;
       hide();
       show('page1');
-      onLoadFunc();
+      // onLoadFunc();
     } else {
       // No user is signed in.
       console.log('out')

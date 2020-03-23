@@ -1,9 +1,11 @@
 // var provider = new firebase.auth.GoogleAuthProvider();
-var provider = new firebase.auth.GoogleAuthProvider();
+var provider;
+
 
 function signIn(){
+    provider = new firebase.auth.GoogleAuthProvider();
 
-    firebase.auth().signInWithPopup(provider).then(async function(result) {
+    firebase.auth().signInWithPopup(provider).then(function(result) {
     // This gives you a Facebook Access Token. You can use it to access the Facebook API.
     var token = result.credential.accessToken;
     // The signed-in user info.
@@ -34,7 +36,7 @@ function signOut(){
 
 // var user = firebase.auth().currentUser;
 var MAINEMAIL="";
-function check(callback){
+function check(){
     firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
       // User is signed in.
@@ -51,7 +53,6 @@ function check(callback){
       hide();
       show('buttonCenter')
     }
-    callback();
   });
 
 }

@@ -65,3 +65,5 @@
 2020, 03, 21 - 05:04:38 --- callUserEmail()
 
 2020, 03, 21 - 05:04:51 --- pull full and hopefully safe email for user
+
+2020, 03, 22 - 23:07:22 --- Working? - update status (kinda), search works, Pining??? nope

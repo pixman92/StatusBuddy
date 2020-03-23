@@ -101,57 +101,47 @@ async function pullPinnedList(){
     }
 
     async function three(two2){
+        document.getElementById('dynamicSavedEmails').innerHTML = "";
 
-        if(getAllArr!=""){       //does the user have any saved space(?)
-
-            try{
-
-            document.getElementById('dynamicSavedEmails').innerHTML = "";
-
-            savedEmailsArr = [];
-            
-            for(var i=0; i<getAllPaths.length; i++){
-                savedEmailsArr.push('<div class="gridSavedEmailAndX">');
-                savedEmailsArr.push('<div>');
-                
-                savedEmailsArr.push('<li id=');
-                savedEmailsArr.push('\"'+getAllArr[i].savedEmail+'\"');
-                savedEmailsArr.push('>')
-                
-                
-                savedEmailsArr.push(getAllArr[i].savedEmail)
-                savedEmailsArr.push('</li>');
-                
-                savedEmailsArr.push('</div>');
-                savedEmailsArr.push('<div>');
-                savedEmailsArr.push('<button class=\"w3-button w3-blue smfont\"');
-                
-                savedEmailsArr.push('id=\"'+getAllArr[i].savedEmail+'del\"');
-                savedEmailsArr.push('>X</button>');
-                
-                savedEmailsArr.push('</div>');
-                savedEmailsArr.push('</div>');
-                savedEmailsArr.push('</div>');
-                
-            }
-            
-            
-            document.getElementById('dynamicSavedEmails').innerHTML = savedEmailsArr.join("");
+        savedEmailsArr = [];
         
-    }catch(e){
-        console.log(e);
-        throw e;
+        for(var i=0; i<getAllPaths.length; i++){
+            savedEmailsArr.push('<div class="gridSavedEmailAndX">');
+            savedEmailsArr.push('<div>');
+            
+            savedEmailsArr.push('<li id=');
+            savedEmailsArr.push('\"'+getAllArr[i].savedEmail+'\"');
+            savedEmailsArr.push('>')
+            
+            
+            savedEmailsArr.push(getAllArr[i].savedEmail)
+            savedEmailsArr.push('</li>');
+            
+            savedEmailsArr.push('</div>');
+            savedEmailsArr.push('<div>');
+            savedEmailsArr.push('<button class=\"w3-button w3-blue smfont\"');
+            
+            savedEmailsArr.push('id=\"'+getAllArr[i].savedEmail+'del\"');
+            savedEmailsArr.push('>X</button>');
+            
+            savedEmailsArr.push('</div>');
+            savedEmailsArr.push('</div>');
+            savedEmailsArr.push('</div>');
+            
+        }
+        
+        
+        document.getElementById('dynamicSavedEmails').innerHTML = savedEmailsArr.join("");
+        
     }
-    }
-}
 
     async function four(three3){
         if(getAllArr.savedEmail!=""){       //does the user have any saved space(?)
 
             try{
-                
-                getAllArr.forEach(async(elem)=>{
-                    if(document.getElementById(elem.saved)!=null){      //is the doucment null(?)
+                if(document.getElementById(elem.saved)!=null){      //is the doucment null(?)
+
+                    getAllArr.forEach(async(elem)=>{
                         document.getElementById(elem.savedEmail).addEventListener('click', async()=>{
                             try{
                                 await pullStatus(elem.savedEmail); //populates wholeDoc[];
@@ -184,8 +174,8 @@ async function pullPinnedList(){
                         }
                     });
                     
-                }
-            });
+                });
+            }
             }catch(e){
                 console.log(e);
                 throw e;

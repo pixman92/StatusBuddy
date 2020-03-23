@@ -3,12 +3,7 @@ window.onload = ()=>{
     
 
     
-    check(()=>{
-        if(user!=null){
-            console.log('i ran');
-            onLoadFunc();
-        }        
-    });
+    check();
 
     // firebase.auth().onAuthStateChanged(function(user) {
     //     if (user) {
@@ -35,7 +30,9 @@ window.onload = ()=>{
         signIn();
     });
 
-
+    if(callUserEmail!=""){
+        onLoadFunc();
+    }        
         
 
 
@@ -48,7 +45,7 @@ async function onLoadFunc(){
     // update status function (!)
     await addStatusToHTML();
 
-    if(wholeDoc==""){
+    if(wholeDoc[0].status==""){
         document.getElementById('status').innerHTML = "NO SUCH STATUS...YET";
     }
     

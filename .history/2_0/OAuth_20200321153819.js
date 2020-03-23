@@ -1,9 +1,10 @@
 // var provider = new firebase.auth.GoogleAuthProvider();
-var provider = new firebase.auth.GoogleAuthProvider();
+
 
 function signIn(){
+    var provider = new firebase.auth.GoogleAuthProvider();
 
-    firebase.auth().signInWithPopup(provider).then(async function(result) {
+    firebase.auth().signInWithPopup(provider).then(function(result) {
     // This gives you a Facebook Access Token. You can use it to access the Facebook API.
     var token = result.credential.accessToken;
     // The signed-in user info.
@@ -32,38 +33,34 @@ function signOut(){
         });
 }
 
-// var user = firebase.auth().currentUser;
+var user = firebase.auth().currentUser;
 var MAINEMAIL="";
-function check(callback){
-    firebase.auth().onAuthStateChanged(function(user) {
+function check(){
+  firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
       // User is signed in.
       console.log('in')
       document.getElementById('buttonCenter').style.display="none";
       var user = firebase.auth().currentUser;
-      MAINEMAIL = user.email;
+      var MAINEMAIL = user.email;
       hide();
       show('page1');
-      onLoadFunc();
     } else {
       // No user is signed in.
       console.log('out')
       hide();
       show('buttonCenter')
     }
-    callback();
   });
 
 }
 
 function callUserEmail(){
   try{
-    // if(user){
+   
       user = firebase.auth().currentUser;
       MAINEMAIL = user.email;
       return MAINEMAIL;
-
-    // }
     
   }catch(e){
     console.log(e);

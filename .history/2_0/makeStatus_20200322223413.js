@@ -91,11 +91,11 @@ async function pullStatus(){
 
     async function two(one1){
         try{
-            if(whereIds.length!=0){
+            if(whereIds){
                 await getting('users', whereIds[0],  ()=>{});
 
             }else{
-                console.log('no user here' );
+                console.log('no user here );
             
             }
 

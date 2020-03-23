@@ -3,12 +3,7 @@ window.onload = ()=>{
     
 
     
-    check(()=>{
-        if(user!=null){
-            console.log('i ran');
-            onLoadFunc();
-        }        
-    });
+    check();
 
     // firebase.auth().onAuthStateChanged(function(user) {
     //     if (user) {
@@ -35,7 +30,9 @@ window.onload = ()=>{
         signIn();
     });
 
-
+    if(MAINEMAIL!=""){
+        onLoadFunc();
+    }        
         
 
 
@@ -47,10 +44,6 @@ window.onload = ()=>{
 async function onLoadFunc(){
     // update status function (!)
     await addStatusToHTML();
-
-    if(wholeDoc==""){
-        document.getElementById('status').innerHTML = "NO SUCH STATUS...YET";
-    }
     
     // closeNavBar();
 
@@ -140,22 +133,22 @@ async function onLoadFunc(){
 async function addStatusToHTML(){
     // email = callUserEmail();
     // console.log('email', email);
-    // email = callUserEmail();
     try{
-        // var zero0 = await zero();
-        var one1 = await one();
+        var email = callUserEmail();
+        var zero0 = await zero();
+        var one1 = await one(zero0);
         var two2 = await two(one1);
     }catch(e){
         console.log(e);
         throw e;
     }
 
-    // async function zero(){
-    //     // check();
-    //     console.log('email', email);
-    // }
+    async function zero(){
+        // check();
+        console.log('email', email);
+    }
 
-    async function one(){
+    async function one(zero0){
         try{
             await pullStatus();
         }catch(e){
@@ -166,23 +159,15 @@ async function addStatusToHTML(){
     
     async function two(one1){
         try{
-            if(wholeDoc.length!=0){
-                console.log('wholeDoc', wholeDoc);
-                document.getElementById('status').innerHTML = wholeDoc[0].status;
-                document.getElementById('myEmail').innerHTML = wholeDoc[0].email;
-                document.getElementById('dateStatus').innerHTML = secsToDate(wholeDoc[0].date.seconds);
-
-            }else{
-                console.log('user not found'); 
-                document.getElementById("status").innerHTML = "NO STATUS...YET!"; 
-
-            }
+            console.log('wholeDoc', wholeDoc);
+            document.getElementById('status').innerHTML = wholeDoc[0].status;
+            document.getElementById('myEmail').innerHTML = wholeDoc[0].email;
+            document.getElementById('dateStatus').innerHTML = secsToDate(wholeDoc[0].date.seconds);
             
             
         }catch(e){
             console.log(e);
             throw e;
         }
-        return wholeDoc;
     }
 }

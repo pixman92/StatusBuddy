@@ -48,7 +48,7 @@ async function onLoadFunc(){
     // update status function (!)
     await addStatusToHTML();
 
-    if(wholeDoc==""){
+    if(wholeDoc[0].status==undefined){
         document.getElementById('status').innerHTML = "NO SUCH STATUS...YET";
     }
     

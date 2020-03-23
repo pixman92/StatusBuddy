@@ -90,19 +90,8 @@ async function pullStatus(){
     }
 
     async function two(one1){
-        try{
-            if(whereIds.length!=0){
-                await getting('users', whereIds[0],  ()=>{});
-
-            }else{
-                console.log('no user here' );
-            
-            }
-
-        }catch(e){
-            console.log(e);
-            throw e;
-        }
+        await getting('users', whereIds[0],  ()=>{});
+        // console.log('', );
     }
 
 
