@@ -33,41 +33,26 @@ function signOut(){
 }
 
 // var user = firebase.auth().currentUser;
-// var MAINEMAIL="";
-// function check(callback){
-//     firebase.auth().onAuthStateChanged(function(user) {
-//     if (user) {
-//       // User is signed in.
-//       console.log('in')
-//       document.getElementById('buttonCenter').style.display="none";
-//       var user = firebase.auth().currentUser;
-//       MAINEMAIL = user.email;
-//       hide();
-//       show('page1');
-//       onLoadFunc();h
-//     } else {
-//       // No user is signed in.
-//       console.log('out')
-//       hide();
-//       show('buttonCenter')
-//     }
-//     callback();
-//   });
-
-// }
-
-// function callUserEmail(){
-//   try{
-//     // if(user){
-//       user = firebase.auth().currentUser;
-//       MAINEMAIL = user.email;
-//       return MAINEMAIL;
-
-//     // }
+var MAINEMAIL="";
+function check(callback){
     
-//   }catch(e){
-//     console.log(e);
-//     check();
-//     throw e;
-//   }
-// }
+    callback();
+  });
+
+}
+
+function callUserEmail(){
+  try{
+    // if(user){
+      user = firebase.auth().currentUser;
+      MAINEMAIL = user.email;
+      return MAINEMAIL;
+
+    // }
+    
+  }catch(e){
+    console.log(e);
+    check();
+    throw e;
+  }
+}

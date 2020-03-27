@@ -4,7 +4,7 @@ var saved = false;
 async function addToPinned(emailToAdd){
     //function that saves emails to separate Doc
     // edge case? - email is already there, don't add duplicates
-    // myEmail = callUserEmail();
+    myEmail = callUserEmail();
     try{
         var one1 = await one();
         var two2 = await two(one1, emailToAdd);
@@ -81,7 +81,7 @@ async function pullPinnedList(){
         try{
             whereIds=[];
             await whereMe('users', 'email', myEmail, ()=>{
-                // lenOfArrOfPaths = getAllArr.length;   
+                lenOfArrOfPaths = getAllArr.length;   
             });
             
         }catch(e){
@@ -121,7 +121,7 @@ async function pullPinnedList(){
                     console.log('after, ', getAllArr);
                 });
             console.log('arrOfRemainingSaved', arrOfRemainingSaved);
-            // getAllArr=[];
+            getAllArr=[];
         // });
 
     }

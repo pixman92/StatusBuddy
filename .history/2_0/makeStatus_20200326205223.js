@@ -3,7 +3,7 @@
 
 async function pushStatus(myStatus){
     //function to push Status based on emamil and status params
-    // myEmail = callUserEmail();
+    myEmail = callUserEmail();
     try{
         var one1 = await one(myEmail);
         var two2 = await two(one1, myEmail);

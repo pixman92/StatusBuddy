@@ -4,7 +4,7 @@ var saved = false;
 async function addToPinned(emailToAdd){
     //function that saves emails to separate Doc
     // edge case? - email is already there, don't add duplicates
-    // myEmail = callUserEmail();
+    myEmail = callUserEmail();
     try{
         var one1 = await one();
         var two2 = await two(one1, emailToAdd);
@@ -60,7 +60,7 @@ var lenOfArrOfPaths;
 var arrOfRemainingSaved = [];
 async function pullPinnedList(){
         // HTML maker! for savedEmails - from DOC saved within admin's email
-    // myEmail = callUserEmail();
+    myEmail = callUserEmail();
     // check();
     try{
         // var zero0 = await zero()
@@ -81,7 +81,7 @@ async function pullPinnedList(){
         try{
             whereIds=[];
             await whereMe('users', 'email', myEmail, ()=>{
-                // lenOfArrOfPaths = getAllArr.length;   
+                lenOfArrOfPaths = getAllArr.length;   
             });
             
         }catch(e){
@@ -103,10 +103,10 @@ async function pullPinnedList(){
             //         getAllArr = getAllArr.splice(i, 1);
             //         getAllPaths = getAllPaths.splice(i, 1);
             // }
-            // for(var i=0; i<lenOfArrOfPaths; i++){
         });
-                console.log('paths', getAllPaths);
-                console.log('before forEach, ', getAllArr);
+        console.log('paths', getAllPaths);
+        console.log('before forEach, ', getAllArr);
+                        for(var i=0; i<lenOfArrOfPaths; i++){
                 getAllArr.forEach((elem, i)=>{
                     console.log('i', i);
                     console.log('elem', elem);
@@ -121,7 +121,7 @@ async function pullPinnedList(){
                     console.log('after, ', getAllArr);
                 });
             console.log('arrOfRemainingSaved', arrOfRemainingSaved);
-            // getAllArr=[];
+            getAllArr=[];
         // });
 
     }
@@ -231,7 +231,7 @@ async function pullPinnedList(){
 async function erasePinnedEmail(unpinMe){
     //function to remove one emailOfSavedFriend
     // working! just add <email> to be erased
-    // myEmail = callUserEmail();
+    myEmail = callUserEmail();
     try{
         var one1 = await one();
         var two2 = await two(one1);

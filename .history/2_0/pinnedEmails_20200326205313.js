@@ -81,7 +81,7 @@ async function pullPinnedList(){
         try{
             whereIds=[];
             await whereMe('users', 'email', myEmail, ()=>{
-                // lenOfArrOfPaths = getAllArr.length;   
+                lenOfArrOfPaths = getAllArr.length;   
             });
             
         }catch(e){
@@ -121,7 +121,7 @@ async function pullPinnedList(){
                     console.log('after, ', getAllArr);
                 });
             console.log('arrOfRemainingSaved', arrOfRemainingSaved);
-            // getAllArr=[];
+            getAllArr=[];
         // });
 
     }

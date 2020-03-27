@@ -56,18 +56,18 @@ function signOut(){
 
 // }
 
-// function callUserEmail(){
-//   try{
-//     // if(user){
-//       user = firebase.auth().currentUser;
-//       MAINEMAIL = user.email;
-//       return MAINEMAIL;
+function callUserEmail(){
+  try{
+    // if(user){
+      user = firebase.auth().currentUser;
+      MAINEMAIL = user.email;
+      return MAINEMAIL;
 
-//     // }
+    // }
     
-//   }catch(e){
-//     console.log(e);
-//     check();
-//     throw e;
-//   }
-// }
+  }catch(e){
+    console.log(e);
+    check();
+    throw e;
+  }
+}

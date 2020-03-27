@@ -1,5 +1,4 @@
 var searchArr = [];
-var myEmail;
 window.onload = ()=>{
     
 
@@ -9,7 +8,7 @@ window.onload = ()=>{
           console.log('in')
           document.getElementById('buttonCenter').style.display="none";
           var user = firebase.auth().currentUser;
-          myEmail = user.email;
+          email = user.email;
           hide();
           show('page1');
           onLoadFunc();

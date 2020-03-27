@@ -1,5 +1,4 @@
 var searchArr = [];
-var myEmail;
 window.onload = ()=>{
     
 
@@ -9,17 +8,16 @@ window.onload = ()=>{
           console.log('in')
           document.getElementById('buttonCenter').style.display="none";
           var user = firebase.auth().currentUser;
-          myEmail = user.email;
+          MAINEMAIL = user.email;
           hide();
-          show('page1');
-          onLoadFunc();
+          sow('page1');
+          onLoadFunc();h
         } else {
           // No user is signed in.
           console.log('out')
           hide();
           show('buttonCenter')
         }
-    });
     // check(()=>{
     //     if(user!=null){
     //         console.log('i ran');

@@ -1,25 +1,8 @@
 var searchArr = [];
-var myEmail;
 window.onload = ()=>{
     
 
-    firebase.auth().onAuthStateChanged(function(user) {
-        if (user) {
-          // User is signed in.
-          console.log('in')
-          document.getElementById('buttonCenter').style.display="none";
-          var user = firebase.auth().currentUser;
-          myEmail = user.email;
-          hide();
-          show('page1');
-          onLoadFunc();
-        } else {
-          // No user is signed in.
-          console.log('out')
-          hide();
-          show('buttonCenter')
-        }
-    });
+    check();
     // check(()=>{
     //     if(user!=null){
     //         console.log('i ran');

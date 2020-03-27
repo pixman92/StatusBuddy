@@ -77,3 +77,7 @@
 2020, 03, 26 - 18:51:43 --- 
 
 2020, 03, 26 - 18:51:57 --- Login is somewhat secure??
+
+2020, 03, 26 - 21:01:04 --- 
+
+2020, 03, 26 - 21:01:45 --- Pinning emails - working. NEXT? removing pins. Then, settings(?) of some kind.

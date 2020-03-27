@@ -1,5 +1,4 @@
 var searchArr = [];
-var myEmail;
 window.onload = ()=>{
     
 

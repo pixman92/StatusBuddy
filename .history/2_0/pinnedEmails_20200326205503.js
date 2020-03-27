@@ -121,7 +121,7 @@ async function pullPinnedList(){
                     console.log('after, ', getAllArr);
                 });
             console.log('arrOfRemainingSaved', arrOfRemainingSaved);
-            // getAllArr=[];
+            getAllArr=[];
         // });
 
     }
