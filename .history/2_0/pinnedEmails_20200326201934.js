@@ -95,7 +95,6 @@ async function pullPinnedList(){
         
         arrOfRemainingSaved=[];
         getAllArr=[];
-        getAllPaths=[];
 
         await getAll('users/'+whereIds[0]+'/savedEmails', async()=>{  
             // getAllArr.forEach((elem, i)=>{
@@ -118,7 +117,7 @@ async function pullPinnedList(){
                         console.log('true');
                         arrOfRemainingSaved.push(elem.savedEmail);
                     }
-                    console.log('after, ', getAllArr);
+                    console.log('after,', getAllArr);
                 });
             console.log('arrOfRemainingSaved', arrOfRemainingSaved);
             getAllArr=[];

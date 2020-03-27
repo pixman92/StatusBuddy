@@ -17,7 +17,7 @@ function show(id){
     }
 }
 
-async function showNavBar(){
+function showNavBar(){
     document.getElementById('navBar').classList.remove('showMe');
     document.getElementById('navBar').classList.add('showMe2');
     await pullPinnedList();

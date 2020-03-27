@@ -57,7 +57,6 @@ async function addToPinned(emailToAdd){
 
 var savedEmailsArr=[];
 var lenOfArrOfPaths;
-var arrOfRemainingSaved = [];
 async function pullPinnedList(){
         // HTML maker! for savedEmails - from DOC saved within admin's email
     myEmail = callUserEmail();
@@ -92,37 +91,26 @@ async function pullPinnedList(){
     
     async function two(one1){
         //removes "" elements from pulledPinnedEmails
-        
-        arrOfRemainingSaved=[];
-        getAllArr=[];
-        getAllPaths=[];
-
-        await getAll('users/'+whereIds[0]+'/savedEmails', async()=>{  
+        var arrOfRemainingSaved = [];
+        await getAll('users/'+whereIds[0]+'/savedEmails', ()=>{  
             // getAllArr.forEach((elem, i)=>{
             //     if(elem.savedEmail==""){
             //         getAllArr = getAllArr.splice(i, 1);
             //         getAllPaths = getAllPaths.splice(i, 1);
             // }
-            // for(var i=0; i<lenOfArrOfPaths; i++){
-        });
-                console.log('paths', getAllPaths);
-                console.log('before forEach, ', getAllArr);
-                getAllArr.forEach((elem, i)=>{
-                    console.log('i', i);
-                    console.log('elem', elem);
-                    // if(getAllArr[i].savedEmail==""){
-                    //     getAllArr = getAllArr.splice(i, 1);
-                    //     getAllPaths = getAllPaths.splice(i, 1);
-                    // }
-                    if(elem.savedEmail!=""){
-                        console.log('true');
-                        arrOfRemainingSaved.push(elem.savedEmail);
-                    }
-                    console.log('after, ', getAllArr);
-                });
+            for(var i=0; i<lenOfArrOfPaths; i++){
+                console.log('i', i);
+                // if(getAllArr[i].savedEmail==""){
+                //     getAllArr = getAllArr.splice(i, 1);
+                //     getAllPaths = getAllPaths.splice(i, 1);
+                // }
+                if(getAllArr[i].sad!=""){
+                    arrOfRemainingSaved.push(getAllArr[i]);
+                }
+            }
             console.log('arrOfRemainingSaved', arrOfRemainingSaved);
-            getAllArr=[];
-        // });
+
+        });
 
     }
 
@@ -136,23 +124,23 @@ async function pullPinnedList(){
 
             savedEmailsArr = [];
             
-            for(var i=0; i<arrOfRemainingSaved.length; i++){
+            for(var i=0; i<getAllPaths.length; i++){
                 savedEmailsArr.push('<div class="gridSavedEmailAndX">');
                 savedEmailsArr.push('<div>');
                 
                 savedEmailsArr.push('<li id=');
-                savedEmailsArr.push('\"'+arrOfRemainingSaved[i]+'\"');
+                savedEmailsArr.push('\"'+getAllArr[i].savedEmail+'\"');
                 savedEmailsArr.push('>')
                 
                 
-                savedEmailsArr.push(arrOfRemainingSaved[i])
+                savedEmailsArr.push(getAllArr[i].savedEmail)
                 savedEmailsArr.push('</li>');
                 
                 savedEmailsArr.push('</div>');
                 savedEmailsArr.push('<div>');
                 savedEmailsArr.push('<button class=\"w3-button w3-blue smfont\"');
                 
-                savedEmailsArr.push('id=\"'+arrOfRemainingSaved[i]+'del\"');
+                savedEmailsArr.push('id=\"'+getAllArr[i].savedEmail+'del\"');
                 savedEmailsArr.push('>X</button>');
                 
                 savedEmailsArr.push('</div>');
@@ -172,15 +160,15 @@ async function pullPinnedList(){
 }
 
     async function four(three3){
-        // if(getAllArr.savedEmail!=""){       //does the user have any saved space(?)
+        if(getAllArr.savedEmail!=""){       //does the user have any saved space(?)
 
             try{
                 
-                arrOfRemainingSaved.forEach(async(elem)=>{
-                    if(document.getElementById(elem)!=null){      //is the doucment null(?)
-                        document.getElementById(elem).addEventListener('click', async()=>{
+                getAllArr.forEach(async(elem)=>{
+                    if(document.getElementById(elem.saved)!=null){      //is the doucment null(?)
+                        document.getElementById(elem.savedEmail).addEventListener('click', async()=>{
                             try{
-                                await pullStatus(elem); //populates wholeDoc[];
+                                await pullStatus(elem.savedEmail); //populates wholeDoc[];
                             }catch(e){
                                 alert("No status from that person!")
                                 console.log(e);
@@ -195,7 +183,7 @@ async function pullPinnedList(){
         
                         //same functioning for search button, duplicated here
                         document.getElementById('searchInput').value=wholeDoc[0].email.toString();      //this puts email into <input>
-                        await pullStatus(elem);  //pull status for email
+                        await pullStatus(elem.savedEmail);  //pull status for email
                         
                         //HTML stuff for making card
                         searchArr=[];
@@ -212,13 +200,15 @@ async function pullPinnedList(){
                     
                 }
             });
-        }catch(e){
-            console.log(e);
-            throw e;
+            }catch(e){
+                console.log(e);
+                throw e;
+            }
+
         }
-        arrOfRemainingSaved.forEach(async(elem)=>{
-            document.getElementById(elem+"del").addEventListener('click', async()=>{
-                console.log('clicked on?', elem+"del");
+        getAllArr.forEach(async(elem)=>{
+            document.getElementById(elem.savedEmail+"del").addEventListener('click', async()=>{
+                console.log('clicked on?', elem.savedEmail+"del");
             });
         });
         

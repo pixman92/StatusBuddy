@@ -94,8 +94,6 @@ async function pullPinnedList(){
         //removes "" elements from pulledPinnedEmails
         
         arrOfRemainingSaved=[];
-        getAllArr=[];
-        getAllPaths=[];
 
         await getAll('users/'+whereIds[0]+'/savedEmails', async()=>{  
             // getAllArr.forEach((elem, i)=>{
@@ -104,25 +102,21 @@ async function pullPinnedList(){
             //         getAllPaths = getAllPaths.splice(i, 1);
             // }
             // for(var i=0; i<lenOfArrOfPaths; i++){
-        });
-                console.log('paths', getAllPaths);
-                console.log('before forEach, ', getAllArr);
                 getAllArr.forEach((elem, i)=>{
                     console.log('i', i);
-                    console.log('elem', elem);
                     // if(getAllArr[i].savedEmail==""){
                     //     getAllArr = getAllArr.splice(i, 1);
                     //     getAllPaths = getAllPaths.splice(i, 1);
                     // }
-                    if(elem.savedEmail!=""){
+                    if(getAllArr[i].savedEmail!=""){
                         console.log('true');
-                        arrOfRemainingSaved.push(elem.savedEmail);
+                        arrOfRemainingSaved.push(getAllArr[i].savedEmail);
                     }
-                    console.log('after, ', getAllArr);
+
                 });
             console.log('arrOfRemainingSaved', arrOfRemainingSaved);
-            getAllArr=[];
-        // });
+
+        });
 
     }
 
@@ -136,7 +130,7 @@ async function pullPinnedList(){
 
             savedEmailsArr = [];
             
-            for(var i=0; i<arrOfRemainingSaved.length; i++){
+            for(var i=0; i<getAllPaths.length; i++){
                 savedEmailsArr.push('<div class="gridSavedEmailAndX">');
                 savedEmailsArr.push('<div>');
                 
@@ -176,11 +170,11 @@ async function pullPinnedList(){
 
             try{
                 
-                arrOfRemainingSaved.forEach(async(elem)=>{
-                    if(document.getElementById(elem)!=null){      //is the doucment null(?)
-                        document.getElementById(elem).addEventListener('click', async()=>{
+                getAllArr.forEach(async(elem)=>{
+                    if(document.getElementById(elem.saved)!=null){      //is the doucment null(?)
+                        document.getElementById(elem.savedEmail).addEventListener('click', async()=>{
                             try{
-                                await pullStatus(elem); //populates wholeDoc[];
+                                await pullStatus(elem.savedEmail); //populates wholeDoc[];
                             }catch(e){
                                 alert("No status from that person!")
                                 console.log(e);
@@ -195,7 +189,7 @@ async function pullPinnedList(){
         
                         //same functioning for search button, duplicated here
                         document.getElementById('searchInput').value=wholeDoc[0].email.toString();      //this puts email into <input>
-                        await pullStatus(elem);  //pull status for email
+                        await pullStatus(elem.savedEmail);  //pull status for email
                         
                         //HTML stuff for making card
                         searchArr=[];
@@ -212,13 +206,15 @@ async function pullPinnedList(){
                     
                 }
             });
-        }catch(e){
-            console.log(e);
-            throw e;
+            }catch(e){
+                console.log(e);
+                throw e;
+            }
+
         }
-        arrOfRemainingSaved.forEach(async(elem)=>{
-            document.getElementById(elem+"del").addEventListener('click', async()=>{
-                console.log('clicked on?', elem+"del");
+        getAllArr.forEach(async(elem)=>{
+            document.getElementById(elem.savedEmail+"del").addEventListener('click', async()=>{
+                console.log('clicked on?', elem.savedEmail+"del");
             });
         });
         

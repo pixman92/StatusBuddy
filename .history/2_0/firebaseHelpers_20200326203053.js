@@ -13,7 +13,7 @@ function addDoc(root, docMe, data){
 var wholeDoc=[];
 var allPathsReturnred=[];
 async function getting(main, docMe, callback){
-    wholeDoc=[]; allPathsReturnred=[];
+    wholeDoc=[];
     await db.collection(main).doc(docMe).get().then(async (snap)=>{
         console.log(snap.data());
         await wholeDoc.push(snap.data());

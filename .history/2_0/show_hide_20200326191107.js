@@ -13,14 +13,14 @@ function show(id){
 
     if(id=="page1"){
         addStatusToHTML();
-        // pullPinnedList();
+        pullPinnedList();
     }
 }
 
-async function showNavBar(){
+function showNavBar(){
     document.getElementById('navBar').classList.remove('showMe');
     document.getElementById('navBar').classList.add('showMe2');
-    await pullPinnedList();
+    pullPinnedList();
 }
 
 function closeNavBar(){

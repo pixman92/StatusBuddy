@@ -77,7 +77,7 @@ async function pullStatus(){
         throw e;
     }
 
-    async function one(){
+    async function one(myEmail){
         try{
             whereIds=[];
             await whereMe('users', 'email', myEmail, ()=>{

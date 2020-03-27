@@ -94,8 +94,6 @@ async function pullPinnedList(){
         //removes "" elements from pulledPinnedEmails
         
         arrOfRemainingSaved=[];
-        getAllArr=[];
-        getAllPaths=[];
 
         await getAll('users/'+whereIds[0]+'/savedEmails', async()=>{  
             // getAllArr.forEach((elem, i)=>{
@@ -104,25 +102,22 @@ async function pullPinnedList(){
             //         getAllPaths = getAllPaths.splice(i, 1);
             // }
             // for(var i=0; i<lenOfArrOfPaths; i++){
-        });
-                console.log('paths', getAllPaths);
                 console.log('before forEach, ', getAllArr);
                 getAllArr.forEach((elem, i)=>{
                     console.log('i', i);
-                    console.log('elem', elem);
                     // if(getAllArr[i].savedEmail==""){
                     //     getAllArr = getAllArr.splice(i, 1);
                     //     getAllPaths = getAllPaths.splice(i, 1);
                     // }
-                    if(elem.savedEmail!=""){
+                    if(getAllArr[i].savedEmail!=""){
                         console.log('true');
-                        arrOfRemainingSaved.push(elem.savedEmail);
+                        arrOfRemainingSaved.push(getAllArr[i].savedEmail);
                     }
-                    console.log('after, ', getAllArr);
+
                 });
             console.log('arrOfRemainingSaved', arrOfRemainingSaved);
-            getAllArr=[];
-        // });
+
+        });
 
     }
 
@@ -136,7 +131,7 @@ async function pullPinnedList(){
 
             savedEmailsArr = [];
             
-            for(var i=0; i<arrOfRemainingSaved.length; i++){
+            for(var i=0; i<getAllPaths.length; i++){
                 savedEmailsArr.push('<div class="gridSavedEmailAndX">');
                 savedEmailsArr.push('<div>');
                 
