@@ -180,7 +180,7 @@ async function pullPinnedList(){
                     if(document.getElementById(elem)!=null){      //is the doucment null(?)
                         document.getElementById(elem).addEventListener('click', async()=>{
                             try{
-                                await pullStatusAny(elem); //populates wholeDoc[];
+                                await pullStatus(elem); //populates wholeDoc[];
                             }catch(e){
                                 alert("No status from that person!")
                                 console.log(e);

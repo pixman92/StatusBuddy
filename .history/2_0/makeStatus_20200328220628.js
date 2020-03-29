@@ -31,7 +31,7 @@ async function pushStatus(myStatus){
     async function two(one1){
         console.log('whereIds', whereIds);
         if(whereIds.length==0){     //critical!!
-            adding('users', {email: MAINEMAIL});
+            adding('users', {email: myEmail});
         }
         
     }

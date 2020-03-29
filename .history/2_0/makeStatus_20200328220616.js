@@ -16,10 +16,10 @@ async function pushStatus(myStatus){
     }
 
 
-    async function one(){
+    async function one(myEmail){
         try{
             whereIds=[];
-            await whereMe('users', 'email', MAINEMAIL, ()=>{
+            await whereMe('users', 'email', myEmail, ()=>{
             });
             
         }catch(e){
@@ -28,10 +28,10 @@ async function pushStatus(myStatus){
         }
     }
     
-    async function two(one1){
+    async function two(one1, myEmail){
         console.log('whereIds', whereIds);
         if(whereIds.length==0){     //critical!!
-            adding('users', {email: MAINEMAIL});
+            adding('users', {email: myEmail});
         }
         
     }

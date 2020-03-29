@@ -19,7 +19,7 @@ async function addToPinned(emailToAdd){
     async function one(){
         try{
             whereIds=[];
-            await whereMe('users', 'email', MAINEMAIL, ()=>{
+            await whereMe('users', 'email', myEmail, ()=>{
             });
             
         }catch(e){
@@ -180,7 +180,7 @@ async function pullPinnedList(){
                     if(document.getElementById(elem)!=null){      //is the doucment null(?)
                         document.getElementById(elem).addEventListener('click', async()=>{
                             try{
-                                await pullStatusAny(elem); //populates wholeDoc[];
+                                await pullStatus(elem); //populates wholeDoc[];
                             }catch(e){
                                 alert("No status from that person!")
                                 console.log(e);
@@ -248,10 +248,10 @@ async function erasePinnedEmail(unpinMe){
 
     async function one(){
         // function to pull and see if email has status
-        // await pullStatusAny(email);
+        // await pullStatus(email);
         try{
             whereIds=[];
-            await whereMe('users', 'email', MAINEMAIL, ()=>{
+            await whereMe('users', 'email', myEmail, ()=>{
             });
             
         }catch(e){

@@ -1,19 +1,15 @@
 var searchArr = [];
 var myEmail;
-var MAINEMAIL="";
 window.onload = ()=>{
     
 
     firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
           // User is signed in.
-
-          
           console.log('in')
-          console.log('MAINEMAIL', MAINEMAIL);
           document.getElementById('buttonCenter').style.display="none";
           var user = firebase.auth().currentUser;
-          MAINEMAIL = user.email;
+          myEmail = user.email;
           hide();
           show('page1');
           onLoadFunc();
@@ -179,7 +175,7 @@ async function addStatusToHTML(){
 
     async function one(){
         try{
-            await pullStatusMain();
+            await pullStatus(ma);
         }catch(e){
             console.log(e);
             throw e;

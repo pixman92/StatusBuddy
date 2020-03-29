@@ -8,9 +8,9 @@ window.onload = ()=>{
         if (user) {
           // User is signed in.
 
-          
+          console.log('MAINEMAIL', );
+
           console.log('in')
-          console.log('MAINEMAIL', MAINEMAIL);
           document.getElementById('buttonCenter').style.display="none";
           var user = firebase.auth().currentUser;
           MAINEMAIL = user.email;

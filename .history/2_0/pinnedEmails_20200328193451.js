@@ -19,7 +19,7 @@ async function addToPinned(emailToAdd){
     async function one(){
         try{
             whereIds=[];
-            await whereMe('users', 'email', MAINEMAIL, ()=>{
+            await whereMe('users', 'email', myEmail, ()=>{
             });
             
         }catch(e){
@@ -80,7 +80,7 @@ async function pullPinnedList(){
         // await pullStatus(email);
         try{
             whereIds=[];
-            await whereMe('users', 'email', MAINEMAIL, ()=>{
+            await whereMe('users', 'email', myEmail, ()=>{
                 // lenOfArrOfPaths = getAllArr.length;   
             });
             
@@ -180,7 +180,7 @@ async function pullPinnedList(){
                     if(document.getElementById(elem)!=null){      //is the doucment null(?)
                         document.getElementById(elem).addEventListener('click', async()=>{
                             try{
-                                await pullStatusAny(elem); //populates wholeDoc[];
+                                await pullStatus(elem); //populates wholeDoc[];
                             }catch(e){
                                 alert("No status from that person!")
                                 console.log(e);
@@ -192,24 +192,21 @@ async function pullPinnedList(){
                             hide();
                         closeNavBar();
                         show('search');
-
-                        await pullStatusAny(elem);  //pull status for email
                         if(whereIds[0]==undefined){
                             alert("None found")
-                        }else{
-                            //same functioning for search button, duplicated here
-                            document.getElementById('searchInput').value=wholeDoc[0].email.toString();      //this puts email into <input>
-                            
-                            //HTML stuff for making card
-                            searchArr=[];
-                            searchArr.push('<div class=\"w3-card marginAroundMe\">');
-                            searchArr.push(wholeDoc[0].status);
-                            searchArr.push('</div>');
-                            // searchArr.join("");
-                            document.getElementById('statusFromSearch').innerHTML = searchArr.join("");
-
                         }
                         
+                        //same functioning for search button, duplicated here
+                        document.getElementById('searchInput').value=wholeDoc[0].email.toString();      //this puts email into <input>
+                        await pullStatus(elem);  //pull status for email
+                        
+                        //HTML stuff for making card
+                        searchArr=[];
+                        searchArr.push('<div class=\"w3-card marginAroundMe\">');
+                        searchArr.push(wholeDoc[0].status);
+                        searchArr.push('</div>');
+                        // searchArr.join("");
+                        document.getElementById('statusFromSearch').innerHTML = searchArr.join("");
                         
                     });
                     
@@ -248,10 +245,10 @@ async function erasePinnedEmail(unpinMe){
 
     async function one(){
         // function to pull and see if email has status
-        // await pullStatusAny(email);
+        // await pullStatus(email);
         try{
             whereIds=[];
-            await whereMe('users', 'email', MAINEMAIL, ()=>{
+            await whereMe('users', 'email', myEmail, ()=>{
             });
             
         }catch(e){
