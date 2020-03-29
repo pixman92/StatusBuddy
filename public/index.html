@@ -1,122 +1,184 @@
-<html>
-<head>
-  <title>Status Buddy</title>
-  <link rel="stylesheet" href="main.css">
-  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-  <meta name="viewport" content="user-scalable=no, width=device-width" />
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <script>
+        document.cookie = "SameSite=lax; Max-Age=2600000; Secure;"
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/cash/4.1.2/cash.min.js"></script>
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Status Buddy</title>
+    
 
+    <!-- Scripts for APP -->
+    <!--  <script src="script.js"></script> -->
+
+    
+    <script src="firebaseHelpers.js"></script>
+    <!-- <script src="pullProfile.js"></script> -->
+    <!-- <script src="oldStatuses.js"></script> -->
+    
+
+    <script src="makeStatus.js"></script>
+    <script src="CSSing.js"></script>
+    <script src="show_hide.js"></script>
+    <script src="onload.js"></script>
+    <script src="pinnedEmails.js"></script>
+    
+        
+    <!-- <script src="https://www.gstatic.com/firebasejs/5.9.3/firebase-firestore.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/7.8.2/firebase-auth.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/7.8.2/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script> -->
+    
+        
+        <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+        <script src="https://www.gstatic.com/firebasejs/7.8.2/firebase-app.js"></script>
+    
+        <!-- Add Firebase products that you want to use -->
+        <script src="https://www.gstatic.com/firebasejs/7.8.2/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.8.2/firebase-firestore.js"></script>
+    
+        
+
+        <script src="config.js"></script>
+        <script>
+            firebase.initializeApp(config);
+            const db = firebase.firestore();
+            
+            </script>
+        <script src="OAuth.js"></script>
+    
+        <link rel="stylesheet" href="pure-min.css">
+        <link rel="stylesheet" href="w3.css">
+        <link rel="stylesheet" href="main.css">
+    
+    
 
 </head>
+
 <body>
-<!-- create body
-should have:
--enter email
--and some other stuff -->
+    <div class="center">
+        <div class="headerGrid w3-blue w3-bottombar">
+            <div id="hamburgerDiv">
+                <div class="hamburger"></div>
+                <div class="hamburger"></div>
+                <div class="hamburger"></div>
+            </div>
 
-<div id="main">
+            <div class="header">Status Buddy</div>
 
+            <div>
 
-  <!-- header stuff, searchBar and button -->
-  <div id="header">
-    <div id="searchDiv">
-      <div class="marginMe w3-card-2">
-        <div class="grid1 space w3-green">
-          <div>
-            <button class="w3-button" id="requestButton">Request</button>
-          </div>
-          <textarea id="searchBar"></textarea>
-          <div id="holdingButton">
-            <button class="w3-button" id="searchButton">+</button>
-  
-          </div>
+            </div>
         </div>
-  
-      </div>
+
+
+    </div>
+
+
+
+    <div id="page1">
+    <div clas="singleLine w3-card w3-border-blue">
+            <div class="gridSmallBox">
+                    <div class="lessMarg"><div id="myEmail" class="w3-card w3-border-lightblue w3-lightblue lessMarg smallfont"></div></div>
+                    <div class="w3-card w3-blue pad-left"><div id="status"></div >
+                    </div> 
+                        
+                    <div class="w3-card w3-border-blue pad-left"><div id="dateStatus"></div></div>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="updateStatus" class="w3-card margMe">
+        <h2>Update Status</h2>
+        <textarea id="statusUpdateForm"></textarea>
+        <button id="updateBtn" class="w3-btn w3-blue">Submit</button>
+
+    </div>
+
+    <!-- ================================== -->
+
+    <div id="search" class="w3-card margMe">
+   
+            <div class="searchGrid">
+                <div>
+                    <h2>Search</h2> 
+                </div>
+                <div>
+                    <h3 class="smfont">for email</h3>
+                </div>
+                <div>
+                    <button class="w3-btn w3-blue" id="addToSaved">+</button>
+                </div>
+            </div >
+            <input id="searchInput">
+            <button class="w3-btn w3-blue" id="searchButton">Search</button >
+
+            <div id="statusFromSearch"></div>
+        
     
     </div>
-  
-  </div>
-  <!-- dividing line -->
-  <!-- <br><br> -->
-  <hr style="border: .2vw solid black;width:88%; margin:auto;"/>
-  <!-- <br><br> -->
-  
-  
-  <!-- my Personal Status stuff -->
-  <div id="status">
-    <div class="marginMe w3-card-2">
-      <div class="w3-blue expand"><h3 id="myStatusTitle">My Status:</h3></div>
-    <div contenteditable="true" id="personalStatus">Change me!</div>
+
+
+    <!-- ================================ -->
+    <div id="navBar" class="showMe">
+        <div class="inner w3-grey">
+            <ul>
+                <div class="gridX w3-blue">
+                    <div><div class="nav">Navigation</div></div>
+                    <div class="w3-border-blue center">
+                        <button class="w3-btn" id="xbutton">X</button>
+                    </div>
+                </div>
+                <li id="homeLink">Home</li>
+                <li id="searchLink">Search</li >
+                <li id="updateLink">Update My Status</li>
+
+                
+                <div id="savedEmailMarg">
+                    <li class="w3-blue">Saved Emails</li cal>
+                    <div id="dynamicSavedEmails">
+                        <div class="gridSavedEmailAndX">
+                            <div>
+                                <li id="hello">hello</li>
+                            </div>
+                            <div>
+                                <button class="w3-button w3-blue smfont">X</button>
+                            </div>
+
+                        </div >
+                    </div>
+
+                </div>
+            </ul>
+        </div>
+
+
     </div>
-  </div>
-  
-  <hr style="border: .2vw solid black;width:88%; margin:auto;"/>
 
-  <!-- HTML For pinnedFriends -->
-  <div class="w3-card req "><h3 class="pinnedFriends">My Pinned Friends</h3></div>
-  <div id="pinnedFriends">
+    <!-- ======================== -->
 
-  </div>
-
-</div>
-
-<div id="requestsPage" class="hidden">
-  <div class="w3-container w3-green">
-    <div class="grid2">
-      <div>
-        <button class="w3-button" id="backToMain">Back</button>
-      </div>
-      <div >
-        <h2 class="RPheader">Requests</h2>
-
-      </div>
+    <div>
+        <div id="buttonCenter" class="center">
+            <button id="loginButton" class="w3-btn w3-blue ">Login</button>
+        </div>
 
     </div>
-  </div>
-
-<div id="requestsElem">
-
-</div>
-<div class="w3-container w3-blue">
-  <h1 class="RPheader">Friends</h1>
-</div>
-<div id="friendsElem">
-
-</div>
 
 
 
-</div>
 
 
+    </div>
+
+
+
+
+    
 
 
 </body>
-<script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script>
-<script src="https://www.gstatic.com/firebasejs/5.9.3/firebase-firestore.js"></script>
-
-<!-- <script src="https://www.gstatic.com/firebasejs/4.1.3/firebase-auth.js"></script> -->
-
-<script>
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyDALoYD4ur6mQuSDO-m5jCbB5lsGT0NQfM",
-    authDomain: "statusbuddymobile.firebaseapp.com",
-    databaseURL: "https://statusbuddymobile.firebaseio.com",
-    projectId: "statusbuddymobile",
-    storageBucket: "statusbuddymobile.appspot.com",
-    messagingSenderId: "934197402730"
-  };
-  firebase.initializeApp(config);
-</script>
-<script type="text/javascript" src="script.js"></script>
-<script src="firestoreHelper.js"></script>
-<script src="gator.min.js"></script>
-<script src="GatorFunctions.js"></script>
-<script src="startup.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/pixman92/FirebaseHelperFunction/helperFunction.js"></script>
-<script src="showHide.js"></script>
-<script src="getStatusFromEmail.js"></script>
 </html>
