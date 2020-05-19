@@ -91,3 +91,7 @@
 2020, 03, 28 - 22:18:30 --- Working - Working? - add to pin, pull to NavBar, click and populates box, bringing up status. NEXT? - deleting old friends!
 
 2020, 03, 28 - 23:09:31 --- Working? - made the search page to include time stamp! need to adjust the hours, though. 
+
+2020, 05, 02 - 21:44:40 --- ====================================\
+
+2020, 05, 02 - 21:45:08 --- New day - trying to refactor Whole project into ReactJS

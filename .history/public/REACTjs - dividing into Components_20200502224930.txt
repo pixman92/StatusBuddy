@@ -1,0 +1,7 @@
+REACTjs - dividing into Components
+
+- heading 
+- sideBar
+- friends
+    - add / remove
+    

@@ -1,0 +1,1 @@
+REACTjs - dividing into Components
