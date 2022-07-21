@@ -29,7 +29,7 @@ function pullUIDBasedOnEmail(emailSearch){
     emailPullHelper(emailSearch).then(async (results)=>{
         console.log('results', results);
 
-        UIDFromResult - results[0];
+        UIDFromResult = results[0];
         console.log('Result stored in \"UIDFromResult\"');
     });
 }
