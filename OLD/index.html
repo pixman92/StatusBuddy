@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Status Buddy</title>
+    <script src="https://raw.githack.com/pixman92/JSON_Instance/main/JSON_Instance.js"></script>
+
+    <script src="./scripts/script.js"></script>
+    <script src="./scripts/onload.js"></script>
+    <script src="./scripts/saveNameChange.js"></script>
+    <script src="./scripts/footerLogic.js"></script>
+    <script src="./scripts/databasePull.js"></script>
+
+    <script src="./scripts/pinnedEmailList.js"></script>
+
+    <!-- =================== -->
+    <!-- testing script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/async/3.2.4/async.min.js" integrity="sha512-0ewcnFb590plq2BJFUSpSbysjDZaj1Jsdkqt5ldhGE/nXJFCbhI/hXuonRIft5WwwlPj87/k3NU2wUyAWUJV0w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- =================== -->
+    <script src="./scripts/firebaseLogic.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+    <div class="bigDiv center">
+
+        <!-- change MY Status page -->
+        <div id="status">
+            <div class="main">
+                <div class="myName">
+                    myName Text
+                </div>
+                <div class="statusSetMe">
+                    <select id="statuses">
+                        <option value="avaible">Avaible</option>
+                        <option value="busy">Busy</option>
+                        <option value="idle">Idle</option>
+                      </select>
+                </div>
+            </div>
+        </div>
+    
+    
+        <!-- search Page -->
+        <div id="search">
+            <div class="searchForFriendStatus center">
+                <textarea id="searchingEmails"></textarea>
+                <div class="searchAndPlus">
+                    <button id="searchButton">Search</button>
+                    <button id="addToPinned">+</button>
+                </div>
+            </div>
+    
+            <!-- results on search Page -->
+            <div class="results">
+                <div class="colFlex">
+                    <div>Email:</div>
+                    <div class="friendEmail"></div>
+                </div>
+                <div class="colFlex">
+                    <div>NickName:</div>
+                    <div class="friendNickname"></div>
+                </div>            
+                <div class="colFlex">
+                    <div>Status:</div>
+                    <div class="friendStatus"></div>
+                </div>
+            </div>
+        </div>
+    
+        <!-- pinnedPage -->
+    
+        <div id="pinned">
+            
+            <!-- PinnedPage single HTML Group -->
+            <div class="pinnedPageDiv">
+                <div class="nicknameClass"></div>
+                <div class="statusClass"></div>
+                <div class="emailClass"></div>
+              </div>
+    
+    
+    
+        </div>
+    
+        <div class="footerClass">
+            <div class="myStatusPage">My Status</div>
+            <div class="searchPage">Search</div>
+            <div class="pinnedEmailsPage">Pinned</div>
+        </div>
+    </div>
+    
+</body>
+</html>
