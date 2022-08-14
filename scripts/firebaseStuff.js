@@ -37,6 +37,7 @@ function pullUIDBasedOnEmail(emailSearch){
 // ===========================
 let wholeDocDataPull = [];
 function pullALLDataBasedOnUID(savedUIDstr){
+    wholeDocDataPull = [];
     try{
         return db.collection('StatusBuddy').doc(savedUIDstr).get().then(doc => {
             console.log(doc.data());
@@ -51,6 +52,7 @@ function pullALLDataBasedOnUID(savedUIDstr){
 
 // ===========================
 function updateProfile(savedUIDstr, dataTypeToUpdate, dataToUpdate){
+    // savedUIDstr = UIDFromResult
     if(dataTypeToUpdate=='status'){
         addDoc('StatusBuddy', savedUIDstr, {'status': dataToUpdate});
         console.log('Status updated!');
@@ -67,3 +69,10 @@ function updateProfile(savedUIDstr, dataTypeToUpdate, dataToUpdate){
     }
 }
 
+
+
+// ===========================
+
+function loginEmail(emailILoggedInWith){
+    pullUIDBasedOnEmail(emailILoggedInWith);
+}
