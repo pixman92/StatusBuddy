@@ -1,4 +1,7 @@
 // =================
+// file that allows for the quick change of my user name for User
+
+// TODO save new name to User Data
 function change(){
     document.getElementsByClassName('nickname')[0].setAttribute("contenteditable", "true");
   

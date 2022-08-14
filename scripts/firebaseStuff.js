@@ -18,7 +18,8 @@ function emailPullHelper(emailSearch){
             querySnapshot.forEach((doc)=>{
                 savedArrayUID.push(doc.id);
                 savedArrayEmails.push(doc.data());
-            })
+            });
+            console.log('savedArrayUID', savedArrayUID);
             return savedArrayUID;
         });
 }
@@ -42,7 +43,8 @@ function pullALLDataBasedOnUID(savedUIDstr){
         return db.collection('StatusBuddy').doc(savedUIDstr).get().then(doc => {
             console.log(doc.data());
             wholeDocDataPull.push(doc.data());
-            console.log('Saved to \'wholeDocDataPull\'', );
+            // console.log('Saved to \'wholeDocDataPull\'', );
+            console.log('wholeDocDataPull', wholeDocDataPull);
             return wholeDocDataPull;
         });
     }catch(err){

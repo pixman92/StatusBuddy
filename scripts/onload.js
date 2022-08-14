@@ -6,4 +6,7 @@ window.onload = ()=>{
 
     loginEmail('frank@gmail.com');
 
+    hide();
+    show('searchPage');
+
 }
